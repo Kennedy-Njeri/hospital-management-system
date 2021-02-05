@@ -1,6 +1,7 @@
 import React, { Fragment } from "react"
 import { Link, withRouter } from "react-router-dom";
-
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../actions/userActions'
 
 
 
@@ -8,6 +9,20 @@ import { Link, withRouter } from "react-router-dom";
 
 // { history} = props.history
 const Menu = () => {
+
+    const dispatch = useDispatch()
+
+
+    const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo } = userLogin
+
+
+
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
+    
+    
     return (
         <div>
             <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -34,7 +49,7 @@ const Menu = () => {
                             <a className="dropdown-item" href="#">Settings</a>
                             <a className="dropdown-item" href="#">Activity Log</a>
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="login.html">Logout</a>
+                            <a className="dropdown-item" onClick={logoutHandler}>Logout</a>
                         </div>
                     </li>
                 </ul>

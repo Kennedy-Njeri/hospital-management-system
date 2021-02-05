@@ -1,10 +1,14 @@
 import React from "react";
 import Layout from "../core/Layout";
 import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 
 
 const AdminDashboard = () => {
+
+    const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo } = userLogin
 
     const adminLinks = () => {
         return (
