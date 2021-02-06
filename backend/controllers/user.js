@@ -104,22 +104,16 @@ exports.updateUserProfile = asyncHandler(async (req, res) => {
     }
 })
 
-// @desc    Get all users
-// @route   GET /api/users
-// @access  Private/Admin
-exports.getUsers = asyncHandler(async (req, res) => {
-    const users = await User.find({})
-    res.json(users)
-})
 
-// @desc    Delete user
-// @route   DELETE /api/users/:id
-// @access  Private/Admin
+
+
 exports.deleteUser = asyncHandler(async (req, res) => {
-    const user = await User.findById(req.params.id)
+    const { user } = req.params
 
-    if (user) {
-        await user.remove()
+    const result = await User.findById(user)
+
+    if (result) {
+        await result.remove()
         res.json({ message: 'User removed' })
     } else {
         res.status(404)
@@ -175,7 +169,7 @@ exports.userById = async (req, res, next, id) => {
                 error: 'User not found'
             });
         }
-        req.profile = user;
+        req.user = user;
         next();
     });
 }

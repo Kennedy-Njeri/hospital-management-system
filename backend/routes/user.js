@@ -28,7 +28,7 @@ router.put('/user/:userId', protect, updateUserProfile);
 
 router.put('/users/update/:userId', protect, admin, updateUser);
 
-router.post('/users/delete/:userId', protect, admin, deleteUser);
+router.delete('/users/delete/:user', protect, admin, deleteUser);
 
 router.post('/signup', registerUser)
 
@@ -36,6 +36,7 @@ router.post('/signup', registerUser)
 router.post('/signin', authUser)
 
 
+//router.param("user", getUserById)
 router.param('userId', userById);
 
 

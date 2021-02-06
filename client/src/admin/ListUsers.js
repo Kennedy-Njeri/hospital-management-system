@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Layout from '../core/Layout';
-import { listUsers  } from '../actions/userActions'
+import { listUsers, deleteUser  } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -15,6 +15,8 @@ const ListUsers = ({ history }) => {
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
+    const userDelete = useSelector((state) => state.userDelete)
+    const { success: successDelete } = userDelete
 
     useEffect(() => {
         if (userInfo && userInfo.role === 0) {
@@ -22,8 +24,14 @@ const ListUsers = ({ history }) => {
         } else {
             history.push('/login')
         }
-    }, [dispatch, history, userInfo])
+    }, [dispatch, history, successDelete, userInfo])
 
+    const deleteHandler = (id) => {
+        console.log(id)
+        if (window.confirm('Are you sure')) {
+            dispatch(deleteUser(id))
+        }
+    }
 
     const showError = () => (
         <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
@@ -59,6 +67,7 @@ const ListUsers = ({ history }) => {
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
                         <th scope="col">Role</th>
+                        <th scope="col">Delete user</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -74,7 +83,9 @@ const ListUsers = ({ history }) => {
                                     <button type="button" className="btn btn-secondary btn-sm">Patient</button>
                                     )}
                             </td>
+                            <td><i className="bi bi-trash" onClick={() => deleteHandler(user._id)}></i></td>
                         </tr>
+
                     ))}
                     </tbody>
                 </table>
