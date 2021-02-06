@@ -4,6 +4,7 @@ import { useSelector, } from 'react-redux'
 
 
 
+
 const PrivateRoute = ({ component: Component, ...rest }) => {
 
     const userLogin = useSelector((state) => state.userLogin)
@@ -13,7 +14,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     return <Route
         {...rest}
         render={props =>
-            userInfo && userInfo.user.role === 0 ? (
+            userInfo && userInfo.role === 0 ? (
                 <Component {...props} />
             ) : (
                 <Redirect

@@ -10,17 +10,23 @@ const AdminDashboard = () => {
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
+
     const adminLinks = () => {
         return (
-            <div id="layoutSidenav_nav">
-                <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div className="sb-sidenav-menu">
-                        <div className="nav">
+            <>
                             <div className="sb-sidenav-menu-heading">Core</div>
                             <a className="nav-link" href="index.html">
                                 <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
+
+
+                <Link className="nav-link" to={`/profile/${userInfo._id}`}>
+                    <div className="sb-nav-link-icon"><i className="bi bi-person-badge-fill"></i></div>
+                    Update Profile
+                </Link>
+
+
                             <div className="sb-sidenav-menu-heading">Interface</div>
                             <a className="nav-link collapsed" href="#" data-toggle="collapse"
                                data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -85,21 +91,20 @@ const AdminDashboard = () => {
                                 <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
                                 Tables
                             </a>
-                        </div>
-                    </div>
-                    <div className="sb-sidenav-footer">
-                        <div className="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
-                </nav>
-            </div>
+                </>
+
         );
     };
+
+    const loggedIn = () => (
+        <div className="small">Logged in as:{userInfo.name}</div>
+         
+    )
 
 
 
     return (
-        <Layout title="Dashboard" links={adminLinks()}>
+        <Layout title="Dashboard" links={adminLinks()} loggedin={loggedIn()}>
             <div className="row">
                 <div className="col-xl-3 col-md-6">
                     <div className="card bg-primary text-white mb-4">
@@ -142,6 +147,7 @@ const AdminDashboard = () => {
                     </div>
                 </div>
             </div>
+            
         </Layout>
     )
 

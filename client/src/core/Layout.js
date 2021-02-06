@@ -8,15 +8,26 @@ import Menu from "./Menu";
 const Layout = ({
                     children,
                     links,
+                    loggedin,
                 }) => {
-
-    
     
     return (
         <div>
             <Menu/>
             <div id="layoutSidenav">
-                {links}
+                <div id="layoutSidenav_nav">
+                    <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                        <div className="sb-sidenav-menu">
+                            <div className="nav">
+                            {links}
+                            </div>
+                        </div>
+                        <div className="sb-sidenav-footer">
+                            {loggedin}
+                            Start Bootstrap
+                        </div>
+                    </nav>
+                </div>
                 <div id="layoutSidenav_content">
                     <main>
                         <div className="container-fluid">
