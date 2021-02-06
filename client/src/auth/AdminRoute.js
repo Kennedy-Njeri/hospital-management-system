@@ -5,7 +5,7 @@ import { useSelector, } from 'react-redux'
 
 
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const AdminRoute = ({ component: Component, ...rest }) => {
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
@@ -14,7 +14,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     return <Route
         {...rest}
         render={props =>
-            userInfo && userInfo.role === 1 ? (
+            userInfo && userInfo.role === 0 ? (
                 <Component {...props} />
             ) : (
                 <Redirect
@@ -28,4 +28,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     />
 }
 
-export default PrivateRoute;
+export default AdminRoute;

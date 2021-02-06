@@ -26,6 +26,11 @@ const AdminDashboard = () => {
                     Update Profile
                 </Link>
 
+                <Link className="nav-link" to={`/list/users`}>
+                    <div className="sb-nav-link-icon"><i className="bi bi-people"></i></div>
+                    List Users
+                </Link>
+
 
                             <div className="sb-sidenav-menu-heading">Interface</div>
                             <a className="nav-link collapsed" href="#" data-toggle="collapse"
