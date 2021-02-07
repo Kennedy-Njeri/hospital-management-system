@@ -1,158 +1,148 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Layout from "../core/Layout";
-import { Link } from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import { listUsers } from '../actions/userActions'
+import {Link} from "react-router-dom";
+import { Bar, Pie } from 'react-chartjs-2';
+
 
 
 
 const AdminDashboard = () => {
 
-    const userLogin = useSelector((state) => state.userLogin)
-    const { userInfo } = userLogin
+    const dispatch = useDispatch()
+
+    const userList = useSelector((state) => state.userList)
+    const { loading, error, users } = userList
 
 
-    const adminLinks = () => {
-        return (
-            <>
-                            <div className="sb-sidenav-menu-heading">Core</div>
-                            <a className="nav-link" href="index.html">
-                                <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
+    const countAdmins = () => {
+       // let count = 0
+       //
+       //  for (const user of users) {
+       //      if (user.role === 0) count++
+       //      //console.log(count)
+       //  }
+       //
+       //  return count
+        return users.filter((user) => user.role === 0).length
+    }
+
+    const countDoctors = () => {
+        return users.filter((user) => user.role === 1).length
+    }
+
+    const countPatients = () => {
+        return users.filter((user) => user.role === 2).length
+    }
 
 
-                <Link className="nav-link" to={`/profile/${userInfo._id}`}>
-                    <div className="sb-nav-link-icon"><i className="bi bi-person-badge-fill"></i></div>
-                    Update Profile
-                </Link>
+    
 
-                <Link className="nav-link" to={`/list/users`}>
-                    <div className="sb-nav-link-icon"><i className="bi bi-people"></i></div>
-                    List Users
-                </Link>
-
-
-                            <div className="sb-sidenav-menu-heading">Interface</div>
-                            <a className="nav-link collapsed" href="#" data-toggle="collapse"
-                               data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
-                                Layouts
-                                <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
-                            </a>
-                            <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                                 data-parent="#sidenavAccordion">
-                                <nav className="sb-sidenav-menu-nested nav">
-                                    <a className="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a className="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <a className="nav-link collapsed" href="#" data-toggle="collapse"
-                               data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div className="sb-nav-link-icon"><i className="fas fa-book-open"></i></div>
-                                Pages
-                                <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
-                            </a>
-                            <div className="collapse" id="collapsePages" aria-labelledby="headingTwo"
-                                 data-parent="#sidenavAccordion">
-                                <nav className="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a className="nav-link collapsed" href="#" data-toggle="collapse"
-                                       data-target="#pagesCollapseAuth" aria-expanded="false"
-                                       aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i>
-                                        </div>
-                                    </a>
-                                    <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
-                                         data-parent="#sidenavAccordionPages">
-                                        <nav className="sb-sidenav-menu-nested nav">
-                                            <a className="nav-link" href="login.html">Login</a>
-                                            <a className="nav-link" href="register.html">Register</a>
-                                            <a className="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a className="nav-link collapsed" href="#" data-toggle="collapse"
-                                       data-target="#pagesCollapseError" aria-expanded="false"
-                                       aria-controls="pagesCollapseError">
-                                        Error
-                                        <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i>
-                                        </div>
-                                    </a>
-                                    <div className="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
-                                         data-parent="#sidenavAccordionPages">
-                                        <nav className="sb-sidenav-menu-nested nav">
-                                            <a className="nav-link" href="401.html">401 Page</a>
-                                            <a className="nav-link" href="404.html">404 Page</a>
-                                            <a className="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div className="sb-sidenav-menu-heading">Addons</div>
-                            <a className="nav-link" href="charts.html">
-                                <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a className="nav-link" href="tables.html">
-                                <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                </>
-
-        );
+    const data = {
+        labels: ["Blue", "Red", "Yellow", "Green"],
+        datasets: [
+            {
+                data: [12.21, 15.58, 11.25, 8.32],
+                backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+            }
+        ]
     };
 
-    const loggedIn = () => (
-        <div className="small">Logged in as:{userInfo.name}</div>
-         
-    )
+    
 
 
-
-    return (
-        <Layout title="Dashboard" links={adminLinks()} loggedin={loggedIn()}>
-            <div className="row">
-                <div className="col-xl-3 col-md-6">
-                    <div className="card bg-primary text-white mb-4">
-                        <div className="card-body">Primary Card</div>
-                        <div className="card-footer d-flex align-items-center justify-content-between">
-                            <a className="small text-white stretched-link" href="#">View Details</a>
-                            <div className="small text-white"><i className="fas fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-xl-3 col-md-6">
-                    <div className="card bg-warning text-white mb-4">
-                        <div className="card-body">Warning Card</div>
-                        <div className="card-footer d-flex align-items-center justify-content-between">
-                            <a className="small text-white stretched-link" href="#">View Details</a>
-                            <div className="small text-white"><i className="fas fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-xl-3 col-md-6">
-                    <div className="card bg-success text-white mb-4">
-                        <div className="card-body">Success Card</div>
-                        <div className="card-footer d-flex align-items-center justify-content-between">
-                            <a className="small text-white stretched-link" href="#">View Details</a>
-                            <div className="small text-white"><i className="fas fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-xl-3 col-md-6">
-                    <div className="card bg-danger text-white mb-4">
-                        <div className="card-body">Danger Card</div>
-                        <div className="card-footer d-flex align-items-center justify-content-between">
-                            <a className="small text-white stretched-link" href="#">View Details</a>
-                            <div className="small text-white"><i className="fas fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </div>
+    
+    const showLoading = () =>
+        loading && (
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
                 </div>
             </div>
-            
+        )
+
+    const showError = () => (
+        <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
+            {error}
+        </div>
+    );
+
+    
+    
+
+    useEffect(() => {
+        dispatch(listUsers())
+    },[])
+
+    return (
+        <Layout title="Dashboard">
+
+                {loading ? (
+                    showLoading()
+                ) : error ? (
+                    showError()
+                ) : (
+                    <div className="row">
+            <div className="col-xl-3 col-md-6">
+                            <div className="card bg-primary text-white mb-4">
+                                <div className="card-body">Admin Users</div>
+                                <div className="card-footer d-flex align-items-center justify-content-between">
+                                    <Link className="small text-white stretched-link" to={`/list/users`}>{countAdmins()}</Link>
+                                    <div className="small text-white"><i className="fas fa-angle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-xl-3 col-md-6">
+                            <div className="card bg-warning text-white mb-4">
+                                <div className="card-body">Doctors</div>
+                                <div className="card-footer d-flex align-items-center justify-content-between">
+                                    <Link className="small text-white stretched-link" to={`/list/users`}>{countDoctors()}</Link>
+                                    <div className="small text-white"><i className="fas fa-angle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-xl-3 col-md-6">
+                            <div className="card bg-success text-white mb-4">
+                                <div className="card-body">Payments</div>
+                                <div className="card-footer d-flex align-items-center justify-content-between">
+                                    <a className="small text-white stretched-link" href="#">Ksh 4,0000</a>
+                                    <div className="small text-white"><i className="fas fa-angle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-xl-3 col-md-6">
+                            <div className="card bg-danger text-white mb-4">
+                                <div className="card-body">Expenses</div>
+                                <div className="card-footer d-flex align-items-center justify-content-between">
+                                    <a className="small text-white stretched-link" href="#">Ksh 3,000</a>
+                                    <div className="small text-white"><i className="fas fa-angle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6">
+                            <div className="card mb-4">
+                                <div className="card-header">
+                                    <i className="fas fa-chart-pie mr-1"></i>
+                                    Pie Chart Example
+                                </div>
+                                <div className="card-body">
+                                    <Pie data={data}/>
+
+                                </div>
+                                <div className="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                ) }
+
         </Layout>
     )
 

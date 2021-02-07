@@ -26,7 +26,7 @@ const Menu = () => {
     return (
         <div>
             <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-                <a className="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a className="navbar-brand" href="index.html">Hospital Management system </a>
                 <button className="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
                     className="fas fa-bars"></i></button>
                 

@@ -161,6 +161,13 @@ exports.updateUser = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc    Get all users
+// @route   GET /api/users
+// @access  Private/Admin
+exports.getUsers = asyncHandler(async (req, res) => {
+    const users = await User.find({})
+    res.json(users)
+})
 
 exports.userById = async (req, res, next, id) => {
     await User.findById(id).exec((err, user) => {

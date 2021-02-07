@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 
 const ListUsers = ({ history }) => {
+    
     const dispatch = useDispatch()
 
     const userList = useSelector((state) => state.userList)
@@ -67,7 +68,8 @@ const ListUsers = ({ history }) => {
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
                         <th scope="col">Role</th>
-                        <th scope="col">Delete user</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -83,6 +85,7 @@ const ListUsers = ({ history }) => {
                                     <button type="button" className="btn btn-secondary btn-sm">Patient</button>
                                     )}
                             </td>
+                            <td><i className="bi bi-pencil-square"></i></td>
                             <td><i className="bi bi-trash" onClick={() => deleteHandler(user._id)}></i></td>
                         </tr>
 
