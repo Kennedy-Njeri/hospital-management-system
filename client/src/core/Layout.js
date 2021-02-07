@@ -37,6 +37,11 @@ const Layout = ({
                     List Users
                 </Link>
 
+                <Link className="nav-link" to="/create/cat-test">
+                    <div className="sb-nav-link-icon"><i className="bi bi-people"></i></div>
+                    Create Cat Test
+                </Link>
+
 
                 <div className="sb-sidenav-menu-heading">Modules</div>
                 <a className="nav-link collapsed" href="#" data-toggle="collapse"
@@ -103,7 +108,7 @@ const Layout = ({
                 <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                      data-parent="#sidenavAccordion">
                     <nav className="sb-sidenav-menu-nested nav">
-                        <a className="nav-link" href="layout-static.html">Static Navigation</a>
+                        <a className="nav-link" href="layout-static.html">Create Category Test</a>
                         <a className="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                     </nav>
                 </div>

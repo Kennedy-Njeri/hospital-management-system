@@ -1,0 +1,22 @@
+import {
+    TEST_CATEGORY__CREATE_RESET,
+    TEST_CATEGORY_CREATE_FAIL,
+    TEST_CATEGORY_CREATE_REQUEST,
+    TEST_CATEGORY_CREATE_SUCCESS
+} from '../constants/testConstants'
+
+
+export const catCreateTestReducer = (state = {}, action) => {
+    switch (action.type) {
+        case TEST_CATEGORY_CREATE_REQUEST:
+            return { loading: true }
+        case TEST_CATEGORY_CREATE_SUCCESS:
+            return { loading: false, success: true, product: action.payload }
+        case TEST_CATEGORY_CREATE_FAIL:
+            return { loading: false, error: action.payload }
+        case TEST_CATEGORY__CREATE_RESET:
+            return {}
+        default:
+            return state
+    }
+}
