@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a913cf6-e558-49a6-85b0-f0a9753a7561" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/client/src/core/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/core/Layout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/user/AdminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/user/AdminDashboard.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,10 +46,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/user/AdminDashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+            <state relative-caret-position="152">
+              <caret line="194" column="38" lean-forward="true" selection-start-line="194" selection-start-column="38" selection-end-line="194" selection-end-column="38" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/core/Layout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="49" column="91" lean-forward="true" selection-start-line="49" selection-start-column="91" selection-end-line="49" selection-end-column="91" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,18 +126,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/reducers/userReducers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-              <folding>
-                <element signature="e#0#562#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -179,18 +180,18 @@
         <option value="$PROJECT_DIR$/backend/routes/testCat.js" />
         <option value="$PROJECT_DIR$/client/src/user/Profile.js" />
         <option value="$PROJECT_DIR$/client/src/Routes.js" />
-        <option value="$PROJECT_DIR$/client/src/core/Layout.js" />
         <option value="$PROJECT_DIR$/client/src/constants/testConstants.js" />
         <option value="$PROJECT_DIR$/client/src/reducers/testReducers.js" />
         <option value="$PROJECT_DIR$/client/src/store.js" />
         <option value="$PROJECT_DIR$/client/src/actions/testActions.js" />
         <option value="$PROJECT_DIR$/client/src/admin/CreateTestCat.js" />
+        <option value="$PROJECT_DIR$/client/src/core/Layout.js" />
         <option value="$PROJECT_DIR$/client/src/user/AdminDashboard.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="105" />
+    <option name="x" value="-205" />
     <option name="y" value="23" />
     <option name="width" value="1542" />
     <option name="height" value="825" />
@@ -332,7 +333,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1612784479732" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1612790106257" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -369,16 +370,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612523032652</updated>
-      <workItem from="1612523035165" duration="103940000" />
+      <workItem from="1612523035165" duration="108474000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103940000" />
+    <option name="totallyTimeSpent" value="108474000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="105" y="23" width="1542" height="825" extended-state="0" />
-    <editor active="true" />
+    <frame x="204" y="23" width="1542" height="825" extended-state="0" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -673,16 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/core/Layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="39" column="63" selection-start-line="39" selection-start-column="63" selection-end-line="39" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
@@ -800,10 +790,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/core/Layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="49" column="91" lean-forward="true" selection-start-line="49" selection-start-column="91" selection-end-line="49" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/user/AdminDashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+        <state relative-caret-position="152">
+          <caret line="194" column="38" lean-forward="true" selection-start-line="194" selection-start-column="38" selection-end-line="194" selection-end-column="38" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

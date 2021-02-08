@@ -14,7 +14,8 @@ const AdminDashboard = () => {
 
     const userList = useSelector((state) => state.userList)
     const { loading, error, users } = userList
-    const [ dataChart, setDataChart ] = useState ( {} );
+    //const [ dataChart, setDataChart ] = useState ( {} );
+    //const [data, setData] = []
 
 
     const countAdmins = () => {
@@ -38,19 +39,74 @@ const AdminDashboard = () => {
     }
 
 
+    useEffect(() => {
+        dispatch(listUsers())
+
+        // chart()
+        // getData()
+
+    },[dispatch])
 
 
-    const data = {
-        labels: ["Blue", "Red", "Yellow", "Green"],
-        datasets: [
-            {
-                data: [12.21, 15.58, 11.25, 8.32],
-                backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+
+    const getData =  () => {
+
+        //let usersList = []
+        // let roleList = []
+        let admin = 0
+        let doc = 0
+        let patient = 0
+        let staff  = 0
+
+        for (let user of  users ) {
+            //console.log(users)
+            if (user.role === 0) {
+                admin++
+            } else if (user.role === 1) {
+                doc++
+            } else if (user.role === 2) {
+                patient++
+            } else if (user.role === 3) {
+                staff++
+
             }
-        ]
-    };
+        }
 
+        console.log(admin, doc, patient, staff)
+
+        return { admin, doc, patient, staff}
+
+    }
     
+    
+    
+
+    const chart =  () => {
+
+        let data = getData()
+
+        let usersList = []
+
+        usersList.push(data.admin, data.doc, data.patient, data.staff)
+
+
+
+        let labels = ["Admin", "Patients", "Doctors", "Staff",]
+        let customLabels = labels.map((label, index) => `${label}: ${usersList[index]}`)
+
+
+        console.log(usersList)
+
+        return {labels, customLabels, usersList}
+        // console.log(usersList)
+        // setDataChart({
+        //     labels: customLabels,
+        //     datasets: [{
+        //         backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+        //         data: usersList
+        //     }]
+        // });
+    }
 
 
     
@@ -72,75 +128,18 @@ const AdminDashboard = () => {
     
     
 
-    useEffect(() => {
-        dispatch(listUsers())
-        const getData =  async () => {
-
-            //let usersList = []
-            // let roleList = []
-            let admin = 0
-            let doc = 0
-            let patient = 0
-            let staff  = 0
-
-            for (let user of await users ) {
-                console.log(users)
-                if (user.role === 0) {
-                    admin++
-                } else if (user.role === 1) {
-                    doc++
-                } else if (user.role === 2) {
-                    patient++
-                } else if (user.role === 3) {
-                    staff++
-
-                }
-            }
-
-            console.log(admin, doc, patient, staff)
-
-            return { admin, doc, patient, staff}
-
-        }
-
-
-        const chart = async () => {
-            let data = await getData()
-
-            let usersList = []
-
-            usersList.push(data.admin, data.doc, data.patient, data.staff)
-
-
-            let labels = ["Admin", "Patients", "Doctors", "Staff",]
-            let customLabels = labels.map((label, index) => `${label}: ${usersList[index]}`)
-
-
-
-            console.log(usersList)
-            setDataChart({
-                labels: customLabels,
-                datasets: [{
-                    backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
-                    data: usersList
-                }]
-            });
-        }
-        
-
-        chart()
-        getData()
-
-    },[dispatch])
+   
 
     return (
         <Layout title="Dashboard">
 
+            <>
                 {loading ? (
                     showLoading()
                 ) : error ? (
                     showError()
                 ) : (
+                    
                     <div className="row">
             <div className="col-xl-3 col-md-6">
                             <div className="card bg-primary text-white mb-4">
@@ -176,7 +175,7 @@ const AdminDashboard = () => {
                             <div className="card bg-danger text-white mb-4">
                                 <div className="card-body">Expenses</div>
                                 <div className="card-footer d-flex align-items-center justify-content-between">
-                                    <a className="small text-white stretched-link" href="#">Ksh 3,000</a>
+                                    <a className="small text-white stretched-link" href="#">Ksh 3,000 </a>
                                     <div className="small text-white"><i className="fas fa-angle-right"></i>
                                     </div>
                                 </div>
@@ -187,10 +186,16 @@ const AdminDashboard = () => {
                             <div className="card mb-4">
                                 <div className="card-header">
                                     <i className="fas fa-chart-pie mr-1"></i>
-                                    Pie Chart Example
+                                    User Types
                                 </div>
                                 <div className="card-body">
-                                    <Pie data={dataChart}/>
+                                    <Pie data={{
+                                        labels: chart().customLabels,
+                                        datasets: [{
+                                        backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                                        data: chart().usersList
+                                    }]
+                                    }}/>
                                     
                                 </div>
                                 <div className="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -200,7 +205,7 @@ const AdminDashboard = () => {
                     </div>
 
                 ) }
-
+</>
         </Layout>
     )
 
