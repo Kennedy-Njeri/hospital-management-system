@@ -2,6 +2,8 @@ import React, {Fragment, useEffect} from 'react'
 import Layout from '../core/Layout';
 import { listCatTests, deleteTestCat } from '../actions/testActions'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 
 
 
@@ -83,16 +85,15 @@ const ListCatTest = ({ history }) => {
                                 <tr key={i}>
                                     <Fragment>
                                     <th scope="row">{cat._id}</th>
-                                    <td>{ cat.minValue && (cat.minValue)}</td>
+                                    <td>{cat.minValue && (cat.minValue)}</td>
                                     <td>{cat.maxValue}</td>
                                     <td>{cat.cost}</td>
                                     <td>{cat.testName}</td>
                                     <td>{cat.description}</td>
-                                    <td><i className="bi bi-pencil-square"></i></td>
+                                        <td><Link to={`/update-cat-test/${cat._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                     <td><i className="bi bi-trash" onClick={() => deleteHandler(cat._id)}></i></td>
                                     </Fragment>
                                 </tr>
-
                             ))
 
                             }

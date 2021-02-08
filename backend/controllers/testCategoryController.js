@@ -20,6 +20,25 @@ exports.testcategoryById = (req, res, next, id) => {
 };
 
 
+exports.getCatTestDetail = asyncHandler(async (req, res) => {
+    const cat = await TestCat.findById(req.category._id)
+
+    if (cat) {
+        res.json({
+            _id: cat._id,
+            minValue: cat.minValue,
+            maxValue: cat.maxValue,
+            testName: cat.testName,
+            cost: cat.cost,
+            description: cat.description
+        })
+    } else {
+        res.status(404)
+        throw new Error('Test Category not found')
+    }
+})
+
+
 
 exports.createTestCategory = asyncHandler(async (req, res) => {
     const category = new TestCat(req.body);
@@ -50,10 +69,10 @@ exports.update = async (req, res) => {
             return res.status(404).send()
         }
 
-
         await testcategory.save()
 
         res.send(testcategory)
+        
     } catch (e) {
         res.status(400).send(e)
     }

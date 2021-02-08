@@ -3,7 +3,7 @@ import Layout from '../core/Layout';
 //import { Link, Redirect } from 'react-router-dom';
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 
 
 const Profile = ({ match, history }) => {
@@ -34,8 +34,8 @@ const Profile = ({ match, history }) => {
         if (!user) {
             history.push('/login')
         } else {
-            if (!user.name || user._id !== userId) {
-                //dispatch({ type: USER_UPDATE_PROFILE_RESET })
+            if (!user.name || !user || success) {
+                dispatch({ type: USER_UPDATE_PROFILE_RESET })
                 //console.log(user)
                 dispatch(getUserDetails(userId))
             } else {
@@ -106,15 +106,9 @@ const Profile = ({ match, history }) => {
                     </div>
                 </div>
             </div>
-            <div className="form-row">
-            <div className="col-md-8">
-                <div className="form-group">
             <div className="form-group mt-4 mb-0">
                 <button className="btn btn-primary btn-block">Update
                     Account</button></div>
-                </div>
-            </div>
-            </div>
         </form>
 
     );

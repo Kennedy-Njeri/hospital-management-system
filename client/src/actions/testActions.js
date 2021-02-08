@@ -9,7 +9,14 @@ import {
     LIST_CAT_SUCCESS,
     TEST_CAT_DELETE_FAIL,
     TEST_CAT_DELETE_SUCCESS,
-    TEST_CAT_DELETE_REQUEST
+    TEST_CAT_DELETE_REQUEST,
+    TEST_UPDATE_CAT_RESET,
+    TEST_UPDATE_CAT_FAIL,
+    TEST_UPDATE_CAT_SUCCESS,
+    TEST_UPDATE_CAT_REQUEST,
+    TEST_CAT_DETAILS_FAIL,
+    TEST_CAT_DETAILS_SUCCESS,
+    TEST_CAT_DETAILS_REQUEST
 } from '../constants/testConstants'
 import { logout } from './userActions'
 import { API } from "../config";
@@ -129,4 +136,82 @@ export const deleteTestCat = (id) => async (dispatch, getState) => {
     }
 }
 
+export const updateTestCat = (cat) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: TEST_UPDATE_CAT_REQUEST,
+        })
 
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        console.log(cat)
+        const { data } = await axios.put(
+            `${API}/test-category-update/${cat._id}`,
+            cat,
+            config
+        )
+
+        dispatch({
+            type: TEST_UPDATE_CAT_SUCCESS,
+            payload: data,
+        })
+        dispatch({ type: TEST_CAT_DETAILS_SUCCESS, payload: data })
+    } catch (error) {
+        console.log(error.response)
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: TEST_UPDATE_CAT_FAIL,
+            payload: message,
+        })
+    }
+}
+
+export const cateTestDetails = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({ type: TEST_CAT_DETAILS_REQUEST })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+
+        const { data } = await axios.get(`${API}/test-category-detail/${id}/${userInfo._id}`, config)
+
+        dispatch({
+            type: TEST_CAT_DETAILS_SUCCESS,
+            payload: data,
+        })
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: TEST_CAT_DETAILS_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        })
+    }
+}
