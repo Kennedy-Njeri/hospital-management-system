@@ -3,7 +3,7 @@ import Layout from "../core/Layout";
 import {useSelector, useDispatch} from "react-redux";
 import { listUsers } from '../actions/userActions'
 import {Link} from "react-router-dom";
-import { Bar, Pie } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
 
 
 
@@ -74,35 +74,55 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         dispatch(listUsers())
-        const getData =  () => {
-            let usersList = []
+        const getData =  async () => {
+
+            //let usersList = []
             // let roleList = []
             let admin = 0
             let doc = 0
+            let patient = 0
+            let staff  = 0
 
-            users.forEach((user) => {
+            for (let user of await users ) {
+                console.log(users)
                 if (user.role === 0) {
                     admin++
-                    usersList.push(admin)
                 } else if (user.role === 1) {
                     doc++
-                    usersList.push(doc)
-                }
+                } else if (user.role === 2) {
+                    patient++
+                } else if (user.role === 3) {
+                    staff++
 
-            })
-            console.log(admin, doc)
-            return { admin, usersList}
+                }
+            }
+
+            console.log(admin, doc, patient, staff)
+
+            return { admin, doc, patient, staff}
+
         }
 
-        const chart = () => {
-            const data = getData()
 
-            console.log(data)
+        const chart = async () => {
+            let data = await getData()
+
+            let usersList = []
+
+            usersList.push(data.admin, data.doc, data.patient, data.staff)
+
+
+            let labels = ["Admin", "Patients", "Doctors", "Staff",]
+            let customLabels = labels.map((label, index) => `${label}: ${usersList[index]}`)
+
+
+
+            console.log(usersList)
             setDataChart({
-                labels: ["Blue", "Red", "Yellow", "Green"],
+                labels: customLabels,
                 datasets: [{
                     backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
-                    data: data.usersList
+                    data: usersList
                 }]
             });
         }
