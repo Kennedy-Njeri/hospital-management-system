@@ -1,4 +1,5 @@
 const TestCat = require('../models/testCategory')
+const asyncHandler  = require( 'express-async-handler')
 
 
 
@@ -20,9 +21,9 @@ exports.testcategoryById = (req, res, next, id) => {
 
 
 
-exports.createTestCategory = (req, res) => {
+exports.createTestCategory = asyncHandler(async (req, res) => {
     const category = new TestCat(req.body);
-    category.save((err, data) => {
+    await category.save((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: err
@@ -30,7 +31,7 @@ exports.createTestCategory = (req, res) => {
         }
         res.json({ data });
     });
-};
+})
 
 
 exports.read = (req, res) => {
@@ -76,8 +77,8 @@ exports.remove = async (req, res) => {
 };
 
 
-exports.list = async (req, res) => {
-    await TestCat.find().exec((err, data) => {
+exports.list = asyncHandler(async (req, res) => {
+    await TestCat.find({}).exec((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: err
@@ -85,4 +86,4 @@ exports.list = async (req, res) => {
         }
         res.json(data);
     });
-};
+})

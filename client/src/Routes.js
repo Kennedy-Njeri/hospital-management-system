@@ -7,6 +7,7 @@ import PrivateRoute from './auth/PrivateRoute';
 import AdminRoute from './auth/AdminRoute';
 import Profile from './user/Profile';
 import ListUsers from './admin/ListUsers'
+import ListCatTest from './admin/ListCatTest'
 import CreateTestCat from './admin/CreateTestCat'
 
 
@@ -20,6 +21,7 @@ const Routes = () => {
                 <AdminRoute path="/" exact component={AdminDashboard} />
                 <AdminRoute path="/profile/:userId" exact component={Profile} />
                 <AdminRoute path="/list/users" exact component={ListUsers} />
+                <AdminRoute path="/list-cat-test" exact component={ListCatTest} />
                 <AdminRoute path="/create/cat-test" exact component={CreateTestCat} />
                 <PrivateRoute path="/profile/:userId" exact component={Profile} />
             </Switch>
