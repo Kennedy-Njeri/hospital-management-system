@@ -63,15 +63,17 @@ exports.update = async (req, res) => {
 
 
 exports.remove = async (req, res) => {
-    try {
-        const cat = await TestCat.findOneAndDelete({_id: req.params.id })
+    
+    const { category } = req.params
 
-        if (!cat) {
-            res.status(404).send()
-        }
-        res.send(cat)
-    } catch (e) {
-        res.status(500).send()
+    const result = await TestCat.findById(category)
+
+    if (result) {
+        await result.remove()
+        res.json({ message: 'Category removed' })
+    } else {
+        res.status(404)
+        throw new Error('Category not found')
     }
 
 };

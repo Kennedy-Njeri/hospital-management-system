@@ -16,7 +16,7 @@ router.get('/test-category/:categoryTestId', read);
 
 router.put('/test-category/:categoryTestId/:userId', protect, admin, update);
 
-router.delete('/test-category/:categoryTestId/:userId', protect, admin,  remove);
+router.delete('/test-category/:category', protect, admin,  remove);
 
 router.get('/test-categories/:userId', list);
 

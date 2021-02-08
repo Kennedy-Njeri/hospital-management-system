@@ -6,11 +6,14 @@ import {
     LIST_CAT_FAIL,
     LIST_CAT_REQUEST,
     LIST_CAT_RESET,
-    LIST_CAT_SUCCESS
+    LIST_CAT_SUCCESS,
+    TEST_CAT_DELETE_FAIL,
+    TEST_CAT_DELETE_SUCCESS,
+    TEST_CAT_DELETE_REQUEST
 } from '../constants/testConstants'
 import { logout } from './userActions'
 import { API } from "../config";
-import {USER_LIST_FAIL, USER_LIST_REQUEST, USER_LIST_SUCCESS} from "../constants/userConstants";
+
 
 
 
@@ -86,6 +89,41 @@ export const listCatTests = () => async (dispatch, getState) => {
         }
         dispatch({
             type: LIST_CAT_FAIL,
+            payload: message,
+        })
+    }
+}
+
+
+export const deleteTestCat = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: TEST_CAT_DELETE_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        await axios.delete(`${API}/test-category/${id}`, config)
+
+        dispatch({ type: TEST_CAT_DELETE_SUCCESS })
+    } catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: TEST_CAT_DELETE_FAIL,
             payload: message,
         })
     }

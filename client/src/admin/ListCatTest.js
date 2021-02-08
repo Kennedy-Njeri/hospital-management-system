@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react'
 import Layout from '../core/Layout';
-import { listCatTests } from '../actions/testActions'
+import { listCatTests, deleteTestCat } from '../actions/testActions'
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -16,10 +16,9 @@ const ListCatTest = ({ history }) => {
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
-    //const {minValue, maxValue, description, cost, testName } = tests
-    //console.log(tests)
-    //const userDelete = useSelector((state) => state.userDelete)
-    //const { success: successDelete } = userDelete
+
+    const catTestDelete = useSelector((state) => state.catTestDelete)
+    const { success: successDelete } = catTestDelete
 
     useEffect(() => {
         if (userInfo && userInfo.role === 0) {
@@ -28,13 +27,13 @@ const ListCatTest = ({ history }) => {
         } else {
             history.push('/login')
         }
-    }, [dispatch, history,  userInfo])
+    }, [dispatch, history, successDelete, userInfo])
 
     
     const deleteHandler = (id) => {
         console.log(id)
         if (window.confirm('Are you sure')) {
-            //dispatch(deleteUser(id))
+            dispatch(deleteTestCat(id))
         }
     }
 
