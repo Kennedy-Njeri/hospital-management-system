@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Layout from "../core/Layout";
 import {useSelector, useDispatch} from "react-redux";
 import { listUsers } from '../actions/userActions'
@@ -14,6 +14,7 @@ const AdminDashboard = () => {
 
     const userList = useSelector((state) => state.userList)
     const { loading, error, users } = userList
+    const [ dataChart, setDataChart ] = useState ( {} );
 
 
     const countAdmins = () => {
@@ -37,7 +38,7 @@ const AdminDashboard = () => {
     }
 
 
-    
+
 
     const data = {
         labels: ["Blue", "Red", "Yellow", "Green"],
@@ -73,7 +74,44 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         dispatch(listUsers())
-    },[])
+        const getData =  () => {
+            let usersList = []
+            // let roleList = []
+            let admin = 0
+            let doc = 0
+
+            users.forEach((user) => {
+                if (user.role === 0) {
+                    admin++
+                    usersList.push(admin)
+                } else if (user.role === 1) {
+                    doc++
+                    usersList.push(doc)
+                }
+
+            })
+            console.log(admin, doc)
+            return { admin, usersList}
+        }
+
+        const chart = () => {
+            const data = getData()
+
+            console.log(data)
+            setDataChart({
+                labels: ["Blue", "Red", "Yellow", "Green"],
+                datasets: [{
+                    backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                    data: data.usersList
+                }]
+            });
+        }
+        
+
+        chart()
+        getData()
+
+    },[dispatch])
 
     return (
         <Layout title="Dashboard">
@@ -132,8 +170,8 @@ const AdminDashboard = () => {
                                     Pie Chart Example
                                 </div>
                                 <div className="card-body">
-                                    <Pie data={data}/>
-
+                                    <Pie data={dataChart}/>
+                                    
                                 </div>
                                 <div className="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                             </div>
