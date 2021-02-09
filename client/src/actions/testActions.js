@@ -30,7 +30,10 @@ import {
     TEST_CREATE_FAIL,
     TEST_CREATE_REQUEST,
     TEST_CREATE_RESET,
-    TEST_CREATE_SUCCESS
+    TEST_CREATE_SUCCESS,
+    TEST_DETAILS_FAIL,
+    TEST_DETAILS_REQUEST,
+    TEST_DETAILS_SUCCESS
 } from '../constants/testConstants'
 import { logout } from './userActions'
 import { API } from "../config";
@@ -306,7 +309,7 @@ export const deleteTests = (id) => async (dispatch, getState) => {
 }
 
 
-export const updateTest = (cat) => async (dispatch, getState) => {
+export const updateTest = (test) => async (dispatch, getState) => {
     try {
         dispatch({
             type: TEST_UPDATE_REQUEST,
@@ -323,10 +326,10 @@ export const updateTest = (cat) => async (dispatch, getState) => {
             },
         }
 
-        console.log(cat)
+        console.log(test)
         const { data } = await axios.put(
-            `${API}/test-update/${cat._id}`,
-            cat,
+            `${API}/test-update/${test._id}`,
+            test,
             config
         )
 
@@ -334,7 +337,7 @@ export const updateTest = (cat) => async (dispatch, getState) => {
             type: TEST_UPDATE_SUCCESS,
             payload: data,
         })
-        //dispatch({ type: TEST_CAT_DETAILS_SUCCESS, payload: data })
+        dispatch({ type: TEST_DETAILS_SUCCESS, payload: data })
     } catch (error) {
         console.log(error.response)
         const message =
@@ -384,6 +387,42 @@ export const createTest = (data) => async (dispatch, getState) => {
         dispatch({
             type: TEST_CREATE_FAIL,
             payload: message,
+        })
+    }
+}
+
+
+export const testsDetails = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({ type: TEST_DETAILS_REQUEST })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+
+        const { data } = await axios.get(`${API}/test-detail/${id}/${userInfo._id}`, config)
+
+        dispatch({
+            type: TEST_DETAILS_SUCCESS,
+            payload: data,
+        })
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: TEST_DETAILS_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
         })
     }
 }

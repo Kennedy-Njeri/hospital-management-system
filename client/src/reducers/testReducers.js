@@ -31,7 +31,10 @@ import {
     TEST_CREATE_FAIL,
     TEST_CREATE_REQUEST,
     TEST_CREATE_RESET,
-    TEST_CREATE_SUCCESS
+    TEST_CREATE_SUCCESS,
+    TEST_DETAILS_FAIL,
+    TEST_DETAILS_REQUEST,
+    TEST_DETAILS_SUCCESS
 } from '../constants/testConstants'
 
 
@@ -188,6 +191,22 @@ export const createTestReducer = (state = {}, action) => {
             return { loading: false, error: action.payload }
         case TEST_CREATE_RESET:
             return {}
+        default:
+            return state
+    }
+}
+
+export const testDetailsReducer = (
+    state = { test: {} },
+    action
+) => {
+    switch (action.type) {
+        case TEST_DETAILS_REQUEST:
+            return { ...state, loading: true }
+        case TEST_DETAILS_SUCCESS:
+            return { loading: false, test: action.payload }
+        case TEST_DETAILS_FAIL:
+            return { loading: false, error: action.payload }
         default:
             return state
     }
