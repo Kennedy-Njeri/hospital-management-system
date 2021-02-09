@@ -15,7 +15,8 @@ import {
     testCatDeleteReducer,
     testCatUpdateReducer,
     catTestDetailsReducer,
-    listTestMyReducer
+    listTestMyReducer,
+    testDeleteReducer
 } from './reducers/testReducers'
 
 
@@ -33,7 +34,8 @@ const reducer = combineReducers({
     catTestDelete: testCatDeleteReducer,
     catTestUpdate: testCatUpdateReducer,
     catTestDetails: catTestDetailsReducer,
-    listTestResult: listTestMyReducer
+    listTestResult: listTestMyReducer,
+    testsdelete: testDeleteReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

@@ -20,7 +20,10 @@ import {
     LIST_TEST_FAIL,
     LIST_TEST_REQUEST,
     LIST_TEST_RESET,
-    LIST_TEST_SUCCESS
+    LIST_TEST_SUCCESS,
+    TEST_DELETE_FAIL,
+    TEST_DELETE_REQUEST,
+    TEST_DELETE_SUCCESS
 } from '../constants/testConstants'
 
 
@@ -130,6 +133,21 @@ export const listTestMyReducer = (state = { tests: [] }, action) => {
             }
         case LIST_TEST_RESET:
             return { tests: [] }
+        default:
+            return state
+    }
+}
+
+
+
+export const testDeleteReducer = (state = {}, action) => {
+    switch (action.type) {
+        case TEST_DELETE_REQUEST:
+            return { loading: true }
+        case TEST_DELETE_SUCCESS:
+            return { loading: false, success: true }
+        case TEST_DELETE_FAIL:
+            return { loading: false, error: action.payload }
         default:
             return state
     }

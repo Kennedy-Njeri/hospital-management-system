@@ -19,7 +19,10 @@ import {
     TEST_CAT_DETAILS_REQUEST,
     LIST_TEST_FAIL,
     LIST_TEST_REQUEST,
-    LIST_TEST_SUCCESS
+    LIST_TEST_SUCCESS,
+    TEST_DELETE_FAIL,
+    TEST_DELETE_REQUEST,
+    TEST_DELETE_SUCCESS
 } from '../constants/testConstants'
 import { logout } from './userActions'
 import { API } from "../config";
@@ -254,6 +257,41 @@ export const listTestsResults = () => async (dispatch, getState) => {
         }
         dispatch({
             type: LIST_TEST_FAIL,
+            payload: message,
+        })
+    }
+}
+
+
+export const deleteTests = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: TEST_DELETE_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        await axios.delete(`${API}/test-remove/${id}`, config)
+
+        dispatch({ type: TEST_DELETE_SUCCESS })
+    } catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: TEST_DELETE_FAIL,
             payload: message,
         })
     }

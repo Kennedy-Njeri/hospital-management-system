@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react'
 import Layout from '../core/Layout';
-import { listCatTests, deleteTestCat, listTestsResults } from '../actions/testActions'
+import { listTestsResults, deleteTests } from '../actions/testActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -19,8 +19,8 @@ const ListTestResult = ({ history }) => {
     const { userInfo } = userLogin
 
 
-    // const catTestDelete = useSelector((state) => state.catTestDelete)
-    // const { success: successDelete } = catTestDelete
+    const testsdelete = useSelector((state) => state.testsdelete)
+    const { success: successDelete } = testsdelete
 
     useEffect(() => {
         if (userInfo && userInfo.role === 0) {
@@ -29,13 +29,13 @@ const ListTestResult = ({ history }) => {
         } else {
             history.push('/login')
         }
-    }, [history, dispatch, userInfo])
+    }, [history, dispatch, successDelete, userInfo])
 
 
     const deleteHandler = (id) => {
         console.log(id)
         if (window.confirm('Are you sure')) {
-            //dispatch(deleteTestCat(id))
+            dispatch(deleteTests(id))
         }
     }
 
@@ -91,7 +91,7 @@ const ListTestResult = ({ history }) => {
                                             <td>{test.result}</td>
                                             <td>{test.description}</td>
                                             <td><Link to={`/update-cat-test/`}><i className="bi bi-pencil-square"></i></Link></td>
-                                            <td><i className="bi bi-trash"></i></td>
+                                            <td><i className="bi bi-trash" onClick={() => deleteHandler(test._id)}></i></td>
                                         </Fragment>
                                     </tr>
                                 ))
