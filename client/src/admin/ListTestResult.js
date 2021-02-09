@@ -90,7 +90,7 @@ const ListTestResult = ({ history }) => {
                                             <td>{test.testName.testName}</td>
                                             <td>{test.result}</td>
                                             <td>{test.description}</td>
-                                            <td><Link to={`/update-cat-test/`}><i className="bi bi-pencil-square"></i></Link></td>
+                                            <td><Link to={`/update-test/${test._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(test._id)}></i></td>
                                         </Fragment>
                                     </tr>

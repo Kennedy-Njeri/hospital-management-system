@@ -414,7 +414,7 @@ export const testsDetails = (id) => async (dispatch, getState) => {
             type: TEST_DETAILS_SUCCESS,
             payload: data,
         })
-        console.log(data)
+        //console.log(data)
     } catch (error) {
         console.log(error)
         dispatch({

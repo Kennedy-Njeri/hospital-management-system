@@ -21,7 +21,7 @@ const CatTestUpdate = ({ history, match }) => {
     const catTestDetails = useSelector((state) => state.catTestDetails)
     const { loading, error, cat } = catTestDetails
 
-    //console.log(cat)
+    console.log(cat)
     console.log(catTestId)
 
     const catTestUpdate = useSelector((state) => state.catTestUpdate)

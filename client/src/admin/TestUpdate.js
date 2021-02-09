@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Layout from "../core/Layout";
-import { createTest, listCatTests } from '../actions/testActions'
+import { testsDetails, updateTest, listCatTests } from '../actions/testActions'
+import { TEST_UPDATE_RESET } from '../constants/testConstants'
 import { listUsers  } from '../actions/userActions'
 
 
 
+const TestUpdate = ({ history, match }) => {
 
+    const testId = match.params.testId
 
-const CreateTest = ({ history }) => {
+    const dispatch = useDispatch()
 
     const [user, setUser] = useState('')
     const [testName, setTestName] = useState('')
     const [result, setResult] = useState("")
     const [description, setDescription] = useState('')
     //const [message, setMessage] = useState(null)
-
-    const dispatch = useDispatch()
+    
 
     const userList = useSelector((state) => state.userList)
     const { users } = userList
@@ -24,37 +26,46 @@ const CreateTest = ({ history }) => {
     const catTestList = useSelector((state) => state.catTestList)
     const { tests } = catTestList
 
-    const userLogin = useSelector((state) => state.userLogin)
-    const { userInfo } = userLogin
+    const testDetails = useSelector((state) => state.testDetails)
+    const { loading, error, test } = testDetails
 
-    const createTests = useSelector((state) => state.createTests)
-    const { success, error, loading } = createTests
+    //console.log(cat)
+    //console.log(testId)
+    console.log(test)
+
+    const testUpdate = useSelector((state) => state.testUpdate)
+    const {
+        loading: loadingUpdate,
+        error: errorUpdate,
+        success: successUpdate,
+    } = testUpdate
+
 
     useEffect(() => {
-        
-        if (userInfo && userInfo.role === 0) {
-            dispatch(listUsers())
-            dispatch(listCatTests())
+        if (successUpdate) {
+            dispatch({ type: TEST_UPDATE_RESET })
+            history.push('/test-result')
         } else {
-            history.push('/login')
+            if (test._id !== testId) {
+                dispatch(listUsers())
+                dispatch(testsDetails(testId))
+                dispatch(listCatTests())
+            } else {
+                setUser(test.user)
+                setTestName(test.testName)
+                setResult(test.result)
+                setDescription(test.description)
+            }
         }
-
-        
-    }, [success, dispatch, userInfo])
-
-    const submitHandler = (e) => {
-        e.preventDefault()
-        dispatch(createTest({ user, testName, result, description}))
-        history.push('/test-result')
-    }
+    }, [dispatch, history, testId, test, successUpdate])
 
     const showError = () => (
         <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
             {error}
         </div>
     );
-    //
-    const showLoading = () =>
+
+    const showLoadingData = () =>
         loading && (
             <div className="d-flex justify-content-center">
                 <div className="spinner-border" role="status">
@@ -63,22 +74,34 @@ const CreateTest = ({ history }) => {
             </div>
         );
 
-    const TestForm = () => (
+    const showLoading = () =>
+        loadingUpdate && (
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
+        );
+
+
+    const UpdateTestForm = () => (
+
+        <div>
         <form onSubmit={submitHandler}>
 
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                    <label className="text-muted">Select User</label>
-                    <select onChange={(e) => setUser(e.target.value)} className="form-control">
-                        <option>Please select User</option>
-                        {users &&
-                        users.filter(filtered => filtered.role === 2).map((c, i) => (
-                            <option key={i} value={c._id}>
-                                {c.name}
-                            </option>
-                        ))}
-                    </select>
+                        <label className="text-muted">Select User</label>
+                        <select onChange={(e) => setUser(e.target.value)} className="form-control">
+                            <option>Please select User</option>
+                            {users &&
+                            users.filter(filtered => filtered.role === 2).map((c, i) => (
+                                <option key={i} value={c._id}>
+                                    {c.name}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                 </div>
 
@@ -125,28 +148,40 @@ const CreateTest = ({ history }) => {
             </div>
             <div className="col-md-8">
                 <div className="form-group mt-4 mb-0">
-                    <button className="btn btn-primary btn-block">Create Test </button></div>
+                    <button className="btn btn-primary btn-block">Update Test </button></div>
             </div>
         </form>
 
+        </div>
+
     );
 
+    const submitHandler = (e) => {
+        e.preventDefault()
+        dispatch(updateTest({ _id: testId, user, testName, result, description}))
+    }
 
     return (
-        <Layout title="Category test Form">
-            <h2 className="mb-4">Create Test Category</h2>
-            {success &&  <div className="alert alert-success" role="alert">
-                Create Test
+        <Layout title="Update test Form">
+            <>
+            <h2 className="mb-4">Update Test Category For: </h2>
+                <h3>User: {user} </h3>
+                <h4>TestName: {testName}</h4>
+            {errorUpdate && <div className="alert alert-danger" role="alert">
+                {errorUpdate}
             </div>}
-
+            {showLoadingData()}
             {showLoading()}
             {showError()}
-            {TestForm()}
+            {UpdateTestForm()}
+            </>
         </Layout>
     )
+
+
+
 }
 
 
 
-
-export default CreateTest
+export default TestUpdate

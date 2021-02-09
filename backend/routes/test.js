@@ -15,7 +15,7 @@ const { protect, admin } = require('../middleware/authMiddleware.js')
 router.get('/test-detail/:testId/:userId', protect, admin, getTestDetail);
 
 
-router.put('/test-update/:id', protect, admin, update);
+router.put('/test-update/:testId', protect, admin, update);
 
 router.delete('/test-remove/:test', protect, admin,  remove);
 

@@ -32,12 +32,13 @@ exports.testById = asyncHandler (async (req, res, next, id) => {
 
 
 exports.getTestDetail = asyncHandler(async (req, res) => {
-    const test = await testResult.findById(req.test._id)
+    const test = await testResult.findById(req.test._id).populate("user testName")
 
     if (test) {
         res.json({
             _id: test._id,
-            testName: test.testName,
+            user: test.user._id,
+            testName: test.testName._id,
             result: test.result,
             description: test.description
         })
@@ -48,16 +49,19 @@ exports.getTestDetail = asyncHandler(async (req, res) => {
 })
 
 
-exports.update = async (req, res) => {
+exports.update = asyncHandler(async (req, res) => {
     try {
-        const test = await testResult.findByIdAndUpdate({_id: req.params.id}, req.body, {
+        console.log(req.body)
+        const test = await testResult.findByIdAndUpdate({_id: req.test._id}, {user: req.body.user, testName: req.body.testName,
+            result: req.body.result,
+            description: req.body.description}, {
             new: true,
             runValidators: true
-        },)
+        })
 
-        if (!test) {
-            return res.status(404).send()
-        }
+        // if (!test) {
+        //     return res.status(404).send()
+        // }
 
         await test.save()
 
@@ -67,7 +71,12 @@ exports.update = async (req, res) => {
         res.status(400).send(e)
     }
 
-};
+})
+
+// exports.update = asyncHandler(async (req, res) => {
+//    
+//
+// })
 
 
 exports.remove = asyncHandler(async (req, res) => {
