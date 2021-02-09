@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose =  require('mongoose')
 
 
 
@@ -9,7 +9,7 @@ const testResult = mongoose.Schema(
             required: true,
             ref: 'User',
         },
-        test: {
+        testName: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
             ref: 'testSchema',
@@ -28,9 +28,9 @@ const testResult = mongoose.Schema(
 
 
 
-const testResult = mongoose.model('testResult', testResult)
 
-export default testResult
+
+module.exports = mongoose.model('testResult', testResult);
 
 
 

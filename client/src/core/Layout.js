@@ -51,7 +51,7 @@ const Layout = ({
                      data-parent="#sidenavAccordion">
                     <nav className="sb-sidenav-menu-nested nav">
                         <Link className="nav-link" to={"/create/cat-test"}>Add Test Category</Link>
-                        <Link className="nav-link" to={"/list-cat-test"}>Light Cat Test</Link>
+                        <Link className="nav-link" to={"/list-cat-test"}>Category Test List</Link>
                     </nav>
                 </div>
                 <a className="nav-link collapsed" href="#" data-toggle="collapse"

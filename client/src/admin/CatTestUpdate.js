@@ -35,7 +35,7 @@ const CatTestUpdate = ({ history, match }) => {
     useEffect(() => {
         if (successUpdate) {
             dispatch({ type: TEST_UPDATE_CAT_RESET })
-            history.push('/')
+            history.push('/list-cat-test')
         } else {
             if (cat._id !== catTestId) {
 

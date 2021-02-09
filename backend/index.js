@@ -13,6 +13,7 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware.js')
 //import routes
 const userRoutes = require('./routes/user');
 const categoryRoutes = require('./routes/testCat')
+const testRoutes = require('./routes/test')
 
 
 require('dotenv').config()
@@ -30,6 +31,7 @@ app.use(cors());
 
 app.use('/api', userRoutes);
 app.use('/api', categoryRoutes);
+app.use('/api', testRoutes);
 
 
 app.use(notFound)
