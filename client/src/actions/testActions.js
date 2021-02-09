@@ -355,7 +355,7 @@ export const updateTest = (test) => async (dispatch, getState) => {
 }
 
 
-export const createTest = (data) => async (dispatch, getState) => {
+export const createTest = (test) => async (dispatch, getState) => {
     try {
         dispatch({
             type: TEST_CREATE_REQUEST,
@@ -371,7 +371,7 @@ export const createTest = (data) => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.post(`${API}/test-create/${userInfo._id}`, data, config)
+        const { data } = await axios.post(`${API}/test-create/${userInfo._id}`, test, config)
 
         dispatch({
             type: TEST_CREATE_SUCCESS,

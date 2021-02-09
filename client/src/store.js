@@ -18,7 +18,8 @@ import {
     listTestMyReducer,
     testDeleteReducer,
     testUpdateReducer,
-    createTestReducer
+    createTestReducer,
+    testDetailsReducer
 } from './reducers/testReducers'
 
 
@@ -39,7 +40,8 @@ const reducer = combineReducers({
     listTestResult: listTestMyReducer,
     testsdelete: testDeleteReducer,
     testUpdate: testUpdateReducer,
-    createTests: createTestReducer
+    createTests: createTestReducer,
+    testDetails: testDetailsReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
