@@ -88,7 +88,7 @@ exports.remove = asyncHandler(async (req, res) => {
 
 
 exports.list = asyncHandler(async (req, res) => {
-    await testResult.find({}).exec((err, data) => {
+    await testResult.find({}).populate("user testName").exec((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: err

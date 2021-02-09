@@ -1,16 +1,17 @@
 const mongoose =  require('mongoose')
+const { ObjectId } = mongoose.Schema;
 
 
 
 const testResult = mongoose.Schema(
     {
         user: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: ObjectId,
             required: true,
             ref: 'User',
         },
         testName: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: ObjectId,
             required: true,
             ref: 'testSchema',
         },

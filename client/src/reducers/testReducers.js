@@ -16,7 +16,11 @@ import {
     TEST_UPDATE_CAT_SUCCESS,
     TEST_CAT_DETAILS_FAIL,
     TEST_CAT_DETAILS_REQUEST,
-    TEST_CAT_DETAILS_SUCCESS
+    TEST_CAT_DETAILS_SUCCESS,
+    LIST_TEST_FAIL,
+    LIST_TEST_REQUEST,
+    LIST_TEST_RESET,
+    LIST_TEST_SUCCESS
 } from '../constants/testConstants'
 
 
@@ -107,4 +111,27 @@ export const catTestDetailsReducer = (
     }
 }
 
+
+export const listTestMyReducer = (state = { tests: [] }, action) => {
+    switch (action.type) {
+        case LIST_TEST_REQUEST:
+            return {
+                loading: true,
+            }
+        case LIST_TEST_SUCCESS:
+            return {
+                loading: false,
+                tests: action.payload,
+            }
+        case LIST_TEST_FAIL:
+            return {
+                loading: false,
+                error: action.payload,
+            }
+        case LIST_TEST_RESET:
+            return { tests: [] }
+        default:
+            return state
+    }
+}
 

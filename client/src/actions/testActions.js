@@ -16,7 +16,10 @@ import {
     TEST_UPDATE_CAT_REQUEST,
     TEST_CAT_DETAILS_FAIL,
     TEST_CAT_DETAILS_SUCCESS,
-    TEST_CAT_DETAILS_REQUEST
+    TEST_CAT_DETAILS_REQUEST,
+    LIST_TEST_FAIL,
+    LIST_TEST_REQUEST,
+    LIST_TEST_SUCCESS
 } from '../constants/testConstants'
 import { logout } from './userActions'
 import { API } from "../config";
@@ -212,6 +215,46 @@ export const cateTestDetails = (id) => async (dispatch, getState) => {
                 error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message,
+        })
+    }
+}
+
+
+export const listTestsResults = () => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: LIST_TEST_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        const { data } = await axios.get(`${API}/test-list/${userInfo._id}`, config)
+
+        dispatch({
+            type: LIST_TEST_SUCCESS,
+            payload: data,
+        })
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: LIST_TEST_FAIL,
+            payload: message,
         })
     }
 }

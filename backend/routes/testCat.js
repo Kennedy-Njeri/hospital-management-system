@@ -4,17 +4,17 @@ const router = express.Router();
 const {
     userById
 } = require( '../controllers/user.js')
-const { createTestCategory, testcategoryById, read, update, remove, list, getCatTestDetail  } = require('../controllers/testCategoryController');
+const { createTestCategory, testcategoryById, update, remove, list, getCatTestDetail  } = require('../controllers/testCategoryController');
 
 
 const { protect, admin } = require('../middleware/authMiddleware.js')
 
 
-//router.get('/test-category/:categoryTestId', read);
+
 
 router.get('/test-category-detail/:categoryTestId/:userId', protect, admin, getCatTestDetail);
 
-//router.post("/test-category/create/:userId", protect, admin, create)
+
 
 router.put('/test-category-update/:id', protect, admin, update);
 
