@@ -22,7 +22,15 @@ import {
     LIST_TEST_SUCCESS,
     TEST_DELETE_FAIL,
     TEST_DELETE_REQUEST,
-    TEST_DELETE_SUCCESS
+    TEST_DELETE_SUCCESS,
+    TEST_UPDATE_FAIL,
+    TEST_UPDATE_REQUEST,
+    TEST_UPDATE_RESET,
+    TEST_UPDATE_SUCCESS,
+    TEST_CREATE_FAIL,
+    TEST_CREATE_REQUEST,
+    TEST_CREATE_RESET,
+    TEST_CREATE_SUCCESS
 } from '../constants/testConstants'
 import { logout } from './userActions'
 import { API } from "../config";
@@ -292,6 +300,89 @@ export const deleteTests = (id) => async (dispatch, getState) => {
         }
         dispatch({
             type: TEST_DELETE_FAIL,
+            payload: message,
+        })
+    }
+}
+
+
+export const updateTest = (cat) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: TEST_UPDATE_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        console.log(cat)
+        const { data } = await axios.put(
+            `${API}/test-update/${cat._id}`,
+            cat,
+            config
+        )
+
+        dispatch({
+            type: TEST_UPDATE_SUCCESS,
+            payload: data,
+        })
+        //dispatch({ type: TEST_CAT_DETAILS_SUCCESS, payload: data })
+    } catch (error) {
+        console.log(error.response)
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: TEST_UPDATE_FAIL,
+            payload: message,
+        })
+    }
+}
+
+
+export const createTest = (data) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: TEST_CREATE_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        const { data } = await axios.post(`${API}/test-create/${userInfo._id}`, data, config)
+
+        dispatch({
+            type: TEST_CREATE_SUCCESS,
+            payload: data,
+        })
+    } catch (error) {
+        console.log(error.response)
+        console.log(error.response.data.error.message)
+        const message = error.response.data.error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: TEST_CREATE_FAIL,
             payload: message,
         })
     }
