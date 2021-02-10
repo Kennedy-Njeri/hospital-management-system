@@ -56,6 +56,34 @@ const Layout = ({
                         <Link className="nav-link" to={"/create-test"}>Create Test</Link>
                     </nav>
                 </div>
+
+
+                <a className="nav-link collapsed" href="#" data-toggle="collapse"
+                   data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div className="sb-nav-link-icon"><i className="bi bi-eyedropper"></i></div>
+                    Medication
+                    <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                </a>
+                <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                     data-parent="#sidenavAccordion">
+                    <nav className="sb-sidenav-menu-nested nav">
+                        <Link className="nav-link" to={"/create/cat-test"}>Add Treatment Category</Link>
+                        <Link className="nav-link" to={"/list-treat-cat"}>Treatment List</Link>
+                    </nav>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <a className="nav-link collapsed" href="#" data-toggle="collapse"
                    data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                     <div className="sb-nav-link-icon"><i className="bi bi-journal-medical"></i></div>

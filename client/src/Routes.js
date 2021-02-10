@@ -13,13 +13,14 @@ import CatTestUpdate from './admin/CatTestUpdate'
 import ListTestResult from './admin/ListTestResult'
 import CreateTest from './admin/CreateTest'
 import TestUpdate from './admin/TestUpdate'
+import ListTreatment from './admin/ListTreatment'
 
 
 
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Switch>testId
+            <Switch>
                 <Route path="/signup" exact component={Signup} />
                 <Route path="/signin" exact component={Signin} />
                 <AdminRoute path="/" exact component={AdminDashboard} />
@@ -29,6 +30,7 @@ const Routes = () => {
                 <AdminRoute path="/update-test/:testId" exact component={TestUpdate} />
                 <AdminRoute path="/list/users" exact component={ListUsers} />
                 <AdminRoute path="/list-cat-test" exact component={ListCatTest} />
+                <AdminRoute path="/list-treat-cat" exact component={ListTreatment} />
                 <AdminRoute path="/create/cat-test" exact component={CreateTestCat} />
                 <AdminRoute path="/create-test" exact component={CreateTest} />
                 <PrivateRoute path="/profile/:userId" exact component={Profile} />

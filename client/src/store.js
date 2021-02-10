@@ -22,6 +22,12 @@ import {
     testDetailsReducer
 } from './reducers/testReducers'
 
+import {
+    treatCreateReducer,
+    treatListMyReducer,
+    treatCatDeleteReducer
+} from './reducers/treatmentReducers'
+
 
 
 
@@ -41,7 +47,10 @@ const reducer = combineReducers({
     testsdelete: testDeleteReducer,
     testUpdate: testUpdateReducer,
     createTests: createTestReducer,
-    testDetails: testDetailsReducer
+    testDetails: testDetailsReducer,
+    treatCreate: treatCreateReducer,
+    treatLists: treatListMyReducer,
+    treatDelete: treatCatDeleteReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

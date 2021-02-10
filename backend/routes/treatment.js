@@ -23,7 +23,7 @@ router.put('/treatment-cat-update/:id', protect, admin, update);
 
 router.delete('/treatment-cat/:category', protect, admin,  remove);
 
-router.get('/treatment-cat/:userId', protect, admin, list);
+router.get('/treatment-cat-list/:userId', protect, admin, list);
 
 
 router.post("/treatment-cat/create/:userId", protect, admin, createTreatmentCategory)
