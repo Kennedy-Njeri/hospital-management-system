@@ -16,7 +16,7 @@ exports.createPrescription = asyncHandler(async (req, res) => {
 })
 
 
-exports.prescById = asyncHandler (async (req, res, next, id) => {
+exports.presById = asyncHandler (async (req, res, next, id) => {
 
     await Prescription.findById(id).exec((err, prescription) => {
         if (err || !prescription) {
@@ -105,3 +105,6 @@ exports.list = asyncHandler(async (req, res) => {
 })
 
 
+exports.getTakeValues = (req, res) => {
+    res.json(Prescription.schema.path('take').enumValues);
+};
