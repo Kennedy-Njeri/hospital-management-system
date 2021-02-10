@@ -9,9 +9,18 @@ import {
     LIST_TREAT_SUCCESS,
     TREAT_CAT_DELETE_FAIL,
     TREAT_CAT_DELETE_REQUEST,
-    TREAT_CAT_DELETE_SUCCESS
+    TREAT_CAT_DELETE_SUCCESS,
+    TREAT_CAT_DETAILS_FAIL,
+    TREAT_CAT_DETAILS_REQUEST,
+    TREAT_CAT_DETAILS_SUCCESS,
+    TREAT_UPDATE_CAT_REQUEST,
+    TREAT_UPDATE_CAT_SUCCESS,
+    TREAT_UPDATE_CAT_RESET,
+    TREAT_UPDATE_CAT_FAIL
    
 } from '../constants/treatmentConstants'
+
+
 
 
 
@@ -65,6 +74,40 @@ export const treatCatDeleteReducer = (state = {}, action) => {
             return { loading: false, success: true }
         case TREAT_CAT_DELETE_FAIL:
             return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+
+export const treatmentDetailsReducer = (
+    state = { treatment: {} },
+    action
+) => {
+    switch (action.type) {
+        case TREAT_CAT_DETAILS_REQUEST:
+            return { ...state, loading: true }
+        case TREAT_CAT_DETAILS_SUCCESS:
+            return { loading: false, treatment: action.payload }
+        case TREAT_CAT_DETAILS_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+
+export const treatmentUpdateReducer = (state = { treatment: {} }, action) => {
+
+    switch (action.type) {
+        case TREAT_UPDATE_CAT_REQUEST:
+            return { loading: true }
+        case TREAT_UPDATE_CAT_SUCCESS:
+            return { loading: false, success: true, treatment: action.payload }
+        case TREAT_UPDATE_CAT_FAIL:
+            return { loading: false, error: action.payload }
+        case TREAT_UPDATE_CAT_RESET:
+            return { treatment: {} }
         default:
             return state
     }

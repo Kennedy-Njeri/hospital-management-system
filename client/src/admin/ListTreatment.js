@@ -85,7 +85,7 @@ const ListTreatment = ({ history }) => {
                                             <th scope="row">{cat._id}</th>
                                             <td>{cat.name}</td>
                                             <td>{cat.cost}</td>
-                                            <td><Link to={`/update-cat-test/`}><i className="bi bi-pencil-square"></i></Link></td>
+                                            <td><Link to={`/update-treatment/${cat._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(cat._id)}></i></td>
                                         </Fragment>
                                     </tr>

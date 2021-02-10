@@ -17,7 +17,7 @@ const { protect, admin } = require('../middleware/authMiddleware.js')
 
 
 
-router.get('/treatment-cat-detail/:treatmentId/:userId', protect, admin, getCatTreatmentDetail);
+router.get('/treatment-cat-detail/:id/:userId', protect, admin, getCatTreatmentDetail);
 
 router.put('/treatment-cat-update/:id', protect, admin, update);
 

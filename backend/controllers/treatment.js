@@ -21,7 +21,7 @@ exports.treatmentCatById = (req, res, next, id) => {
 
 
 exports.getCatTreatmentDetail = asyncHandler(async (req, res) => {
-    const cat = await Treatment.findById(req.treatment._id)
+    const cat = await Treatment.findById(req.params.id)
 
     if (cat) {
         res.json({

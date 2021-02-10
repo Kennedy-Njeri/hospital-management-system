@@ -19,7 +19,7 @@ const Layout = ({
     
     const adminLinks = () => {
         return (
-            <>
+            <div>
                 <div className="sb-sidenav-menu-heading">Core</div>
                 <Link className="nav-link" to="/">
                     <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
@@ -87,7 +87,7 @@ const Layout = ({
                 <a className="nav-link collapsed" href="#" data-toggle="collapse"
                    data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                     <div className="sb-nav-link-icon"><i className="bi bi-journal-medical"></i></div>
-                    Medicine Mgmt
+                    Modules Mgmt
                     <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                 </a>
                 <div className="collapse" id="collapsePages" aria-labelledby="headingTwo"
@@ -96,15 +96,15 @@ const Layout = ({
                         <a className="nav-link collapsed" href="#" data-toggle="collapse"
                            data-target="#pagesCollapseAuth" aria-expanded="false"
                            aria-controls="pagesCollapseAuth">
-                            Authentication
+                            Medication
                             <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i>
                             </div>
                         </a>
                         <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                              data-parent="#sidenavAccordionPages">
                             <nav className="sb-sidenav-menu-nested nav">
-                                <a className="nav-link" href="login.html">Login</a>
-                                <a className="nav-link" href="register.html">Register</a>
+                                <Link className="nav-link" to={"/list-treat-cat"}>Treatment List</Link>
+                                <Link className="nav-link" to={'/create/cat-treatment'}>Add Treatment</Link>
                                 <a className="nav-link" href="password.html">Forgot Password</a>
                             </nav>
                         </div>
@@ -139,7 +139,7 @@ const Layout = ({
                     <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
                     Tables
                 </a>
-            </>
+            </div>
 
         );
     };
