@@ -85,7 +85,7 @@ const ListTestResult = ({ history }) => {
                                 tests && tests.map((test, i) => (
                                     <tr key={i}>
                                         <Fragment>
-                                            <th scope="row">{test._id}</th>
+                                            <th scope="row">{test._id.substring(0, 7)}</th>
                                             <td>{test.user.name}</td>
                                             <td>{test.testName.testName}</td>
                                             <td>{test.result}</td>

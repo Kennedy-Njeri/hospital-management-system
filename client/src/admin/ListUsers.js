@@ -81,9 +81,13 @@ const ListUsers = ({ history }) => {
                             <td>
                                 {user.role === 0 ? (
                                         <button type="button" className="btn btn-primary btn-sm">Admin</button>
-                                    ) : (
-                                    <button type="button" className="btn btn-secondary btn-sm">Patient</button>
-                                    )}
+                                    ) : user.role === 1 ? (
+                                    <button type="button" className="btn btn-secondary btn-sm">Doctor</button>
+                                    ): user.role === 2  ? (
+                                    <button type="button" className="btn btn-info btn-sm">Patient</button>
+                                ) : (
+                                    <button type="button" className="btn btn-warning btn-sm">Staff</button>
+                                )}
                             </td>
                             <td><i className="bi bi-pencil-square"></i></td>
                             <td><i className="bi bi-trash" onClick={() => deleteHandler(user._id)}></i></td>
