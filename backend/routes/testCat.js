@@ -14,8 +14,6 @@ const { protect, admin } = require('../middleware/authMiddleware.js')
 
 router.get('/test-category-detail/:categoryTestId/:userId', protect, admin, getCatTestDetail);
 
-
-
 router.put('/test-category-update/:id', protect, admin, update);
 
 router.delete('/test-category/:category', protect, admin,  remove);
