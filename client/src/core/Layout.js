@@ -1,38 +1,47 @@
-import React from "react";
+import React, {Fragment} from "react";
 import "../styles.css";
 import Menu from "./Menu";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 
 
+// history must match with path which is /signup e.g
+const isActive = (history, path) => {
+    if (history.location.pathname === path) {
+        return { color: "#ff9900" };
+    } else {
+        return { color: "#ffffff" };
+    }
+};
+
 
 const Layout = ({
                     children,
-                    links,
-                    loggedin,
+                    history
+
                 }) => {
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
     
-    
+
     const adminLinks = () => {
         return (
-            <div>
+            <Fragment>
                 <div className="sb-sidenav-menu-heading">Core</div>
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" style={isActive(history, '/')} to="/">
                     <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </Link>
 
 
-                <Link className="nav-link" to={`/profile/${userInfo._id}`}>
+                <Link className="nav-link" style={isActive(history, `/profile/${userInfo._id}`)} to={`/profile/${userInfo._id}`}>
                     <div className="sb-nav-link-icon"><i className="bi bi-person-badge-fill"></i></div>
                     Update Profile
                 </Link>
 
-                <Link className="nav-link" to={`/list/users`}>
+                <Link className="nav-link" style={isActive(history, '/list/users')} to="/list/users">
                     <div className="sb-nav-link-icon"><i className="bi bi-people"></i></div>
                     List Users
                 </Link>
@@ -50,35 +59,12 @@ const Layout = ({
                 <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                      data-parent="#sidenavAccordion">
                     <nav className="sb-sidenav-menu-nested nav">
-                        <Link className="nav-link" to={"/create/cat-test"}>Add Test Category</Link>
-                        <Link className="nav-link" to={"/list-cat-test"}>Category Test List</Link>
-                        <Link className="nav-link" to={"/test-result"}>List Result</Link>
-                        <Link className="nav-link" to={"/create-test"}>Create Test</Link>
+                        <Link className="nav-link" style={isActive(history, '/create/cat-test')} to="/create/cat-test">Add Test Category</Link>
+                        <Link className="nav-link" style={isActive(history, '/list-cat-test')} to="/list-cat-test">Category Test List</Link>
+                        <Link className="nav-link" style={isActive(history, '/test-result')} to="/test-result">List Result</Link>
+                        <Link className="nav-link" style={isActive(history, '/create-test')} to="/create-test">Create Test</Link>
                     </nav>
                 </div>
-
-
-                <a className="nav-link collapsed" href="#" data-toggle="collapse"
-                   data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div className="sb-nav-link-icon"><i className="bi bi-eyedropper"></i></div>
-                    Medication
-                    <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
-                </a>
-                <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                     data-parent="#sidenavAccordion">
-                    <nav className="sb-sidenav-menu-nested nav">
-                        <Link className="nav-link" to={"/create/cat-test"}>Add Treatment Category</Link>
-                        <Link className="nav-link" to={"/list-treat-cat"}>Treatment List</Link>
-                    </nav>
-                </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -105,7 +91,7 @@ const Layout = ({
                             <nav className="sb-sidenav-menu-nested nav">
                                 <Link className="nav-link" to={"/list-treat-cat"}>Treatment List</Link>
                                 <Link className="nav-link" to={'/create/cat-treatment'}>Add Treatment</Link>
-                                <a className="nav-link" href="password.html">Forgot Password</a>
+                                <Link className="nav-link" to="/add-prescription">Add Prescription</Link>
                             </nav>
                         </div>
                         <a className="nav-link collapsed" href="#" data-toggle="collapse"
@@ -139,7 +125,7 @@ const Layout = ({
                     <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
                     Tables
                 </a>
-            </div>
+            </Fragment>
 
         );
     };
@@ -182,4 +168,4 @@ const Layout = ({
     )
 }
 
-export default Layout;
+export default withRouter(Layout);

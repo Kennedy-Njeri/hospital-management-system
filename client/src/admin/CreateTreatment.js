@@ -71,7 +71,7 @@ const CreateTreatment = ({ history }) => {
             </div>
             <div className="col-md-8">
                 <div className="form-group mt-4 mb-0">
-                    <button className="btn btn-primary btn-block">Create Test Category</button></div>
+                    <button className="btn btn-primary btn-block">Create Treatment Category</button></div>
             </div>
         </form>
 
@@ -80,7 +80,7 @@ const CreateTreatment = ({ history }) => {
 
     return (
         <Layout title="Category treatment Form">
-            <h2 className="mb-4">Create Test Category</h2>
+            <h2 className="mb-4">Create Treatment Category</h2>
             {success &&  <div className="alert alert-success" role="alert">
                 Treatment created
             </div>}

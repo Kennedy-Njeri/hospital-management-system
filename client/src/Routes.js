@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter , Switch, Route } from 'react-router-dom';
 import AdminDashboard from './user/AdminDashboard';
 import Signup from './user/Signup';
 import Signin from './user/Signin';
@@ -16,6 +16,7 @@ import TestUpdate from './admin/TestUpdate'
 import ListTreatment from './admin/ListTreatment'
 import CreateTreatment from './admin/CreateTreatment'
 import TreatmentUpdate from './admin/TreatmentUpdate'
+import AddPrescription from './admin/AddPrescription'
 
 
 
@@ -35,6 +36,7 @@ const Routes = () => {
                 <AdminRoute path="/list-cat-test" exact component={ListCatTest} />
                 <AdminRoute path="/list-treat-cat" exact component={ListTreatment} />
                 <AdminRoute path="/create/cat-test" exact component={CreateTestCat} />
+                <AdminRoute path="/add-prescription" exact component={AddPrescription} />
                 <AdminRoute path="/create/cat-treatment" exact component={CreateTreatment} />
                 <AdminRoute path="/create-test" exact component={CreateTest} />
                 <PrivateRoute path="/profile/:userId" exact component={Profile} />
