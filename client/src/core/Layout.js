@@ -89,10 +89,10 @@ const Layout = ({
                         <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                              data-parent="#sidenavAccordionPages">
                             <nav className="sb-sidenav-menu-nested nav">
-                                <Link className="nav-link" to={"/list-treat-cat"}>Treatment List</Link>
-                                <Link className="nav-link" to={'/create/cat-treatment'}>Add Treatment</Link>
-                                <Link className="nav-link" to="/add-prescription">Add Prescription</Link>
-                                <Link className="nav-link" to="/list-prescriptions">Prescription List</Link>
+                                <Link className="nav-link" style={isActive(history, '/list-treat-cat')} to="/list-treat-cat">Treatment List</Link>
+                                <Link className="nav-link" style={isActive(history, '/create/cat-treatment')} to='/create/cat-treatment'>Add Treatment</Link>
+                                <Link className="nav-link" style={isActive(history, '/add-prescription')} to="/add-prescription">Add Prescription</Link>
+                                <Link className="nav-link" style={isActive(history, '/list-prescriptions')} to="/list-prescriptions">Prescription List</Link>
                             </nav>
                         </div>
                         <a className="nav-link collapsed" href="#" data-toggle="collapse"

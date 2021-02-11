@@ -9,7 +9,10 @@ import {
     LIST_PRESCRIPTION_SUCCESS,
     PRESCRIPTION_DELETE_FAIL,
     PRESCRIPTION_DELETE_REQUEST,
-    PRESCRIPTION_DELETE_SUCCESS
+    PRESCRIPTION_DELETE_SUCCESS,
+    LIST_PRESCRIPTION_ENUMS_REQUEST,
+    LIST_PRESCRIPTION_ENUMS_RESET,
+    LIST_PRESCRIPTION_ENUMS_SUCCESS, LIST_PRESCRIPTION_ENUMS_FAIL
 } from '../constants/prescriptionConstants'
 import { logout } from './userActions'
 import { API } from "../config";
@@ -123,6 +126,45 @@ export const deletePrescription = (id) => async (dispatch, getState) => {
         }
         dispatch({
             type: PRESCRIPTION_DELETE_FAIL ,
+            payload: message,
+        })
+    }
+}
+
+export const listEnumsPrescriptions = () => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: LIST_PRESCRIPTION_ENUMS_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        const { data } = await axios.get(`${API}/pres/take-values/${userInfo._id}`, config)
+
+        dispatch({
+            type: LIST_PRESCRIPTION_ENUMS_SUCCESS,
+            payload: data,
+        })
+        //console.log(data)
+    } catch (error) {
+        console.log(error)
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: LIST_PRESCRIPTION_ENUMS_FAIL,
             payload: message,
         })
     }
