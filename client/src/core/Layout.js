@@ -92,6 +92,7 @@ const Layout = ({
                                 <Link className="nav-link" to={"/list-treat-cat"}>Treatment List</Link>
                                 <Link className="nav-link" to={'/create/cat-treatment'}>Add Treatment</Link>
                                 <Link className="nav-link" to="/add-prescription">Add Prescription</Link>
+                                <Link className="nav-link" to="/list-prescriptions">Prescription List</Link>
                             </nav>
                         </div>
                         <a className="nav-link collapsed" href="#" data-toggle="collapse"

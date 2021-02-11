@@ -77,7 +77,7 @@ export const listPrescriptions = () => async (dispatch, getState) => {
             type: LIST_PRESCRIPTION_SUCCESS,
             payload: data,
         })
-        console.log(data)
+        //console.log(data)
     } catch (error) {
         console.log(error)
         const message =

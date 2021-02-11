@@ -57,7 +57,7 @@ const ListPrescriptions = ({ history }) => {
 
 
     return (
-        <Layout title="Profile" description="list treatment categories" className="container-fluid">
+        <Layout title="List Prescriptions" className="container-fluid">
             <h2 className="mb-4">List Prescriptions</h2>
 
             {loading ? (
@@ -89,15 +89,15 @@ const ListPrescriptions = ({ history }) => {
                                     <tr key={i}>
                                         <Fragment>
                                             <th scope="row">{pres._id.substring(0, 6)}</th>
-                                            <td>{pres.user}</td>
-                                            <td>{pres.treatment}</td>
+                                            <td>{pres.user.name}</td>
+                                            <td>{pres.treatment.name}</td>
                                             <td>{pres.medicine}</td>
                                             <td>{pres.time}</td>
                                             <td>{pres.days}</td>
                                             <td>{pres.take}</td>
-                                            <td>{pres.test}</td>
+                                            <td>{pres.test.testName}</td>
                                             <td>{pres.history}</td>
-                                            <td><Link to={`/update-treatment/${pres._id}`}><i className="bi bi-pencil-square"></i></Link></td>
+                                            <td><Link to={`/update-treatment/`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(pres._id)}></i></td>
                                         </Fragment>
                                     </tr>
