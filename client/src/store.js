@@ -30,6 +30,12 @@ import {
     treatmentUpdateReducer
 } from './reducers/treatmentReducers'
 
+import {
+    prescriptionCreateReducer,
+    prescriptionListReducer,
+    prescriptionDeleteReducer
+} from './reducers/prescriptionReducers'
+
 
 
 
@@ -54,7 +60,10 @@ const reducer = combineReducers({
     treatLists: treatListMyReducer,
     treatDelete: treatCatDeleteReducer,
     treatDetails: treatmentDetailsReducer,
-    treatUpdate: treatmentUpdateReducer
+    treatUpdate: treatmentUpdateReducer,
+    prescCreate: prescriptionCreateReducer,
+    prescList: prescriptionListReducer,
+    prescDelete: prescriptionDeleteReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
