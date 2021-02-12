@@ -22,7 +22,7 @@ import {
     PRESCRIPTION_DETAILS_SUCCESS,
     PRESCRIPTION_DETAILS_FAIL
 } from '../constants/prescriptionConstants'
-import {TEST_CAT_DETAILS_FAIL, TEST_CAT_DETAILS_REQUEST, TEST_CAT_DETAILS_SUCCESS} from "../constants/testConstants";
+
 
 
 

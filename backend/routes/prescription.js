@@ -18,7 +18,7 @@ const { protect, admin } = require('../middleware/authMiddleware.js')
 router.get('/pres-detail/:presId/:userId', protect, admin, getPrescriptionDetail);
 
 
-router.put('/pres-update/:presId', protect, admin, update);
+router.put('/pres-update/:id/:userId', protect, admin, update);
 
 router.delete('/pres-remove/:prescription', protect, admin,  remove);
 

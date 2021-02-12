@@ -55,7 +55,7 @@ exports.getPrescriptionDetail = asyncHandler(async (req, res) => {
 exports.update = asyncHandler(async (req, res) => {
     try {
         console.log(req.body)
-        const prescription = await Prescription.findByIdAndUpdate({_id: req.test._id}, req.body, {
+        const prescription = await Prescription.findByIdAndUpdate({_id: req.params.id}, req.body, {
             new: true,
             runValidators: true
         })

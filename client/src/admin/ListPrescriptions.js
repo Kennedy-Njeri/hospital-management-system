@@ -97,7 +97,7 @@ const ListPrescriptions = ({ history }) => {
                                             <td>{pres.take}</td>
                                             <td>{pres.test.testName}</td>
                                             <td>{pres.history}</td>
-                                            <td><Link to={`/update-treatment/`}><i className="bi bi-pencil-square"></i></Link></td>
+                                            <td><Link to={`/update-prescription/${pres._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(pres._id)}></i></td>
                                         </Fragment>
                                     </tr>
