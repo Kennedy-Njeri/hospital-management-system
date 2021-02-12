@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useRef} from 'react'
+import React, {Fragment, useEffect, useRef } from 'react'
 import Layout from '../core/Layout';
 import { listPrescriptions, deletePrescription } from '../actions/prescriptionActions'
 import { useDispatch, useSelector } from 'react-redux'
@@ -42,7 +42,7 @@ const ListPrescriptions = ({ history }) => {
 
     const linkToPrint = () => {
         return (
-            <button>Click To PrintOF Body</button>
+            <button>Click To Prescriptions</button>
         )
     }
 
