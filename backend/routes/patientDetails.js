@@ -36,4 +36,5 @@ router.get("/patient/patient-type-values/:userId", protect, admin, getPatientTyp
 
 router.param('userId', userById);
 
+
 module.exports = router;

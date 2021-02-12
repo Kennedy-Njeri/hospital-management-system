@@ -11,7 +11,7 @@ const patientDetails = mongoose.Schema(
             ref: 'User',
         },
         lastName: {
-            type: ObjectId
+            type: String
         },
         idNumber: {
             type: Number,

@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('./db/mongoose')
+const path = require('path')
 
 const { notFound, errorHandler } = require('./middleware/errorMiddleware.js')
 
@@ -16,6 +17,8 @@ const categoryRoutes = require('./routes/testCat')
 const testRoutes = require('./routes/test')
 const treatmentRoutes = require('./routes/treatment')
 const prescriptionRoutes = require('./routes/prescription')
+const patientDetailsRoutes = require('./routes/patientDetails')
+const uploadRoutes = require('./routes/uploadRoutes')
 
 
 require('dotenv').config()
@@ -36,7 +39,11 @@ app.use('/api', categoryRoutes);
 app.use('/api', testRoutes);
 app.use('/api', treatmentRoutes);
 app.use('/api', prescriptionRoutes);
+app.use('/api', patientDetailsRoutes);
+app.use('/api/upload', uploadRoutes)
 
+//const __dirname = path.resolve()
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 app.use(notFound)
 app.use(errorHandler)
