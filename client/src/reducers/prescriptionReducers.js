@@ -13,8 +13,17 @@ import {
     LIST_PRESCRIPTION_ENUMS_FAIL,
     LIST_PRESCRIPTION_ENUMS_REQUEST,
     LIST_PRESCRIPTION_ENUMS_RESET,
-    LIST_PRESCRIPTION_ENUMS_SUCCESS
+    LIST_PRESCRIPTION_ENUMS_SUCCESS,
+    UPDATE_PRESCRIPTION_FAIL,
+    UPDATE_PRESCRIPTION_REQUEST,
+    UPDATE_PRESCRIPTION_RESET,
+    UPDATE_PRESCRIPTION_SUCCESS,
+    PRESCRIPTION_DETAILS_REQUEST,
+    PRESCRIPTION_DETAILS_SUCCESS,
+    PRESCRIPTION_DETAILS_FAIL
 } from '../constants/prescriptionConstants'
+import {TEST_CAT_DETAILS_FAIL, TEST_CAT_DETAILS_REQUEST, TEST_CAT_DETAILS_SUCCESS} from "../constants/testConstants";
+
 
 
 
@@ -91,6 +100,38 @@ export const prescriptionEnumsListReducer = (state = { enums: [] }, action) => {
             }
         case LIST_PRESCRIPTION_ENUMS_RESET:
             return { enums: [] }
+        default:
+            return state
+    }
+}
+
+export const prescriptionUpdateReducer = (state = { prescription: {} }, action) => {
+
+    switch (action.type) {
+        case UPDATE_PRESCRIPTION_REQUEST:
+            return { loading: true }
+        case UPDATE_PRESCRIPTION_SUCCESS:
+            return { loading: false, success: true, prescription: action.payload }
+        case UPDATE_PRESCRIPTION_FAIL:
+            return { loading: false, error: action.payload }
+        case UPDATE_PRESCRIPTION_RESET:
+            return { prescription: {} }
+        default:
+            return state
+    }
+}
+
+export const prescriptionDetailsReducer = (
+    state = { presc: {} },
+    action
+) => {
+    switch (action.type) {
+        case PRESCRIPTION_DETAILS_REQUEST:
+            return { ...state, loading: true }
+        case PRESCRIPTION_DETAILS_SUCCESS:
+            return { loading: false, presc: action.payload }
+        case PRESCRIPTION_DETAILS_FAIL:
+            return { loading: false, error: action.payload }
         default:
             return state
     }

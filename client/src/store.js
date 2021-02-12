@@ -34,7 +34,9 @@ import {
     prescriptionCreateReducer,
     prescriptionListReducer,
     prescriptionDeleteReducer,
-    prescriptionEnumsListReducer
+    prescriptionEnumsListReducer,
+    prescriptionDetailsReducer,
+    prescriptionUpdateReducer
 } from './reducers/prescriptionReducers'
 
 
@@ -65,7 +67,9 @@ const reducer = combineReducers({
     prescCreate: prescriptionCreateReducer,
     prescList: prescriptionListReducer,
     prescDelete: prescriptionDeleteReducer,
-    prescEnumsList: prescriptionEnumsListReducer
+    prescEnumsList: prescriptionEnumsListReducer,
+    prescDetails: prescriptionDetailsReducer,
+    prescUpdate: prescriptionUpdateReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
