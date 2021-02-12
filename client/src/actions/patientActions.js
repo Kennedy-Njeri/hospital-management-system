@@ -1,39 +1,40 @@
-import axios from 'axios'
+import axios from "axios";
+import {API} from "../config";
+import {logout} from "./userActions";
 import {
-    PRESCRIPTION_CREATE_FAIL,
-    PRESCRIPTION_CREATE_REQUEST,
-    PRESCRIPTION_CREATE_SUCCESS,
-    LIST_PRESCRIPTION_FAIL,
-    LIST_PRESCRIPTION_REQUEST,
-    LIST_PRESCRIPTION_RESET,
-    LIST_PRESCRIPTION_SUCCESS,
-    PRESCRIPTION_DELETE_FAIL,
-    PRESCRIPTION_DELETE_REQUEST,
-    PRESCRIPTION_DELETE_SUCCESS,
-    LIST_PRESCRIPTION_ENUMS_REQUEST,
-    LIST_PRESCRIPTION_ENUMS_RESET,
-    LIST_PRESCRIPTION_ENUMS_SUCCESS,
-    LIST_PRESCRIPTION_ENUMS_FAIL,
-    UPDATE_PRESCRIPTION_FAIL,
-    UPDATE_PRESCRIPTION_REQUEST,
-    UPDATE_PRESCRIPTION_RESET,
-    UPDATE_PRESCRIPTION_SUCCESS,
-    PRESCRIPTION_DETAILS_REQUEST,
-    PRESCRIPTION_DETAILS_SUCCESS,
-    PRESCRIPTION_DETAILS_FAIL
-} from '../constants/prescriptionConstants'
-import { logout } from './userActions'
-import { API } from "../config";
+    PATIENT_CREATE_FAIL,
+    PATIENT_CREATE_REQUEST,
+    PATIENT_CREATE_SUCCESS,
+    LIST_PATIENT_FAIL,
+    LIST_PATIENT_REQUEST,
+    LIST_PATIENT_RESET,
+    LIST_PATIENT_SUCCESS,
+    PATIENT_DELETE_FAIL,
+    PATIENT_DELETE_REQUEST,
+    PATIENT_DELETE_SUCCESS,
+    LIST_STATUS_ENUMS_FAIL,
+    LIST_STATUS_ENUMS_REQUEST,
+    LIST_STATUS_ENUMS_RESET,
+    LIST_STATUS_ENUMS_SUCCESS,
+    LIST_GENDER_ENUMS_FAIL,
+    LIST_GENDER_ENUMS_REQUEST,
+    LIST_GENDER_ENUMS_RESET,
+    LIST_GENDER_ENUMS_SUCCESS,
+    LIST_TYPES_ENUMS_FAIL,
+    LIST_TYPES_ENUMS_REQUEST,
+    LIST_TYPES_ENUMS_RESET,
+    LIST_TYPES_ENUMS_SUCCESS
+} from '../constants/patientDetailsConstants'
 
 
 
 
 
 
-export const createPrescription = (prescrp) => async (dispatch, getState) => {
+export const createPatient = (patient) => async (dispatch, getState) => {
     try {
         dispatch({
-            type: PRESCRIPTION_CREATE_REQUEST,
+            type: PATIENT_CREATE_REQUEST,
         })
 
         const {
@@ -46,10 +47,10 @@ export const createPrescription = (prescrp) => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.post(`${API}/pres-create/${userInfo._id}`, prescrp, config)
+        const { data } = await axios.post(`${API}/patient-create/${userInfo._id}`, patient, config)
 
         dispatch({
-            type: PRESCRIPTION_CREATE_SUCCESS,
+            type: PATIENT_CREATE_SUCCESS,
             payload: data,
         })
     } catch (error) {
@@ -60,17 +61,16 @@ export const createPrescription = (prescrp) => async (dispatch, getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: PRESCRIPTION_CREATE_FAIL,
+            type: PATIENT_CREATE_FAIL,
             payload: message,
         })
     }
 }
 
-
-export const listPrescriptions = () => async (dispatch, getState) => {
+export const listPatients = () => async (dispatch, getState) => {
     try {
         dispatch({
-            type: LIST_PRESCRIPTION_REQUEST,
+            type: LIST_PATIENT_REQUEST,
         })
 
         const {
@@ -83,10 +83,10 @@ export const listPrescriptions = () => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.get(`${API}/pres-list/${userInfo._id}`, config)
+        const { data } = await axios.get(`${API}/patient-list/${userInfo._id}`, config)
 
         dispatch({
-            type: LIST_PRESCRIPTION_SUCCESS,
+            type: LIST_PATIENT_SUCCESS,
             payload: data,
         })
         //console.log(data)
@@ -100,16 +100,17 @@ export const listPrescriptions = () => async (dispatch, getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: LIST_PRESCRIPTION_FAIL,
+            type: LIST_PATIENT_FAIL,
             payload: message,
         })
     }
 }
 
-export const deletePrescription = (id) => async (dispatch, getState) => {
+
+export const deletePatients = (id) => async (dispatch, getState) => {
     try {
         dispatch({
-            type: PRESCRIPTION_DELETE_REQUEST,
+            type: PATIENT_DELETE_REQUEST,
         })
 
         const {
@@ -122,9 +123,9 @@ export const deletePrescription = (id) => async (dispatch, getState) => {
             },
         }
 
-        await axios.delete(`${API}/pres-remove/${id}`, config)
+        await axios.delete(`${API}/patient-remove/${id}`, config)
 
-        dispatch({ type: PRESCRIPTION_DELETE_SUCCESS })
+        dispatch({ type: PATIENT_DELETE_SUCCESS })
     } catch (error) {
         const message =
             error.response && error.response.data.message
@@ -134,16 +135,17 @@ export const deletePrescription = (id) => async (dispatch, getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: PRESCRIPTION_DELETE_FAIL ,
+            type: PATIENT_DELETE_FAIL ,
             payload: message,
         })
     }
 }
 
-export const listEnumsPrescriptions = () => async (dispatch, getState) => {
+
+export const listStatusEnums = () => async (dispatch, getState) => {
     try {
         dispatch({
-            type: LIST_PRESCRIPTION_ENUMS_REQUEST,
+            type: LIST_STATUS_ENUMS_REQUEST,
         })
 
         const {
@@ -156,10 +158,10 @@ export const listEnumsPrescriptions = () => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.get(`${API}/pres/take-values/${userInfo._id}`, config)
+        const { data } = await axios.get(`${API}/patient/status-values/${userInfo._id}`, config)
 
         dispatch({
-            type: LIST_PRESCRIPTION_ENUMS_SUCCESS,
+            type: LIST_STATUS_ENUMS_SUCCESS,
             payload: data,
         })
         //console.log(data)
@@ -173,16 +175,16 @@ export const listEnumsPrescriptions = () => async (dispatch, getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: LIST_PRESCRIPTION_ENUMS_FAIL,
+            type: LIST_STATUS_ENUMS_FAIL,
             payload: message,
         })
     }
 }
 
-export const updatePrescription = (pres) => async (dispatch, getState) => {
+export const listGenderEnums = () => async (dispatch, getState) => {
     try {
         dispatch({
-            type: UPDATE_PRESCRIPTION_REQUEST,
+            type: LIST_GENDER_ENUMS_REQUEST,
         })
 
         const {
@@ -191,25 +193,19 @@ export const updatePrescription = (pres) => async (dispatch, getState) => {
 
         const config = {
             headers: {
-                'Content-Type': 'application/json',
                 Authorization: `Bearer ${userInfo.token}`,
             },
         }
 
-        console.log(pres)
-        const { data } = await axios.put(
-            `${API}/pres-update/${pres._id}/${userInfo._id}`,
-            pres,
-            config
-        )
+        const { data } = await axios.get(`${API}/patient/gender-values/${userInfo._id}`, config)
 
         dispatch({
-            type: UPDATE_PRESCRIPTION_SUCCESS,
+            type: LIST_GENDER_ENUMS_SUCCESS,
             payload: data,
         })
-        dispatch({ type: PRESCRIPTION_DETAILS_SUCCESS, payload: data })
+        //console.log(data)
     } catch (error) {
-        console.log(error.response)
+        console.log(error)
         const message =
             error.response && error.response.data.message
                 ? error.response.data.message
@@ -218,20 +214,21 @@ export const updatePrescription = (pres) => async (dispatch, getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: UPDATE_PRESCRIPTION_FAIL,
+            type: LIST_GENDER_ENUMS_FAIL,
             payload: message,
         })
     }
 }
 
-export const prescriptionDetails = (id) => async (dispatch, getState) => {
+export const listTypeEnums = () => async (dispatch, getState) => {
     try {
-        dispatch({ type: PRESCRIPTION_DETAILS_REQUEST })
+        dispatch({
+            type: LIST_TYPES_ENUMS_REQUEST,
+        })
 
         const {
             userLogin: { userInfo },
         } = getState()
-
 
         const config = {
             headers: {
@@ -239,22 +236,25 @@ export const prescriptionDetails = (id) => async (dispatch, getState) => {
             },
         }
 
-
-        const { data } = await axios.get(`${API}/pres-detail/${id}/${userInfo._id}`, config)
+        const { data } = await axios.get(`${API}/patient/patient-type-values/${userInfo._id}`, config)
 
         dispatch({
-            type: PRESCRIPTION_DETAILS_SUCCESS,
+            type: LIST_TYPES_ENUMS_SUCCESS,
             payload: data,
         })
-        console.log(data)
+        //console.log(data)
     } catch (error) {
         console.log(error)
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
         dispatch({
-            type: PRESCRIPTION_DETAILS_FAIL,
-            payload:
-                error.response && error.response.data.message
-                    ? error.response.data.message
-                    : error.message,
+            type: LIST_TYPES_ENUMS_FAIL,
+            payload: message,
         })
     }
 }
