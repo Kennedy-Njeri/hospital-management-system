@@ -52,6 +52,7 @@ exports.getPrescriptionDetail = asyncHandler(async (req, res) => {
 })
 
 
+
 exports.update = asyncHandler(async (req, res) => {
     try {
         console.log(req.body)

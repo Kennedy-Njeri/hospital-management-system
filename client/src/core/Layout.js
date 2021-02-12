@@ -122,11 +122,11 @@ const Layout = ({
 
 
 
-                <div className="sb-sidenav-menu-heading">Addons</div>
-                <a className="nav-link" href="charts.html">
+                <div className="sb-sidenav-menu-heading">Patient Details</div>
+                <Link className="nav-link" to="/add-patient-details">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
-                    Charts
-                </a>
+                    Add Patient
+                </Link>
                 <a className="nav-link" href="tables.html">
                     <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
                     Tables
