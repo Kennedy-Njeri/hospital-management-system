@@ -1,8 +1,9 @@
-import React, {Fragment, useEffect} from 'react'
+import React, {Fragment, useEffect, useRef} from 'react'
 import Layout from '../core/Layout';
 import { listPrescriptions, deletePrescription } from '../actions/prescriptionActions'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link} from "react-router-dom";
+import ReactToPrint from 'react-to-print';
 
 
 
@@ -39,6 +40,13 @@ const ListPrescriptions = ({ history }) => {
         }
     }
 
+    const linkToPrint = () => {
+        return (
+            <button>Click To PrintOF Body</button>
+        )
+    }
+
+    const componentRef = useRef();
 
     const showError = () => (
         <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
@@ -58,6 +66,7 @@ const ListPrescriptions = ({ history }) => {
 
     return (
         <Layout title="List Prescriptions" className="container-fluid">
+            <ReactToPrint trigger={linkToPrint} content={() => componentRef.current} />
             <h2 className="mb-4">List Prescriptions</h2>
 
             {loading ? (
@@ -65,7 +74,7 @@ const ListPrescriptions = ({ history }) => {
             ) : error ? (
                 showError()
             ) : (
-                <div className="row">
+                <div className="row" ref={componentRef}>
                     <div className="col-sm-8">
                         <table className="table">
                             <thead>
