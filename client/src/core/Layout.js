@@ -127,6 +127,10 @@ const Layout = ({
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
                     Add Patient
                 </Link>
+                <Link className="nav-link" to="/list-patients">
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
+                    List Patients
+                </Link>
                 <a className="nav-link" href="tables.html">
                     <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
                     Tables

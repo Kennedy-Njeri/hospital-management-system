@@ -40,10 +40,10 @@ app.use('/api', testRoutes);
 app.use('/api', treatmentRoutes);
 app.use('/api', prescriptionRoutes);
 app.use('/api', patientDetailsRoutes);
-app.use('/api/upload', uploadRoutes)
+app.use('/upload', uploadRoutes)
 
 //const __dirname = path.resolve()
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
+app.use('/uploads', express.static(path.join(path.resolve(), '/uploads')))
 
 app.use(notFound)
 app.use(errorHandler)

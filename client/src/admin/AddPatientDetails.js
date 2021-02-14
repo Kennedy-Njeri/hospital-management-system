@@ -16,22 +16,45 @@ import axios from "axios";
 
 const  AddPatientDetails = ({ history: history1}) => {
 
-    const [user, setUser] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [idNumber, setIdNumber] = useState(0)
+    const [values, setValues] = useState({
+        user: '',
+        lastName: '',
+        idNumber: '',
+        regDate: '',
+        address: '',
+        cell: '',
+        birthDate: '',
+        residence: '',
+        email: '',
+        guardian: '',
+        relation: '',
+        gender: '',
+        statusPatient: '',
+        patientType: '',
+        photo: '',
+        formData: ''
+        
+    });
+    
+    const {user, lastName, idNumber, address, cell,
+         residence, email, guardian, relation, gender, statusPatient, patientType, photo, formData } = values
+    
+    // const [user, setUser] = useState('')
+    // const [lastName, setLastName] = useState('curry')
+    // const [idNumber, setIdNumber] = useState(2222556)
     const [regDate, setRegDate] = useState(new Date());
-    const [address, setAddress] = useState('')
-    const [cell, setCell] = useState(0)
+    // const [address, setAddress] = useState('Nairobi')
+    // const [cell, setCell] = useState(56755575)
     const [birthDate, setBirthDate] = useState(new Date())
-    const [residence, setResidence] = useState('')
-    const [email, setEmail] = useState('')
-    const [guardian, setGuardian] = useState('')
-    const [relation, setRelation] = useState('')
-    const [gender, setGender] = useState('')
-    const [statusPatient, setStatusPatient] = useState('')
-    const [patientType, setPatientType] = useState('')
-    const [image, setImage] = useState('')
-    const [uploading, setUploading] = useState(false)
+    // const [residence, setResidence] = useState('Kilimani')
+    // const [email, setEmail] = useState('steph@gmail.com')
+    // const [guardian, setGuardian] = useState('smart')
+    // const [relation, setRelation] = useState('cousin')
+    // const [gender, setGender] = useState('Male')
+    // const [statusPatient, setStatusPatient] = useState('Cured')
+    // const [patientType, setPatientType] = useState('In Patient')
+    // const [image, setImage] = useState('')
+    // const [uploading, setUploading] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -84,44 +107,58 @@ const  AddPatientDetails = ({ history: history1}) => {
             </div>
         );
 
-    const submitHandler = (e) => {
-        e.preventDefault()
-        dispatch(createPatient({ user, lastName, idNumber, regDate,
-            address, cell, birthDate, residence, email, guardian, relation, gender, statusPatient, patientType, image }))
-        history1.push('/list-prescriptions')
-    }
+    // const submitHandler = (e) => {
+    //     e.preventDefault()
+    //     const image = e.target.files[0]
+    //     dispatch(createPatient({ user, lastName, idNumber, regDate,
+    //         address, cell, birthDate, residence, email, guardian, relation, gender, statusPatient, patientType, image}))
+    //     history1.push('/list-prescriptions')
+    // }
+    
 
-    const uploadFileHandler = async (e) => {
-        const file = e.target.files[0]
-        const formData = new FormData()
-        formData.append('image', file)
-        setUploading(true)
+    // const uploadFileHandler = async (e) => {
+    //     const file = e.target.files[0]
+    //     const formData = new FormData()
+    //     formData.append('image', file)
+    //     setUploading(true)
+    //
+    //     try {
+    //         const config = {
+    //             headers: {
+    //                 'Content-Type': 'multipart/form-data',
+    //             },
+    //         }
+    //
+    //         const { data } = await axios.post(` http://localhost:8000/upload`, formData, config)
+    //
+    //         setImage(data)
+    //         console.log(data)
+    //         setUploading(false)
+    //     } catch (error) {
+    //         console.error(error)
+    //         setUploading(false)
+    //     }
+    // }
 
-        try {
-            const config = {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            }
+    const handleChange = name => event => {
+        const value = name === 'photo' ? event.target.files[0] : event.target.value;
+        formData.set(name, value);
+        setValues({ ...values, [name]: value });
+    };
 
-            const { data } = await axios.post(` http://localhost:8000/api/upload`, formData, config)
-
-            setImage(data)
-            setUploading(false)
-        } catch (error) {
-            console.error(error)
-            setUploading(false)
-        }
-    }
+    const clickSubmit = event => {
+        event.preventDefault();
+        
+    };
 
     const patientDetailsForm = () => (
 
         <div className="form-group col-md-12">
-            <form onSubmit={submitHandler}>
+            <form onSubmit={clickSubmit}>
                 <div className="form-row">
                     <div className="form-group col-md-3">
                         <label className="text-muted">User</label>
-                        <select onChange={(e) => setUser(e.target.value)} className="form-control">
+                        <select onChange={handleChange('user')} className="form-control">
                             <option>Select Patient</option>
                             {users &&
                             users.filter(filtered => filtered.role === 2).map((c, i) => (
@@ -134,12 +171,12 @@ const  AddPatientDetails = ({ history: history1}) => {
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Last Name</label>
                         <input type="text" className="form-control"  placeholder="Last Number" value={lastName}
-                               onChange={(e) => setLastName(e.target.value)}/>
+                               onChange={handleChange('lastName')}/>
                     </div>
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Id Number</label>
                         <input type="text" className="form-control"  placeholder="Id Number" value={idNumber}
-                               onChange={(e) => setIdNumber(e.target.value)}/>
+                               onChange={handleChange('idNumber')}/>
                     </div>
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Registration date</label>
@@ -152,13 +189,13 @@ const  AddPatientDetails = ({ history: history1}) => {
                         <label htmlFor="exampleFormControlTextarea1">Address</label>
                         <textarea className="form-control"
                                    placeholder="write address" rows="3" value={address}
-                                  onChange={(e) => setAddress(e.target.value)}></textarea>
+                                  onChange={handleChange('address')}></textarea>
                     </div>
 
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Cell No</label>
                         <input type="text" className="form-control"  placeholder="cell no" value={cell}
-                               onChange={(e) => setCell(e.target.value)}/>
+                               onChange={handleChange('cell')}/>
                     </div>
 
                     <div className="form-group col-md-3">
@@ -170,7 +207,7 @@ const  AddPatientDetails = ({ history: history1}) => {
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Residence</label>
                         <input type="text" className="form-control"  placeholder="residence" value={residence}
-                               onChange={(e) => setResidence(e.target.value)}/>
+                               onChange={handleChange('residence')}/>
                     </div>
 
                 </div>
@@ -180,24 +217,24 @@ const  AddPatientDetails = ({ history: history1}) => {
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Email</label>
                         <input type="email" className="form-control"  placeholder="email" value={email}
-                               onChange={(e) => setEmail(e.target.value)}/>
+                               onChange={handleChange('email')}/>
                     </div>
 
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Gurdian</label>
                         <input type="text" className="form-control"  placeholder="guardian" value={guardian}
-                               onChange={(e) => setGuardian(e.target.value)}/>
+                               onChange={handleChange('guardian')}/>
                     </div>
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Relation</label>
                         <input type="text" className="form-control"  placeholder="relation" value={relation}
-                               onChange={(e) => setRelation(e.target.value)}/>
+                               onChange={handleChange('relation')}/>
                     </div>
 
 
                     <div className="form-group col-md-3">
                         <label htmlFor="exampleFormControlSelect1">Gender</label>
-                        <select onChange={(e) => setGender(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                        <select onChange={handleChange('gender')} className="form-control" id="exampleFormControlSelect1">
                             {genders &&
                             genders.map((c, i) => (
                                 <option key={i} value={c}>
@@ -212,7 +249,7 @@ const  AddPatientDetails = ({ history: history1}) => {
                 <div className="form-row">
                     <div className="form-group col-md-4">
                     <label htmlFor="exampleFormControlSelect1">Patient Status</label>
-                    <select onChange={(e) => setStatusPatient(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                    <select onChange={handleChange('gender')} className="form-control" id="exampleFormControlSelect1">
                         <option>Please Select</option>
                         {status &&
                         status.map((c, i) => (
@@ -225,7 +262,7 @@ const  AddPatientDetails = ({ history: history1}) => {
 
                     <div className="form-group col-md-4">
                         <label htmlFor="exampleFormControlSelect1">Inpatient/Outpatient</label>
-                        <select onChange={(e) => setPatientType(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                        <select onChange={handleChange('statusPatient')} className="form-control" id="exampleFormControlSelect1">
                             <option>Please Select</option>
                             {types &&
                             types.map((c, i) => (
@@ -236,17 +273,11 @@ const  AddPatientDetails = ({ history: history1}) => {
                         </select>
                     </div>
 
-                    <div className="form-group col-md-4">
+                    <div className="form-group col-md-4" >
                         <label htmlFor="exampleFormControlFile1">Upload Photo</label>
-                        <input type="file" value={image}
-                               onChange={(e) => setImage(e.target.value)} onSubmit={uploadFileHandler} className="form-control-file" id="exampleFormControlFile1"/>
-                        {uploading && (
-                            <div className="d-flex justify-content-center">
-                                <div className="spinner-border" role="status">
-                                    <span className="sr-only">Loading...</span>
-                                </div>
-                            </div>
-                        )}
+                        <input type="file" value={photo}
+                               onChange={handleChange('photo')} className="form-control-file" id="exampleFormControlFile1"/>
+                               
                     </div>
 
                 </div>
