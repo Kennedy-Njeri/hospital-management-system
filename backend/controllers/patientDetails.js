@@ -3,7 +3,26 @@ const asyncHandler  = require( 'express-async-handler')
 
 
 
+
+
+
+exports.patientsById = asyncHandler (async (req, res, next, id) => {
+
+    await patientDetails.findById(id).populate("user").exec((err, patient) => {
+        if (err || !patient) {
+            return res.status(400).json({
+                error: ' Patient does not exist'
+            });
+        }
+        req.patient = patient;
+        next();
+    });
+})
+
+
+
 exports.creatPatientDetails = asyncHandler(async (req, res) => {
+    //console.log(req.body)
     const patient = new patientDetails(req.body);
     await patient.save((err, data) => {
         if (err) {

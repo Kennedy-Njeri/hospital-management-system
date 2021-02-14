@@ -5,9 +5,12 @@ const {
     userById
 } = require( '../controllers/user.js')
 
+const {
+    addPatientToUserHistory
+} = require( '../controllers/user.js')
 
 
-const { creatPatientDetails, getPatientDetail, update, remove, list, getStatusValues, getGenderValues, getPatientTypeValues} = require('../controllers/patientDetails');
+const { creatPatientDetails, getPatientDetail, update, remove, list, getStatusValues, getGenderValues, getPatientTypeValues, patientsById} = require('../controllers/patientDetails');
 
 
 const { protect, admin } = require('../middleware/authMiddleware.js')
@@ -25,7 +28,7 @@ router.delete('/patient-remove/:patient', protect, admin,  remove);
 router.get('/patient-list/:userId', protect, admin, list);
 
 
-router.post("/patient-create/:userId", protect, admin, creatPatientDetails)
+router.post("/patient-create/:userId", protect, admin, addPatientToUserHistory, creatPatientDetails)
 
 router.get("/patient/status-values/:userId", protect, admin, getStatusValues);
 
@@ -35,6 +38,8 @@ router.get("/patient/patient-type-values/:userId", protect, admin, getPatientTyp
 
 
 router.param('userId', userById);
+
+router.param('patientsById', patientsById);
 
 
 module.exports = router;

@@ -2,6 +2,10 @@ const asyncHandler  = require( 'express-async-handler')
 const { generateToken }= require ('../utils/generateToken.js')
 const User = require ('../models/user.js')
 
+
+
+
+
 // @desc    Auth user & get token
 // @route   POST /api/users/login
 // @access  Public
@@ -167,6 +171,7 @@ exports.updateUser = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 exports.getUsers = asyncHandler(async (req, res) => {
     const users = await User.find({})
+    console.log(users)
     res.json(users)
 })
 
@@ -181,3 +186,19 @@ exports.userById = async (req, res, next, id) => {
         next();
     });
 }
+
+
+exports.addPatientToUserHistory = (req, res, next) => {
+
+    //console.log(req.body)
+
+    User.findOneAndUpdate({ _id: req.body.user }, { details: req.body },{ new: true }, (error, data) => {
+        //console.log(data)
+        if (error) {
+            return res.status(400).json({
+                error: 'Could not update user patient details '
+            });
+        }
+        next();
+    });
+};

@@ -5,7 +5,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { listUsers  } from '../actions/userActions'
 import { listGenderEnums, listStatusEnums, createPatient, listTypeEnums } from '../actions/patientActions'
-import {API} from "../config";
 import axios from "axios";
 
 
