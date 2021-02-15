@@ -23,8 +23,17 @@ import {
     LIST_TYPES_ENUMS_FAIL,
     LIST_TYPES_ENUMS_REQUEST,
     LIST_TYPES_ENUMS_RESET,
-    LIST_TYPES_ENUMS_SUCCESS
+    LIST_TYPES_ENUMS_SUCCESS,
+    UPDATE_PATIENT_FAIL,
+    UPDATE_PATIENT_REQUEST,
+    UPDATE_PATIENT_RESET,
+    UPDATE_PATIENT_SUCCESS,
+    PATIENT_DETAILS_FAIL,
+    PATIENT_DETAILS_REQUEST,
+    PATIENT_DETAILS_SUCCESS
 } from '../constants/patientDetailsConstants'
+
+
 
 
 
@@ -256,6 +265,86 @@ export const listTypeEnums = () => async (dispatch, getState) => {
         dispatch({
             type: LIST_TYPES_ENUMS_FAIL,
             payload: message,
+        })
+    }
+}
+
+export const updatePatients = (pat) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: UPDATE_PATIENT_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        console.log(pat)
+        const { data } = await axios.put(
+            `${API}/patient-update/${pat._id}/${userInfo._id}`,
+            pat,
+            config
+        )
+
+        dispatch({
+            type: UPDATE_PATIENT_SUCCESS,
+            payload: data,
+        })
+        dispatch({ type: PATIENT_DETAILS_SUCCESS, payload: data })
+    } catch (error) {
+        console.log(error.response)
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: UPDATE_PATIENT_FAIL,
+            payload: message,
+        })
+    }
+}
+
+export const patientsDetails = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({ type: PATIENT_DETAILS_REQUEST })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+
+        const { data } = await axios.get(`${API}/patient-detail/${id}/${userInfo._id}`, config)
+
+        dispatch({
+            type: PATIENT_DETAILS_SUCCESS,
+            payload: data,
+        })
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: PATIENT_DETAILS_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
         })
     }
 }

@@ -45,7 +45,9 @@ import {
     patientDeleteReducer,
     patientGenderListReducer,
     patientStatusListReducer,
-    patientTypesListReducer
+    patientTypesListReducer,
+    patientDetailsReducer,
+    patientUpdateReducer
 } from './reducers/patientDetailsReducers'
 
 
@@ -84,7 +86,9 @@ const reducer = combineReducers({
     patientDelete: patientDeleteReducer,
     patientGender: patientGenderListReducer,
     patientStatus: patientStatusListReducer,
-    patientTypes: patientTypesListReducer
+    patientTypes: patientTypesListReducer,
+    patientUpdate: patientUpdateReducer,
+    patientDetails:patientDetailsReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

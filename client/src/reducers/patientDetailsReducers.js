@@ -21,8 +21,17 @@ import {
     LIST_TYPES_ENUMS_FAIL,
     LIST_TYPES_ENUMS_REQUEST,
     LIST_TYPES_ENUMS_RESET,
-    LIST_TYPES_ENUMS_SUCCESS
+    LIST_TYPES_ENUMS_SUCCESS,
+    UPDATE_PATIENT_FAIL,
+    UPDATE_PATIENT_REQUEST,
+    UPDATE_PATIENT_RESET,
+    UPDATE_PATIENT_SUCCESS,
+    PATIENT_DETAILS_FAIL,
+    PATIENT_DETAILS_REQUEST,
+    PATIENT_DETAILS_SUCCESS
 } from '../constants/patientDetailsConstants'
+
+
 
 
 
@@ -149,6 +158,38 @@ export const patientTypesListReducer = (state = { types: [] }, action) => {
             }
         case LIST_TYPES_ENUMS_RESET:
             return { types: [] }
+        default:
+            return state
+    }
+}
+
+export const patientUpdateReducer = (state = { patient: {} }, action) => {
+
+    switch (action.type) {
+        case UPDATE_PATIENT_REQUEST:
+            return { loading: true }
+        case UPDATE_PATIENT_SUCCESS:
+            return { loading: false, success: true, patient: action.payload }
+        case UPDATE_PATIENT_FAIL:
+            return { loading: false, error: action.payload }
+        case UPDATE_PATIENT_RESET:
+            return { patient: {} }
+        default:
+            return state
+    }
+}
+
+export const patientDetailsReducer = (
+    state = { patient: {} },
+    action
+) => {
+    switch (action.type) {
+        case PATIENT_DETAILS_REQUEST:
+            return { ...state, loading: true }
+        case PATIENT_DETAILS_SUCCESS:
+            return { loading: false, patient: action.payload }
+        case PATIENT_DETAILS_FAIL:
+            return { loading: false, error: action.payload }
         default:
             return state
     }

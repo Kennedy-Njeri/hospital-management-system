@@ -71,7 +71,7 @@ const ListPatients = ({ history }) => {
     return (
         <Layout title="List Prescriptions" className="container-fluid">
             <ReactToPrint trigger={linkToPrint} content={() => componentRef.current} />
-            <h2 className="mb-4">List Prescriptions</h2>
+            <h2 className="mb-4">List Patients Profile</h2>
 
             {loading ? (
                 showLoading()
