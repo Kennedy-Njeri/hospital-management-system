@@ -7,7 +7,7 @@ import { listUsers  } from '../actions/userActions'
 import { listGenderEnums, listStatusEnums, listTypeEnums, patientsDetails, updatePatients } from '../actions/patientActions'
 import axios from "axios";
 import {UPDATE_PATIENT_RESET} from "../constants/patientDetailsConstants";
-import moment from "moment";
+
 
 
 
@@ -107,10 +107,6 @@ const  UpdatePatientProfile = ({ history: history1, match}) => {
     }, [ dispatch, history1, id, patient, successUpdate])
 
 
-    // const handleDatePickerChange = (date) => {
-    //     setRegDate(date)
-    //     setBirthDate(date)
-    // };
 
 
     const showError = () => (
@@ -142,7 +138,7 @@ const  UpdatePatientProfile = ({ history: history1, match}) => {
 
         dispatch(updatePatients({ _id: id, user, lastName, idNumber, regDate,
             address, cell, birthDate, residence, email, guardian, relation, gender, statusPatient, patientType, image }))
-        history1.push('/list-patients')
+        //history1.push('/list-patients')
     }
 
     const uploadFileHandler = async (e) => {
