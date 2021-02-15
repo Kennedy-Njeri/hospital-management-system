@@ -1,66 +1,10 @@
 const patientDetails = require('../models/patientDetails')
 const asyncHandler  = require( 'express-async-handler')
-const formidable = require('formidable');
-//const _ = require('lodash');
-const fs = require('fs');
 
 
 
 
 
-
-
-
-
-exports.create = (req, res) => {
-    let form = new formidable.IncomingForm();
-    form.keepExtensions = true;
-    form.parse(req, (err, fields, files) => {
-        console.log(fields)
-        if (err) {
-            return res.status(400).json({
-                error: 'Image could not be uploaded'
-            });
-        }
-        // check for all fields
-        const { user, lastName, idNumber, regDate, address, cell,
-            birthDate, residence, email, guardian, relation, gender, statusPatient, patientType } = fields;
-
-        if (!user || !lastName || !idNumber || !regDate || !address || !cell || !birthDate || !residence
-            || !email || !guardian || !relation || !gender || !statusPatient || !patientType ) {
-            return res.status(400).json({
-                error: 'All fields are required'
-            });
-        }
-
-        let patient = new patientDetails(fields);
-
-        // 1kb = 1000
-        // 1mb = 1000000
-
-        if (files.photo) {
-            console.log("FILES PHOTO: ", files.photo);
-            if (files.photo.size > 1000000) {
-                return res.status(400).json({
-                    error: 'Image should be less than 1mb in size'
-                });
-            }
-            patient.photo.data = fs.readFileSync(files.photo.path);
-            patient.photo.contentType = files.photo.type;
-        }
-
-
-        patient.save((err, result) => {
-            if (err) {
-                console.log('Patient CREATE ERROR ', err);
-                return res.status(400).json({
-                    error: errorHandler(err)
-                });
-            }
-            res.json(result);
-        });
-    });
-};
 
 
 

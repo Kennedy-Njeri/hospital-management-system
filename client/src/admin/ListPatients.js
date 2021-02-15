@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {Link} from "react-router-dom";
 import ReactToPrint from 'react-to-print';
 import moment from "moment";
-//import { API } from "../config";
+
 
 
 

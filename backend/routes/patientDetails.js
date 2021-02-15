@@ -10,7 +10,7 @@ const {
 } = require( '../controllers/user.js')
 
 
-const { creatPatientDetails, getPatientDetail, update, remove, list, getStatusValues, getGenderValues, getPatientTypeValues, patientsById, photo, create} = require('../controllers/patientDetails');
+const { creatPatientDetails, getPatientDetail, update, remove, list, getStatusValues, getGenderValues, getPatientTypeValues, patientsById} = require('../controllers/patientDetails');
 
 
 const { protect, admin } = require('../middleware/authMiddleware.js')
