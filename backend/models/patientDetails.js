@@ -59,9 +59,8 @@ const patientDetails = mongoose.Schema(
             default: "In Patient",
             enum: ["In Patient", "Out Patient"]
         },
-        photo: {
-            data: Buffer,
-            contentType: String
+        image: {
+            type: String
         },
         
     }

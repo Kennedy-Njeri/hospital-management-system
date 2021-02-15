@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {Link} from "react-router-dom";
 import ReactToPrint from 'react-to-print';
 import moment from "moment";
-import { API } from "../config";
+//import { API } from "../config";
 
 
 
@@ -101,8 +101,7 @@ const ListPatients = ({ history }) => {
                                     <tr key={i}>
                                         <Fragment>
                                             <th scope="row">{patient._id.substring(0, 6)}</th>
-                                            <td><img src={`${API}/patient/patient-photo/${patient._id}/${userInfo._id}`} className="img-fluid"
-                                                     alt="Cinque Terre"/></td>
+                                            <td><img src={`http://localhost:8000${patient.image}`} className="img-fluid rounded-circle"/></td>
                                             <td>{patient.user.name}</td>
                                             <td>{patient.status}</td>
                                             <td>{patient.patientType}</td>

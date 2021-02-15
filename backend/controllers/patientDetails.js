@@ -16,6 +16,7 @@ exports.create = (req, res) => {
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
     form.parse(req, (err, fields, files) => {
+        console.log(fields)
         if (err) {
             return res.status(400).json({
                 error: 'Image could not be uploaded'
@@ -176,13 +177,13 @@ exports.list = asyncHandler(async (req, res) => {
 })
 
 
-exports.photo = async (req, res) => {
-    if (req.patient.photo.data) {
-        res.set('Content-Type', req.patient.photo.contentType);
-        return res.send(req.patient.photo.data);
-    }
-    next();
-}
+// exports.photo = async (req, res) => {
+//     if (req.patient.image) {
+//         res.set('Content-Type', req.patient.image.contentType);
+//         return res.send(req.patient.image);
+//     }
+//     next();
+// }
 
 
 exports.getGenderValues = (req, res) => {

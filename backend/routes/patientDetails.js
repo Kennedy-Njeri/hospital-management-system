@@ -28,7 +28,8 @@ router.delete('/patient-remove/:patient', protect, admin,  remove);
 router.get('/patient-list/:userId', protect, admin, list);
 
 
-router.post("/patient-create/:userId", protect, admin, create)
+
+router.post("/patient-create/:userId", protect, admin, creatPatientDetails)
 
 router.get("/patient/status-values/:userId", protect, admin, getStatusValues);
 
@@ -36,7 +37,7 @@ router.get("/patient/gender-values/:userId", protect, admin, getGenderValues);
 
 router.get("/patient/patient-type-values/:userId", protect, admin, getPatientTypeValues);
 
-router.get("/patient/patient-photo/:patientsById/:userId", photo);
+//router.get("/patient/patient-photo/:patientsById/:userId", photo);
 
 
 router.param('userId', userById);
