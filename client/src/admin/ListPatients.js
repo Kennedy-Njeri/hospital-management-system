@@ -106,10 +106,11 @@ const ListPatients = ({ history }) => {
                                             <td>{patient.status}</td>
                                             <td>{patient.patientType}</td>
                                             <td>{patient.cell}</td>
-                                            <td>{moment(patient.regDate).fromNow()}</td>
+                                            <td>{moment(patient.regDate).format("YYYY-MM-DD HH:mm Z")}</td>
+                                         
                                             <td>{patient.gender}</td>
 
-                                            <td><Link to={`/update-prescription/${patient._id}`}><i className="bi bi-pencil-square"></i></Link></td>
+                                            <td><Link to={`/update-patient/${patient._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(patient._id)}></i></td>
                                         </Fragment>
                                     </tr>

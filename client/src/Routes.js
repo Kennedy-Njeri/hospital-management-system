@@ -21,6 +21,7 @@ import ListPrescriptions from './admin/ListPrescriptions'
 import UpdatePrescriptions from './admin/UpdatePrescriptions'
 import AddPatientDetails from './admin/AddPatientDetails'
 import ListPatients from './admin/ListPatients'
+import UpdatePatientProfile from './admin/UpdatePatientProfile'
 
 
 
@@ -37,6 +38,7 @@ const Routes = () => {
                 <AdminRoute path="/update-cat-test/:catTestId" exact component={CatTestUpdate} />
                 <AdminRoute path="/update-test/:testId" exact component={TestUpdate} />
                 <AdminRoute path="/update-prescription/:id" exact component={UpdatePrescriptions} />
+                <AdminRoute path="/update-patient/:id" exact component={UpdatePatientProfile} />
                 <AdminRoute path="/update-treatment/:treatmentId" exact component={TreatmentUpdate} />
                 <AdminRoute path="/list/users" exact component={ListUsers} />
                 <AdminRoute path="/list-cat-test" exact component={ListCatTest} />

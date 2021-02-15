@@ -4,8 +4,10 @@ import Layout from "../core/Layout";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { listUsers  } from '../actions/userActions'
-import { listGenderEnums, listStatusEnums, createPatient, listTypeEnums } from '../actions/patientActions'
+import { listGenderEnums, listStatusEnums, listTypeEnums, patientsDetails, updatePatients } from '../actions/patientActions'
 import axios from "axios";
+import {UPDATE_PATIENT_RESET} from "../constants/patientDetailsConstants";
+import moment from "moment";
 
 
 
@@ -15,23 +17,25 @@ import axios from "axios";
 
 
 
-const  AddPatientDetails = ({ history: history1}) => {
-    
-    
+
+const  UpdatePatientProfile = ({ history: history1, match}) => {
+
+    const id = match.params.id
+
     const [user, setUser] = useState('')
-    const [lastName, setLastName] = useState('curry')
-    const [idNumber, setIdNumber] = useState(2222556)
-    const [regDate, setRegDate] = useState(new Date());
-    const [address, setAddress] = useState('Nairobi')
-    const [cell, setCell] = useState(56755575)
+    const [lastName, setLastName] = useState('')
+    const [idNumber, setIdNumber] = useState(0)
+    const [regDate, setRegDate] = useState(new Date())
+    const [address, setAddress] = useState('')
+    const [cell, setCell] = useState(0)
     const [birthDate, setBirthDate] = useState(new Date())
-    const [residence, setResidence] = useState('Kilimani')
-    const [email, setEmail] = useState('steph@gmail.com')
-    const [guardian, setGuardian] = useState('smart')
-    const [relation, setRelation] = useState('cousin')
-    const [gender, setGender] = useState('Male')
-    const [statusPatient, setStatusPatient] = useState('Cured')
-    const [patientType, setPatientType] = useState('In Patient')
+    const [residence, setResidence] = useState('')
+    const [email, setEmail] = useState('')
+    const [guardian, setGuardian] = useState('')
+    const [relation, setRelation] = useState('')
+    const [gender, setGender] = useState('')
+    const [statusPatient, setStatusPatient] = useState('')
+    const [patientType, setPatientType] = useState('')
 
     const [image, setImage] = useState('')
     const [uploading, setUploading] = useState(false)
@@ -40,11 +44,19 @@ const  AddPatientDetails = ({ history: history1}) => {
 
     const dispatch = useDispatch()
 
+    const patientDetails = useSelector((state) => state.patientDetails)
+    const { loading, error, patient } = patientDetails
+
+    const patientUpdate = useSelector((state) => state.patientUpdate)
+    const {
+        loading: loadingUpdate,
+        error: errorUpdate,
+        success: successUpdate,
+    } = patientUpdate
+
     const userList = useSelector((state) => state.userList)
     const { users } = userList
 
-    const userLogin = useSelector((state) => state.userLogin)
-    const { userInfo } = userLogin
 
     const patientGender = useSelector((state) => state.patientGender)
     const { genders } = patientGender
@@ -55,25 +67,50 @@ const  AddPatientDetails = ({ history: history1}) => {
     const patientTypes = useSelector((state) => state.patientTypes)
     const { types } = patientTypes
 
-    const patientCreate = useSelector((state) => state.patientCreate)
-    const { error, loading } = patientCreate
+
 
 
     useEffect(() => {
 
+        if (successUpdate) {
+            dispatch({ type: UPDATE_PATIENT_RESET })
+            history1.push('/list-patients')
 
-        if (userInfo && userInfo.role === 0) {
-            dispatch(listUsers())
-            dispatch(listTypeEnums())
-            dispatch(listStatusEnums())
-            dispatch(listGenderEnums())
-            
         } else {
-            history1.push('/login')
+
+            if (patient._id !== id) {
+                dispatch(listUsers())
+                dispatch(listTypeEnums())
+                dispatch(listStatusEnums())
+                dispatch(listGenderEnums())
+                dispatch(patientsDetails(id))
+
+            } else {
+                setUser(patient.user)
+                setLastName(patient.lastName)
+                setIdNumber(patient.idNumber)
+                setRegDate(regDate)
+                setAddress(patient.address)
+                setCell(patient.cell)
+                setBirthDate(birthDate)
+                setResidence(patient.residence)
+                setEmail(patient.email)
+                setGuardian(patient.guardian)
+                setRelation(patient.relation)
+                setGender(patient.gender)
+                setStatusPatient(patient.statusPatient)
+                setPatientType(patient.patientType)
+                setImage(patient.image)
+            }
+
         }
+    }, [ dispatch, history1, id, patient, successUpdate])
 
 
-    }, [ dispatch, userInfo])
+    // const handleDatePickerChange = (date) => {
+    //     setRegDate(date)
+    //     setBirthDate(date)
+    // };
 
 
     const showError = () => (
@@ -81,9 +118,18 @@ const  AddPatientDetails = ({ history: history1}) => {
             {error}
         </div>
     );
-    //
-    const showLoading = () =>
+
+    const showLoadingData = () =>
         loading && (
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
+        );
+
+    const showLoading = () =>
+        loadingUpdate && (
             <div className="d-flex justify-content-center">
                 <div className="spinner-border" role="status">
                     <span className="sr-only">Loading...</span>
@@ -94,8 +140,8 @@ const  AddPatientDetails = ({ history: history1}) => {
     const submitHandler = (e) => {
         e.preventDefault()
 
-     dispatch(createPatient({ user, lastName, idNumber, regDate,
-          address, cell, birthDate, residence, email, guardian, relation, gender, statusPatient, patientType, image }))
+        dispatch(updatePatients({ _id: id, user, lastName, idNumber, regDate,
+            address, cell, birthDate, residence, email, guardian, relation, gender, statusPatient, patientType, image }))
         history1.push('/list-patients')
     }
 
@@ -123,7 +169,6 @@ const  AddPatientDetails = ({ history: history1}) => {
             setUploading(false)
         }
     }
-    
 
 
 
@@ -158,7 +203,7 @@ const  AddPatientDetails = ({ history: history1}) => {
                     </div>
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Registration date</label>
-                        <DatePicker selected={regDate} onChange={date => setRegDate(date)} className="form-control" />
+                        <DatePicker   selected={regDate}  value={regDate}   onChange={date => setRegDate(date)} className="form-control" />
                     </div>
                 </div>
 
@@ -179,7 +224,7 @@ const  AddPatientDetails = ({ history: history1}) => {
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Date of Birth</label>
 
-                        <DatePicker selected={birthDate} onChange={date => setBirthDate(date)} className="form-control" />
+                        <DatePicker   selected={birthDate} value={birthDate} onChange={date => setBirthDate(date)} className="form-control" />
                     </div>
 
                     <div className="form-group col-md-3">
@@ -254,7 +299,7 @@ const  AddPatientDetails = ({ history: history1}) => {
                     <div className="form-group col-md-4">
                         <label htmlFor="exampleFormControlFile1">Upload Photo</label>
                         <input type="file"
-                                onChange={uploadFileHandler} className="form-control-file" id="exampleFormControlFile1"/>
+                               onChange={uploadFileHandler} className="form-control-file" id="exampleFormControlFile1"/>
                         {uploading && (
                             <div className="d-flex justify-content-center">
                                 <div className="spinner-border" role="status">
@@ -278,8 +323,12 @@ const  AddPatientDetails = ({ history: history1}) => {
 
         <Layout title="Category treatment Form">
             <>
-                <h2 className="mb-4">Add Patient Details</h2>
+                <h2 className="mb-4">Update Patient Info</h2>
+                {errorUpdate && <div className="alert alert-danger" role="alert">
+                    {errorUpdate}
+                </div>}
                 {showError()}
+                {showLoadingData()}
                 {showLoading()}
                 {patientDetailsForm()}
             </>
@@ -294,4 +343,4 @@ const  AddPatientDetails = ({ history: history1}) => {
 
 
 
-export default AddPatientDetails
+export default UpdatePatientProfile

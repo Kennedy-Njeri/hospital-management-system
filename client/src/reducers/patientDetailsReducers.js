@@ -163,17 +163,17 @@ export const patientTypesListReducer = (state = { types: [] }, action) => {
     }
 }
 
-export const patientUpdateReducer = (state = { patient: {} }, action) => {
+export const patientUpdateReducer = (state = { pat: {} }, action) => {
 
     switch (action.type) {
         case UPDATE_PATIENT_REQUEST:
             return { loading: true }
         case UPDATE_PATIENT_SUCCESS:
-            return { loading: false, success: true, patient: action.payload }
+            return { loading: false, success: true, pat: action.payload }
         case UPDATE_PATIENT_FAIL:
             return { loading: false, error: action.payload }
         case UPDATE_PATIENT_RESET:
-            return { patient: {} }
+            return { pat: {} }
         default:
             return state
     }
