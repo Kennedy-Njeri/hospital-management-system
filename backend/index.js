@@ -19,6 +19,8 @@ const treatmentRoutes = require('./routes/treatment')
 const prescriptionRoutes = require('./routes/prescription')
 const patientDetailsRoutes = require('./routes/patientDetails')
 const uploadRoutes = require('./routes/uploadRoutes')
+const buildingRoutes = require('./routes/building')
+const floorRoutes = require('./routes/floor')
 
 
 require('dotenv').config()
@@ -41,6 +43,8 @@ app.use('/api', treatmentRoutes);
 app.use('/api', prescriptionRoutes);
 app.use('/api', patientDetailsRoutes);
 app.use('/upload', uploadRoutes)
+app.use('/api', buildingRoutes)
+app.use('/api', floorRoutes)
 
 //const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(path.resolve(), '/uploads')))

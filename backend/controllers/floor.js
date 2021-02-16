@@ -52,7 +52,7 @@ exports.createFloor = asyncHandler(async (req, res) => {
 
 
 exports.read = (req, res) => {
-    return res.json(req.floor;
+    return res.json(req.floor);
 };
 
 
