@@ -123,11 +123,11 @@ const Layout = ({
 
 
                 <div className="sb-sidenav-menu-heading">Patient Details</div>
-                <Link className="nav-link" to="/add-patient-details">
+                <Link className="nav-link" style={isActive(history, '/add-patient-details')} to="/add-patient-details">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
                     Add Patient
                 </Link>
-                <Link className="nav-link" to="/list-patients">
+                <Link className="nav-link" style={isActive(history, '/list-patients')} to="/list-patients">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
                     List Patients
                 </Link>
