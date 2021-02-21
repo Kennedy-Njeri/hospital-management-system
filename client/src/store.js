@@ -50,6 +50,14 @@ import {
     patientUpdateReducer
 } from './reducers/patientDetailsReducers'
 
+import {
+    bildingDetailsReducer,
+    buildingCreateReducer,
+    buildingDeleteReducer,
+    buildingListReducer,
+    buildingUpdateReducer
+} from './reducers/building-floorReducers'
+
 
 
 
@@ -88,7 +96,12 @@ const reducer = combineReducers({
     patientStatus: patientStatusListReducer,
     patientTypes: patientTypesListReducer,
     patientUpdate: patientUpdateReducer,
-    patientDetails:patientDetailsReducer
+    patientDetails:patientDetailsReducer,
+    buidingCreate: buildingCreateReducer,
+    buildingList: buildingListReducer,
+    buildingUpdate: buildingUpdateReducer,
+    buildingDelete: buildingDeleteReducer,
+    buildingDetails: bildingDetailsReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
