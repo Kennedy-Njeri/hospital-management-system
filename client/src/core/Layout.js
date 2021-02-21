@@ -111,6 +111,7 @@ const Layout = ({
                              data-parent="#sidenavAccordionPages">
                             <nav className="sb-sidenav-menu-nested nav">
                                 <Link className="nav-link" style={isActive(history, '/list-buildings')} to="/list-buildings">List</Link>
+                                <Link className="nav-link" style={isActive(history, '/list-floors')} to="/list-floors">Floors</Link>
                                 <a className="nav-link" href="404.html">404 Page</a>
                                 <a className="nav-link" href="500.html">500 Page</a>
                             </nav>

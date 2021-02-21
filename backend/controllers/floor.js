@@ -97,7 +97,7 @@ exports.remove = asyncHandler(async (req, res) => {
 
 
 exports.list = asyncHandler(async (req, res) => {
-    await floor.find({}).exec((err, data) => {
+    await floor.find({}).populate("building").exec((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: err
