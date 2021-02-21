@@ -58,7 +58,7 @@ const ListFloors = ({ history }) => {
     return (
         <Layout title="Profile" description="list treatment categories" className="container-fluid">
 
-            <h4><Link to="/add-building"><button>Add Floor</button></Link></h4>
+            <h4><Link to="/add-floor"><button>Add Floor</button></Link></h4>
 
             <h2 className="mb-4">List Floors</h2>
 

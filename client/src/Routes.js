@@ -26,6 +26,7 @@ import ListBuildings from './admin/ListBuildings'
 import AddBuilding from './admin/AddBuilding'
 import UpdateBuilding from './admin/UpdateBuilding'
 import ListFloors from './admin/ListFloors'
+import AddFloor from './admin/AddFloor'
 
 
 
@@ -57,6 +58,7 @@ const Routes = () => {
                 <AdminRoute path="/create-test" exact component={CreateTest} />
                 <AdminRoute path="/add-patient-details" exact component={AddPatientDetails} />
                 <AdminRoute path="/add-building" exact component={AddBuilding} />
+                <AdminRoute path="/add-floor" exact component={AddFloor} />
                 <PrivateRoute path="/profile/:userId" exact component={Profile} />
             </Switch>
         </BrowserRouter>
