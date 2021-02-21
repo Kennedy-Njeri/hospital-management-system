@@ -46,6 +46,7 @@ app.use('/upload', uploadRoutes)
 app.use('/api', buildingRoutes)
 app.use('/api', floorRoutes)
 
+
 //const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(path.resolve(), '/uploads')))
 

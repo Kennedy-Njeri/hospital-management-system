@@ -39,8 +39,9 @@ exports.getBuilding = asyncHandler(async (req, res) => {
 
 
 exports.createBuilding = asyncHandler(async (req, res) => {
-    const building = new building(req.body);
-    await building.save((err, data) => {
+    console.log(req.body)
+    const build = new building(req.body);
+    await build.save((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: err
