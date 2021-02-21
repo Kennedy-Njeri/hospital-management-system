@@ -103,14 +103,14 @@ const Layout = ({
                         <a className="nav-link collapsed" href="#" data-toggle="collapse"
                            data-target="#pagesCollapseError" aria-expanded="false"
                            aria-controls="pagesCollapseError">
-                            Error
+                            Buildings-Floor
                             <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i>
                             </div>
                         </a>
                         <div className="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
                              data-parent="#sidenavAccordionPages">
                             <nav className="sb-sidenav-menu-nested nav">
-                                <a className="nav-link" href="401.html">401 Page</a>
+                                <Link className="nav-link" style={isActive(history, '/list-buildings')} to="/list-buildings">List</Link>
                                 <a className="nav-link" href="404.html">404 Page</a>
                                 <a className="nav-link" href="500.html">500 Page</a>
                             </nav>
