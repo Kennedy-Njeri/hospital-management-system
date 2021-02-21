@@ -35,7 +35,7 @@ const UpdateBuilding = ({ history, match }) => {
     useEffect(() => {
         if (successUpdate) {
             dispatch({ type: BUILDING_UPDATE_RESET })
-            history.push('/test-result')
+            history.push('/list-buildings')
         } else {
             if (building._id !== id) {
                 dispatch(buildingsDetails(id))

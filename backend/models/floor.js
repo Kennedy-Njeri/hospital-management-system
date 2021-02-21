@@ -15,7 +15,7 @@ const floor = mongoose.Schema(
             required: true,
 
         },
-        floor: {
+        building: {
             type: ObjectId,
             required: true,
             ref: 'building',

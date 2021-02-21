@@ -21,14 +21,14 @@ exports.floorById = async (req, res, next, id) => {
 
 
 exports.getFloor = asyncHandler(async (req, res) => {
-    const floor = await floor.findById(req.params.id).populate('floor')
+    const flo = await floor.findById(req.params.id).populate('building')
 
-    if (floor) {
+    if (flo) {
         res.json({
-            _id: floor._id,
-            name: floor.name,
-            floorcode: floor.floorcode,
-            floor: floor.floor._id
+            _id: flo._id,
+            name: flo.name,
+            floorcode: flo.floorcode,
+            building: flo.building._id
         })
     } else {
         res.status(404)
@@ -39,8 +39,8 @@ exports.getFloor = asyncHandler(async (req, res) => {
 
 
 exports.createFloor = asyncHandler(async (req, res) => {
-    const floor = new floor(req.body);
-    await floor.save((err, data) => {
+    const flor = new floor(req.body);
+    await flor.save((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: err
@@ -58,18 +58,18 @@ exports.read = (req, res) => {
 
 exports.update = asyncHandler(async (req, res) => {
     try {
-        const floor = await floor.findByIdAndUpdate({_id: req.params.id}, req.body, {
+        const flo = await floor.findByIdAndUpdate({_id: req.params.id}, req.body, {
             new: true,
             runValidators: true
         },)
 
-        if (!floor) {
+        if (!flo) {
             return res.status(404).send()
         }
 
-        await floor.save()
+        await flo.save()
 
-        res.send(floor)
+        res.send(flo)
 
     } catch (e) {
         res.status(400).send(e)
