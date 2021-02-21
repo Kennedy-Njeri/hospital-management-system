@@ -21,14 +21,14 @@ exports.buildingById = async (req, res, next, id) => {
 
 
 exports.getBuilding = asyncHandler(async (req, res) => {
-    const building = await building.findById(req.params.id)
+    const build = await building.findById(req.params.id)
 
-    if (building) {
+    if (build) {
         res.json({
-            _id: building._id,
-            name: building.name,
-            code: building.code,
-            description: building.description
+            _id: build._id,
+            name: build.name,
+            code: build.code,
+            description: build.description
         })
     } else {
         res.status(404)
@@ -59,18 +59,18 @@ exports.read = (req, res) => {
 
 exports.update = asyncHandler(async (req, res) => {
     try {
-        const building = await building.findByIdAndUpdate({_id: req.params.id}, req.body, {
+        const build = await building.findByIdAndUpdate({_id: req.params.id}, req.body, {
             new: true,
             runValidators: true
         },)
 
-        if (!building) {
+        if (!build) {
             return res.status(404).send()
         }
 
-        await building.save()
+        await build.save()
 
-        res.send(building)
+        res.send(build)
 
     } catch (e) {
         res.status(400).send(e)

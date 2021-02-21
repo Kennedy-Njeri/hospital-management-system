@@ -59,7 +59,7 @@ const ListBuildings = ({ history }) => {
     return (
         <Layout title="Profile" description="list treatment categories" className="container-fluid">
 
-            <h4><button>Add Building</button></h4>
+            <h4><Link to="/add-building"><button>Add Building</button></Link></h4>
 
             <h2 className="mb-4">List Buildings</h2>
 
@@ -90,7 +90,7 @@ const ListBuildings = ({ history }) => {
                                             <td>{build.name}</td>
                                             <td>{build.code}</td>
                                             <td>{build.description}</td>
-                                            <td><Link to={`/update-treatment/${build._id}`}><i className="bi bi-pencil-square"></i></Link></td>
+                                            <td><Link to={`/update-building/${build._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(build._id)}></i></td>
                                         </Fragment>
                                     </tr>
