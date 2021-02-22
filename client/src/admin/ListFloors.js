@@ -89,7 +89,7 @@ const ListFloors = ({ history }) => {
                                             <td>{flo.name}</td>
                                             <td>{flo.floorcode}</td>
                                             <td>{flo.building.name}</td>
-                                            <td><Link to={`/update-building/${flo._id}`}><i className="bi bi-pencil-square"></i></Link></td>
+                                            <td><Link to={`/update-floor/${flo._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(flo._id)}></i></td>
                                         </Fragment>
                                     </tr>

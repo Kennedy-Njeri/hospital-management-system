@@ -186,7 +186,7 @@ export const updateFloor = (flor) => async (dispatch, getState) => {
 }
 
 
-export const floorDetails = (id) => async (dispatch, getState) => {
+export const floorsDetails = (id) => async (dispatch, getState) => {
     try {
         dispatch({ type: FLOOR_DETAILS_REQUEST })
 

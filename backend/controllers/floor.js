@@ -21,7 +21,7 @@ exports.floorById = async (req, res, next, id) => {
 
 
 exports.getFloor = asyncHandler(async (req, res) => {
-    const flo = await floor.findById(req.params.id).populate('building')
+    const flo = await floor.findById(req.params.id)
 
     if (flo) {
         res.json({
@@ -61,7 +61,7 @@ exports.update = asyncHandler(async (req, res) => {
         const flo = await floor.findByIdAndUpdate({_id: req.params.id}, req.body, {
             new: true,
             runValidators: true
-        },)
+        },).populate("building")
 
         if (!flo) {
             return res.status(404).send()
