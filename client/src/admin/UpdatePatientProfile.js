@@ -7,6 +7,7 @@ import { listUsers  } from '../actions/userActions'
 import { listGenderEnums, listStatusEnums, listTypeEnums, patientsDetails, updatePatients } from '../actions/patientActions'
 import axios from "axios";
 import {UPDATE_PATIENT_RESET} from "../constants/patientDetailsConstants";
+import moment from "moment";
 
 
 
@@ -89,10 +90,10 @@ const  UpdatePatientProfile = ({ history: history1, match}) => {
                 setUser(patient.user)
                 setLastName(patient.lastName)
                 setIdNumber(patient.idNumber)
-                setRegDate(regDate)
+                setRegDate(moment(patient.regDate).format("YYYY-MM-DD"))
                 setAddress(patient.address)
                 setCell(patient.cell)
-                setBirthDate(birthDate)
+                setBirthDate(moment(patient.birthDate).format("YYYY-MM-DD"))
                 setResidence(patient.residence)
                 setEmail(patient.email)
                 setGuardian(patient.guardian)
@@ -101,6 +102,7 @@ const  UpdatePatientProfile = ({ history: history1, match}) => {
                 setStatusPatient(patient.statusPatient)
                 setPatientType(patient.patientType)
                 setImage(patient.image)
+                console.log(moment(patient.birthDate).format("YYYY-MM-DD"))
             }
 
         }
@@ -199,7 +201,7 @@ const  UpdatePatientProfile = ({ history: history1, match}) => {
                     </div>
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Registration date</label>
-                        <DatePicker   selected={regDate}  value={regDate}   onChange={date => setRegDate(date)} className="form-control" />
+                        <DatePicker   value={regDate}   onChange={date => setRegDate(moment(date).format("YYYY-MM-DD"))} className="form-control" />
                     </div>
                 </div>
 
@@ -220,7 +222,7 @@ const  UpdatePatientProfile = ({ history: history1, match}) => {
                     <div className="form-group col-md-3">
                         <label htmlFor="inputAddress">Date of Birth</label>
 
-                        <DatePicker   selected={birthDate} value={birthDate} onChange={date => setBirthDate(date)} className="form-control" />
+                        <DatePicker  value={birthDate} onChange={date => setBirthDate(moment(date).format("YYYY-MM-DD"))} className="form-control" />
                     </div>
 
                     <div className="form-group col-md-3">

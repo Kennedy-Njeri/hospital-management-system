@@ -3,7 +3,7 @@ import Layout from "../core/Layout";
 import {useSelector, useDispatch} from "react-redux";
 import { listUsers } from '../actions/userActions'
 import {Link} from "react-router-dom";
-import { Pie } from 'react-chartjs-2';
+import { Pie, Doughnut } from 'react-chartjs-2';
 
 
 
@@ -197,6 +197,26 @@ const AdminDashboard = () => {
                                     }]
                                     }}/>
                                     
+                                </div>
+                                <div className="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6">
+                            <div className="card mb-4">
+                                <div className="card-header">
+                                    <i className="fas fa-chart-pie mr-1"></i>
+                                    User Types
+                                </div>
+                                <div className="card-body">
+                                    <Doughnut data={{
+                                        labels: chart().customLabels,
+                                        datasets: [{
+                                            backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                                            data: chart().usersList
+                                        }]
+                                    }}/>
+
                                 </div>
                                 <div className="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                             </div>
