@@ -103,7 +103,7 @@ const ListPatients = ({ history }) => {
                                             <th scope="row">{patient._id.substring(0, 6)}</th>
                                             <td><img src={`http://localhost:8000${patient.image}`} className="img-fluid rounded-circle"/></td>
                                             <td>{patient.user.name}</td>
-                                            <td>{patient.status}</td>
+                                            <td>{patient.statusPatient}</td>
                                             <td>{patient.patientType}</td>
                                             <td>{patient.cell}</td>
                                             <td>{moment(patient.regDate).format("YYYY-MM-DD HH:mm Z")}</td>

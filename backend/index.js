@@ -21,6 +21,7 @@ const patientDetailsRoutes = require('./routes/patientDetails')
 const uploadRoutes = require('./routes/uploadRoutes')
 const buildingRoutes = require('./routes/building')
 const floorRoutes = require('./routes/floor')
+const uploadExelRoutes = require('./routes/uploadExel')
 
 
 require('dotenv').config()
@@ -31,7 +32,13 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 
-
+// app.use(function(req, res, next) { //allow cross origin requests
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
+//     res.header("Access-Control-Max-Age", "3600");
+//     res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+//     next();
+// });
 
 
 // routes middleware
@@ -45,6 +52,7 @@ app.use('/api', patientDetailsRoutes);
 app.use('/upload', uploadRoutes)
 app.use('/api', buildingRoutes)
 app.use('/api', floorRoutes)
+app.use('/uploadfile', uploadExelRoutes)
 
 
 //const __dirname = path.resolve()
