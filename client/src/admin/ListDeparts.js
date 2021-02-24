@@ -91,7 +91,7 @@ const ListDeparts = ({ history }) => {
                                             <td>{dep.head}</td>
                                             <td>{dep.address}</td>
                                             <td>{dep.floor.name}</td>
-                                            <td><Link to={`/update-floor/${dep._id}`}><i className="bi bi-pencil-square"></i></Link></td>
+                                            <td><Link to={`/update-depart/${dep._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(dep._id)}></i></td>
                                         </Fragment>
                                     </tr>

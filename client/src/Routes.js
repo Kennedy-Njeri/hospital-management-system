@@ -32,6 +32,7 @@ import UpdateUsers from './admin/UpdateUsers'
 import AddUsers from './admin/AddUsers'
 import ListDeparts from './admin/ListDeparts'
 import AddDepartment from './admin/AddDepartment'
+import UpdateDepartment from './admin/UpdateDepartment'
 
 
 
@@ -51,6 +52,7 @@ const Routes = () => {
                 <AdminRoute path="/update-prescription/:id" exact component={UpdatePrescriptions} />
                 <AdminRoute path="/update-building/:id" exact component={UpdateBuilding} />
                 <AdminRoute path="/update-floor/:id" exact component={UpdateFloor} />
+                <AdminRoute path="/update-depart/:id" exact component={UpdateDepartment} />
                 <AdminRoute path="/update-patient/:id" exact component={UpdatePatientProfile} />
                 <AdminRoute path="/update-treatment/:treatmentId" exact component={TreatmentUpdate} />
                 <AdminRoute path="/list/users" exact component={ListUsers} />
