@@ -7,7 +7,10 @@ import {
     userDetailsReducer,
     userUpdateProfileReducer,
     userListReducer,
-    userDeleteReducer
+    userDeleteReducer,
+    usersDetailsReducer,
+    usersRegisterReducer,
+    usersUpdateProfileReducer
 } from './reducers/userReducers'
 import {
     catCreateTestReducer,
@@ -76,6 +79,9 @@ const reducer = combineReducers({
     userUpdateProfile: userUpdateProfileReducer,
     userList: userListReducer,
     userDelete: userDeleteReducer,
+    usersUpdate: usersUpdateProfileReducer,
+    usersCreate: usersRegisterReducer,
+    usersDetails: usersDetailsReducer,
     catTestCreate: catCreateTestReducer,
     catTestList: catListMyReducer,
     catTestDelete: testCatDeleteReducer,

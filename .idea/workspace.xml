@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a913cf6-e558-49a6-85b0-f0a9753a7561" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/constants/userConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/userConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducers/userReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/userReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,13 +39,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/reducers/userReducers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
+            <state relative-caret-position="342">
               <caret line="168" column="36" lean-forward="true" selection-start-line="168" selection-start-column="36" selection-end-line="168" selection-end-column="36" />
               <folding>
                 <element signature="e#0#592#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/store.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1170">
+              <caret line="78" column="48" lean-forward="true" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#69#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,7 +136,6 @@
         <option value="$PROJECT_DIR$/backend/models/floor.js" />
         <option value="$PROJECT_DIR$/client/src/constants/floorConstants.js" />
         <option value="$PROJECT_DIR$/client/src/reducers/floorReducer.js" />
-        <option value="$PROJECT_DIR$/client/src/store.js" />
         <option value="$PROJECT_DIR$/client/src/core/Layout.js" />
         <option value="$PROJECT_DIR$/backend/controllers/building.js" />
         <option value="$PROJECT_DIR$/client/src/admin/AddFloor.js" />
@@ -147,6 +155,7 @@
         <option value="$PROJECT_DIR$/backend/routes/user.js" />
         <option value="$PROJECT_DIR$/client/src/constants/userConstants.js" />
         <option value="$PROJECT_DIR$/client/src/reducers/userReducers.js" />
+        <option value="$PROJECT_DIR$/client/src/store.js" />
       </list>
     </option>
   </component>
@@ -281,7 +290,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614171216650" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614171752935" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -327,27 +336,26 @@
       <workItem from="1613150705412" duration="21747000" />
       <workItem from="1613286416327" duration="239000" />
       <workItem from="1613295079790" duration="56625000" />
-      <workItem from="1613593117695" duration="40386000" />
+      <workItem from="1613593117695" duration="40692000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321833000" />
+    <option name="totallyTimeSpent" value="322139000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="67" width="1440" height="823" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.2639485" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="GraphQL" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.3269494" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.3269494" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
@@ -464,16 +472,6 @@
           <caret line="141" column="27" lean-forward="true" selection-end-line="151" selection-end-column="25" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="115" column="4" lean-forward="true" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -776,10 +774,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/reducers/userReducers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
+        <state relative-caret-position="342">
           <caret line="168" column="36" lean-forward="true" selection-start-line="168" selection-start-column="36" selection-end-line="168" selection-end-column="36" />
           <folding>
             <element signature="e#0#592#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="78" column="48" lean-forward="true" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
