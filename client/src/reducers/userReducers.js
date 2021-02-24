@@ -34,6 +34,12 @@ import {
     USERS_UPDATE_PROFILE_RESET,
     USERS_UPDATE_PROFILE_SUCCESS
 } from '../constants/userConstants'
+import {
+    FLOOR_DETAILS_FAIL,
+    FLOOR_DETAILS_REQUEST,
+    FLOOR_DETAILS_SUCCESS, FLOOR_UPDATE_FAIL,
+    FLOOR_UPDATE_REQUEST, FLOOR_UPDATE_RESET, FLOOR_UPDATE_SUCCESS
+} from "../constants/floorConstants";
 
 
 
@@ -132,20 +138,20 @@ export const userDeleteReducer = (state = {}, action) => {
 }
 
 
-export const usersDetailsReducer = (state = { user: {} }, action) => {
+export const usersDetailsReducer = (state = { users: {} }, action) => {
     switch (action.type) {
         case USERS_DETAILS_REQUEST:
             return { ...state, loading: true }
         case USERS_DETAILS_SUCCESS:
-            return { loading: false, user: action.payload }
+            return { loading: false, users: action.payload }
         case USERS_DETAILS_FAIL:
             return { loading: false, error: action.payload }
-        case USERS_DETAILS_RESET:
-            return { user: {} }
         default:
             return state
     }
 }
+
+
 
 export const usersRegisterReducer = (state = {}, action) => {
     switch (action.type) {
@@ -163,16 +169,17 @@ export const usersRegisterReducer = (state = {}, action) => {
 }
 
 
-export const usersUpdateProfileReducer = (state = {}, action) => {
+
+export const usersUpdateProfileReducer = (state = { user: {} }, action) => {
     switch (action.type) {
         case USERS_UPDATE_PROFILE_REQUEST:
             return { loading: true }
         case USERS_UPDATE_PROFILE_SUCCESS:
-            return { loading: false, success: true, userInfo: action.payload }
+            return { loading: false, success: true, user: action.payload }
         case USERS_UPDATE_PROFILE_FAIL:
             return { loading: false, error: action.payload }
         case USERS_UPDATE_PROFILE_RESET:
-            return {}
+            return { user: {} }
         default:
             return state
     }

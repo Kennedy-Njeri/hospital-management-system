@@ -28,6 +28,7 @@ import UpdateBuilding from './admin/UpdateBuilding'
 import ListFloors from './admin/ListFloors'
 import AddFloor from './admin/AddFloor'
 import UpdateFloor from './admin/UpdateFloor'
+import UpdateUsers from './admin/UpdateUsers'
 
 
 
@@ -39,6 +40,7 @@ const Routes = () => {
                 <Route path="/signin" exact component={Signin} />
                 <AdminRoute path="/" exact component={AdminDashboard} />
                 <AdminRoute path="/profile/:userId" exact component={Profile} />
+                <AdminRoute path="/update/users/:id" exact component={UpdateUsers} />
                 <AdminRoute path="/test-result" exact component={ListTestResult} />
                 <AdminRoute path="/list-prescriptions" exact component={ListPrescriptions} />
                 <AdminRoute path="/update-cat-test/:catTestId" exact component={CatTestUpdate} />

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Layout from '../core/Layout';
 import { listUsers, deleteUser  } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
-
+import {Link} from "react-router-dom";
 
 
 
@@ -52,6 +52,7 @@ const ListUsers = ({ history }) => {
 
     return (
         <Layout title="Profile" description="Update your profile" className="container-fluid">
+            <h4><Link to="/add-floor"><button>Add User</button></Link></h4>
             <h2 className="mb-4">List Users</h2>
 
             {loading ? (
@@ -73,7 +74,8 @@ const ListUsers = ({ history }) => {
                     </tr>
                     </thead>
                     <tbody>
-                    {users.map((user, i) => (
+                    {users &&
+                    users.map((user, i) => (
                         <tr key={i}>
                         <th scope="row">{user._id}</th>
                         <td>{user.name}</td>
@@ -89,7 +91,7 @@ const ListUsers = ({ history }) => {
                                     <button type="button" className="btn btn-warning btn-sm">Staff</button>
                                 )}
                             </td>
-                            <td><i className="bi bi-pencil-square"></i></td>
+                            <td><Link to={`/update/users/${user._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                             <td><i className="bi bi-trash" onClick={() => deleteHandler(user._id)}></i></td>
                         </tr>
 

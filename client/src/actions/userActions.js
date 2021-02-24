@@ -36,6 +36,7 @@ import {
 } from '../constants/userConstants'
 //import { ORDER_LIST_MY_RESET } from '../constants/orderConstants'
 import { API } from "../config";
+import {FLOOR_DETAILS_SUCCESS} from "../constants/floorConstants";
 
 
 
@@ -314,6 +315,7 @@ export const updateUsersProfile = (user) => async (dispatch, getState) => {
             payload: data,
         })
 
+        dispatch({ type: USERS_DETAILS_SUCCESS, payload: data })
     }
     catch (error) {
         const message =
@@ -365,7 +367,7 @@ export const usersRegister = (details) => async (dispatch, getState) => {
 }
 
 
-export const getUsersDetails = (userId) => async (dispatch, getState) => {
+export const getUsersDetails = (id) => async (dispatch, getState) => {
     try {
         dispatch({
             type: USERS_DETAILS_REQUEST,
@@ -383,7 +385,7 @@ export const getUsersDetails = (userId) => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.get(`${API}/users/other/${userId}/${userInfo._id}`, config)
+        const { data } = await axios.get(`${API}/users/other/${id}/${userInfo._id}`, config)
         console.log(data)
 
         dispatch({
