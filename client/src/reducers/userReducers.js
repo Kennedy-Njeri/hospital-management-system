@@ -20,7 +20,19 @@ import {
     USER_DELETE_REQUEST,
     USER_DELETE_SUCCESS,
     USER_DELETE_FAIL,
-    USER_UPDATE_PROFILE_RESET
+    USER_UPDATE_PROFILE_RESET,
+    USERS_DETAILS_FAIL,
+    USERS_DETAILS_REQUEST,
+    USERS_DETAILS_RESET,
+    USERS_DETAILS_SUCCESS,
+    USERS_REGISTER_FAIL,
+    USERS_REGISTER_REQUEST,
+    USERS_REGISTER_SUCCESS,
+    USERS_REGISTER_RESET,
+    USERS_UPDATE_PROFILE_FAIL,
+    USERS_UPDATE_PROFILE_REQUEST,
+    USERS_UPDATE_PROFILE_RESET,
+    USERS_UPDATE_PROFILE_SUCCESS
 } from '../constants/userConstants'
 
 
@@ -114,6 +126,53 @@ export const userDeleteReducer = (state = {}, action) => {
             return { loading: false, success: true }
         case USER_DELETE_FAIL:
             return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+
+export const usersDetailsReducer = (state = { user: {} }, action) => {
+    switch (action.type) {
+        case USERS_DETAILS_REQUEST:
+            return { ...state, loading: true }
+        case USERS_DETAILS_SUCCESS:
+            return { loading: false, user: action.payload }
+        case USERS_DETAILS_FAIL:
+            return { loading: false, error: action.payload }
+        case USERS_DETAILS_RESET:
+            return { user: {} }
+        default:
+            return state
+    }
+}
+
+export const usersRegisterReducer = (state = {}, action) => {
+    switch (action.type) {
+        case USERS_REGISTER_REQUEST:
+            return { loading: true }
+        case USERS_REGISTER_SUCCESS:
+            return { loading: false, userInfo: action.payload }
+        case USERS_REGISTER_FAIL:
+            return { loading: false, error: action.payload }
+        case USERS_REGISTER_RESET:
+            return {}
+        default:
+            return state
+    }
+}
+
+
+export const usersUpdateProfileReducer = (state = {}, action) => {
+    switch (action.type) {
+        case USERS_UPDATE_PROFILE_REQUEST:
+            return { loading: true }
+        case USERS_UPDATE_PROFILE_SUCCESS:
+            return { loading: false, success: true, userInfo: action.payload }
+        case USERS_UPDATE_PROFILE_FAIL:
+            return { loading: false, error: action.payload }
+        case USERS_UPDATE_PROFILE_RESET:
+            return {}
         default:
             return state
     }
