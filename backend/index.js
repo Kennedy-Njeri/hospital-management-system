@@ -22,6 +22,7 @@ const uploadRoutes = require('./routes/uploadRoutes')
 const buildingRoutes = require('./routes/building')
 const floorRoutes = require('./routes/floor')
 const uploadExelRoutes = require('./routes/uploadExel')
+const departRoutes = require('./routes/department')
 
 
 require('dotenv').config()
@@ -52,6 +53,7 @@ app.use('/api', patientDetailsRoutes);
 app.use('/upload', uploadRoutes)
 app.use('/api', buildingRoutes)
 app.use('/api', floorRoutes)
+app.use('/api', departRoutes)
 app.use('/uploadfile', uploadExelRoutes)
 
 
