@@ -30,6 +30,7 @@ import AddFloor from './admin/AddFloor'
 import UpdateFloor from './admin/UpdateFloor'
 import UpdateUsers from './admin/UpdateUsers'
 import AddUsers from './admin/AddUsers'
+import ListDeparts from './admin/ListDeparts'
 
 
 
@@ -57,6 +58,7 @@ const Routes = () => {
                 <AdminRoute path="/list-treat-cat" exact component={ListTreatment} />
                 <AdminRoute path="/list-buildings" exact component={ListBuildings} />
                 <AdminRoute path="/list-floors" exact component={ListFloors} />
+                <AdminRoute path="/list-departs" exact component={ListDeparts} />
                 <AdminRoute path="/create/cat-test" exact component={CreateTestCat} />
                 <AdminRoute path="/add-prescription" exact component={AddPrescription} />
                 <AdminRoute path="/create/cat-treatment" exact component={CreateTreatment} />
