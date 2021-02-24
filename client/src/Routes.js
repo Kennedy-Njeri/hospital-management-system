@@ -31,6 +31,7 @@ import UpdateFloor from './admin/UpdateFloor'
 import UpdateUsers from './admin/UpdateUsers'
 import AddUsers from './admin/AddUsers'
 import ListDeparts from './admin/ListDeparts'
+import AddDepartment from './admin/AddDepartment'
 
 
 
@@ -67,6 +68,7 @@ const Routes = () => {
                 <AdminRoute path="/add-building" exact component={AddBuilding} />
                 <AdminRoute path="/add-floor" exact component={AddFloor} />
                 <AdminRoute path="/add-users" exact component={AddUsers} />
+                <AdminRoute path="/add-depart" exact component={AddDepartment} />
                 <PrivateRoute path="/profile/:userId" exact component={Profile} />
             </Switch>
         </BrowserRouter>

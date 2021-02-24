@@ -58,7 +58,7 @@ const ListDeparts = ({ history }) => {
     return (
         <Layout title="Profile" description="list treatment categories" className="container-fluid">
 
-            <h4><Link to="/add-floor"><button>Add Department</button></Link></h4>
+            <h4><Link to="/add-depart"><button>Add Department</button></Link></h4>
 
             <h2 className="mb-4">List Departments</h2>
 
