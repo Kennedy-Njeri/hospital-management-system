@@ -52,7 +52,7 @@ const ListUsers = ({ history }) => {
 
     return (
         <Layout title="Profile" description="Update your profile" className="container-fluid">
-            <h4><Link to="/add-floor"><button>Add User</button></Link></h4>
+            <h4><Link to="/add-users"><button>Add User</button></Link></h4>
             <h2 className="mb-4">List Users</h2>
 
             {loading ? (

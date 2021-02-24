@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema(
         },
         role: {
             type: Number,
-            default: 1
+            default: 2
         },
         details: {
             type: Object,
