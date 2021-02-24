@@ -1,5 +1,6 @@
 import React, {Fragment} from "react";
 import "../styles.css";
+
 import Menu from "./Menu";
 import {Link, withRouter} from "react-router-dom";
 import {useSelector} from "react-redux";
@@ -65,11 +66,6 @@ const Layout = ({
                         <Link className="nav-link" style={isActive(history, '/create-test')} to="/create-test">Create Test</Link>
                     </nav>
                 </div>
-
-
-
-
-
 
 
 
@@ -152,7 +148,9 @@ const Layout = ({
 
     ) 
     return (
-        <div>
+
+            <nav className="sb-nav-fixed">
+
             <Menu/>
             <div id="layoutSidenav">
                 <div id="layoutSidenav_nav">
@@ -180,7 +178,7 @@ const Layout = ({
                     </main>
                 </div>
             </div>
-        </div>
+            </nav>
     )
 }
 
