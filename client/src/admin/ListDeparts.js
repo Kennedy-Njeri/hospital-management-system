@@ -77,6 +77,7 @@ const ListDeparts = ({ history }) => {
                                 <th scope="col">Head</th>
                                 <th scope="col">Address</th>
                                 <th scope="col">Floor</th>
+                                <th scope="col">Phone No</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
                             </tr>
@@ -91,6 +92,7 @@ const ListDeparts = ({ history }) => {
                                             <td>{dep.head}</td>
                                             <td>{dep.address}</td>
                                             <td>{dep.floor.name}</td>
+                                            <td>{dep.phone}</td>
                                             <td><Link to={`/update-depart/${dep._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(dep._id)}></i></td>
                                         </Fragment>

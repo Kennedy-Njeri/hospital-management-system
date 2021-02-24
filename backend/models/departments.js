@@ -25,6 +25,10 @@ const department = mongoose.Schema(
             required: true,
             ref: 'floor',
         },
+        phone: {
+            type:String,
+            required: true
+        }
     }
 )
 

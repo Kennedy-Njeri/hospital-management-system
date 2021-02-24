@@ -19,6 +19,7 @@ const UpdateDepartment = ({ match, history }) => {
     const [head, setHead] = useState('')
     const [address, setAddress] = useState("")
     const [floor, setFloor] = useState("")
+    const [phone, setPhone] = useState("")
 
 
     const dispatch = useDispatch()
@@ -58,7 +59,7 @@ const UpdateDepartment = ({ match, history }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(updateDeparts({ _id: id, name, floor, head, address }))
+        dispatch(updateDeparts({ _id: id, name, floor, head, address, phone }))
     }
 
     const showError = () => (
@@ -118,6 +119,17 @@ const UpdateDepartment = ({ match, history }) => {
                         <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
                                placeholder="Enter Address" value={address}
                                onChange={(e) => setAddress(e.target.value)}/>
+                    </div>
+                </div>
+            </div>
+
+            <div className="form-row">
+                <div className="col-md-8">
+                    <div className="form-group">
+                        <label className="small mb-1" htmlFor="description">Phone</label>
+                        <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
+                               placeholder="Enter phone No" value={phone}
+                               onChange={(e) => setPhone(e.target.value)}/>
                     </div>
                 </div>
             </div>

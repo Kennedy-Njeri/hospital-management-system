@@ -29,7 +29,8 @@ exports.getDepart = asyncHandler(async (req, res) => {
             name: depart.name,
             head: depart.head,
             address: depart.address,
-            floor: depart.floor._id
+            floor: depart.floor._id,
+            phone: depart.phone
         })
     } else {
         res.status(404)

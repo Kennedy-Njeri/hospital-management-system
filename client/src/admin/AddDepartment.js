@@ -15,6 +15,7 @@ const AddDepartment = ({ history }) => {
     const [head, setHead] = useState('')
     const [address, setAddress] = useState("")
     const [floor, setFloor] = useState("")
+    const [phone, setPhone] = useState("")
 
 
     const dispatch = useDispatch()
@@ -42,7 +43,7 @@ const AddDepartment = ({ history }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(createDepart({  name, head, address, floor}))
+        dispatch(createDepart({  name, head, address, floor, phone}))
         history.push('/list-departs')
     }
 
@@ -93,6 +94,17 @@ const AddDepartment = ({ history }) => {
                         <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
                                placeholder="Enter Address" value={address}
                                onChange={(e) => setAddress(e.target.value)}/>
+                    </div>
+                </div>
+            </div>
+
+            <div className="form-row">
+                <div className="col-md-8">
+                    <div className="form-group">
+                        <label className="small mb-1" htmlFor="description">Phone</label>
+                        <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
+                               placeholder="Enter phone No" value={phone}
+                               onChange={(e) => setPhone(e.target.value)}/>
                     </div>
                 </div>
             </div>
