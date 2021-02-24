@@ -69,6 +69,13 @@ import {
     floorUpdateReducer
 } from './reducers/floorReducer'
 
+import {
+    departCreateReducer,
+    departDeleteReducer,
+    departDetailsReducer,
+    departListReducer,
+    departUpdateReducer
+} from './reducers/departmentReducers'
 
 
 
@@ -120,7 +127,12 @@ const reducer = combineReducers({
     floorList: floorListReducer,
     floorDetails: floorDetailsReducer,
     floorUpdate: floorUpdateReducer,
-    floorDelete: floorDeleteReducer
+    floorDelete: floorDeleteReducer,
+    departsCreate: departCreateReducer,
+    departsList: departListReducer,
+    departsDetails: departDetailsReducer,
+    departsDelete: departDeleteReducer,
+    departsUpdate: departUpdateReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

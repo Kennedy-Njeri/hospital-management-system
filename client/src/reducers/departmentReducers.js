@@ -77,7 +77,7 @@ export const departDeleteReducer = (state = {}, action) => {
     }
 }
 
-export const floorUpdateReducer = (state = { depart: {} }, action) => {
+export const departUpdateReducer = (state = { depart: {} }, action) => {
 
     switch (action.type) {
         case DEPARTMENT_UPDATE_REQUEST:
