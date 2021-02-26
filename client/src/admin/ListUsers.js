@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import Layout from '../core/Layout';
 import { listUsers, deleteUser  } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,6 +19,9 @@ const ListUsers = ({ history }) => {
     const userDelete = useSelector((state) => state.userDelete)
     const { success: successDelete } = userDelete
 
+    const [keyword, setKeyword] = useState('')
+    console.log(keyword)
+    
     useEffect(() => {
         if (userInfo && userInfo.role === 0) {
             dispatch(listUsers())
@@ -31,6 +34,22 @@ const ListUsers = ({ history }) => {
         console.log(id)
         if (window.confirm('Are you sure')) {
             dispatch(deleteUser(id))
+        }
+    }
+
+    const handleChange = (e) => {
+        e.preventDefault()
+        setKeyword(e.target.value)
+    }
+
+
+    const submitHandler = (e) => {
+        e.preventDefault()
+        if (keyword.trim()) {
+
+            dispatch(listUsers(keyword))
+        } else {
+            dispatch(listUsers())
         }
     }
 
@@ -61,6 +80,22 @@ const ListUsers = ({ history }) => {
                 showError()
             ) : (
                 <div className="row">
+
+                    <div className="col-lg-8">
+                        <form onSubmit={submitHandler}>
+                            <div className="input-group">
+                                <input className="form-control" type="text" value={keyword}  onChange={handleChange} name="q" placeholder="Search for..." aria-label="Search"
+                                       aria-describedby="basic-addon2"/>
+                                <div className="input-group-append">
+                                    <button className="btn btn-primary" type="button"><i className="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    
+                    
                     <div className="col-sm-8">
                 <table className="table">
                     <thead>

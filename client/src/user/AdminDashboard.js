@@ -10,6 +10,8 @@ import { Pie, Doughnut } from 'react-chartjs-2';
 
 const AdminDashboard = () => {
 
+    
+
     const dispatch = useDispatch()
 
     const userList = useSelector((state) => state.userList)
@@ -91,7 +93,7 @@ const AdminDashboard = () => {
 
 
 
-        let labels = ["Admin", "Patients", "Doctors", "Staff",]
+        let labels = ["Admin", "Doctors", "Patients", "Staff",]
         let customLabels = labels.map((label, index) => `${label}: ${usersList[index]}`)
 
 
@@ -124,6 +126,7 @@ const AdminDashboard = () => {
             {error}
         </div>
     );
+
 
     
     
@@ -221,6 +224,49 @@ const AdminDashboard = () => {
                                 <div className="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                             </div>
                         </div>
+
+
+
+                        <div className="col-sm-12">
+                            <table className="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {users &&
+                                users.map((user, i) => (
+                                    <tr key={i}>
+                                        <th scope="row">{user._id}</th>
+                                        <td>{user.name}</td>
+                                        <td>{user.email}</td>
+                                        <td>
+                                            {user.role === 0 ? (
+                                                <button type="button" className="btn btn-primary btn-sm">Admin</button>
+                                            ) : user.role === 1 ? (
+                                                <button type="button" className="btn btn-secondary btn-sm">Doctor</button>
+                                            ): user.role === 2  ? (
+                                                <button type="button" className="btn btn-info btn-sm">Patient</button>
+                                            ) : (
+                                                <button type="button" className="btn btn-warning btn-sm">Staff</button>
+                                            )}
+                                        </td>
+                                        <td><Link to={`/update/users/${user._id}`}><i className="bi bi-pencil-square"></i></Link></td>
+                                        <td><i className="bi bi-trash"></i></td>
+                                    </tr>
+
+                                ))}
+                                </tbody>
+                            </table>
+                        </div>
+
+
 
                     </div>
 

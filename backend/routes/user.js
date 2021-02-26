@@ -25,7 +25,7 @@ router.get('/users/other/:id/:userId', protect, admin, getUserById);
 
 router.put('/user/update/:userId', protect, updateUserProfile);
 
-router.get('/users/get/:userId', protect, admin, getUsers);
+router.get('/users/get', protect, admin, getUsers);
 
 router.put('/user/:userId', protect, updateUserProfile);
 
