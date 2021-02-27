@@ -23,7 +23,8 @@ const buildingRoutes = require('./routes/building')
 const floorRoutes = require('./routes/floor')
 const uploadExelRoutes = require('./routes/uploadExel')
 const departRoutes = require('./routes/department')
-
+const specializeRoutes = require('./routes/specialization')
+const designateRoutes = require('./routes/designation')
 
 require('dotenv').config()
 
@@ -54,6 +55,8 @@ app.use('/upload', uploadRoutes)
 app.use('/api', buildingRoutes)
 app.use('/api', floorRoutes)
 app.use('/api', departRoutes)
+app.use('/api', specializeRoutes)
+app.use('/api', designateRoutes)
 app.use('/uploadfile', uploadExelRoutes)
 
 

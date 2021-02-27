@@ -1,4 +1,4 @@
-const specialization = require('../models/buildings')
+const specialization = require('../models/specialization')
 const asyncHandler  = require( 'express-async-handler')
 
 
@@ -90,7 +90,7 @@ exports.remove = asyncHandler(async (req, res) => {
         res.json({ message: 'Specialization removed' })
     } else {
         res.status(404)
-        throw new Error(' Building not found')
+        throw new Error('Specialization not found')
     }
 
 })
