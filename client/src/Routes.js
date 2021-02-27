@@ -33,6 +33,9 @@ import AddUsers from './admin/AddUsers'
 import ListDeparts from './admin/ListDeparts'
 import AddDepartment from './admin/AddDepartment'
 import UpdateDepartment from './admin/UpdateDepartment'
+import ListDesignate from './admin/ListDesignate'
+import AddDesignation from './admin/AddDesignation'
+import UpdateDesignation from './admin/UpdateDesignation'
 
 
 
@@ -51,6 +54,7 @@ const Routes = () => {
                 <AdminRoute path="/update-test/:testId" exact component={TestUpdate} />
                 <AdminRoute path="/update-prescription/:id" exact component={UpdatePrescriptions} />
                 <AdminRoute path="/update-building/:id" exact component={UpdateBuilding} />
+                <AdminRoute path="/update-designation/:id" exact component={UpdateDesignation} />
                 <AdminRoute path="/update-floor/:id" exact component={UpdateFloor} />
                 <AdminRoute path="/update-depart/:id" exact component={UpdateDepartment} />
                 <AdminRoute path="/update-patient/:id" exact component={UpdatePatientProfile} />
@@ -62,6 +66,7 @@ const Routes = () => {
                 <AdminRoute path="/list-buildings" exact component={ListBuildings} />
                 <AdminRoute path="/list-floors" exact component={ListFloors} />
                 <AdminRoute path="/list-departs" exact component={ListDeparts} />
+                <AdminRoute path="/list-designate" exact component={ListDesignate} />
                 <AdminRoute path="/create/cat-test" exact component={CreateTestCat} />
                 <AdminRoute path="/add-prescription" exact component={AddPrescription} />
                 <AdminRoute path="/create/cat-treatment" exact component={CreateTreatment} />
@@ -71,6 +76,7 @@ const Routes = () => {
                 <AdminRoute path="/add-floor" exact component={AddFloor} />
                 <AdminRoute path="/add-users" exact component={AddUsers} />
                 <AdminRoute path="/add-depart" exact component={AddDepartment} />
+                <AdminRoute path="/add-designate" exact component={AddDesignation} />
                 <PrivateRoute path="/profile/:userId" exact component={Profile} />
             </Switch>
         </BrowserRouter>
