@@ -98,9 +98,9 @@ exports.getDoctorDetail = asyncHandler(async (req, res) => {
 
 exports.remove = asyncHandler(async (req, res) => {
 
-    const { patient } = req.params
+    const { id } = req.params
 
-    const result = await doctorsDetails.findById(patient)
+    const result = await doctorsDetails.findById(id)
 
     if (result) {
         await result.remove()
