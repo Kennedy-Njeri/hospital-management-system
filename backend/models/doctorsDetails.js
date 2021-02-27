@@ -3,7 +3,7 @@ const { ObjectId } = mongoose.Schema;
 
 
 
-const patientDetails = mongoose.Schema(
+const doctorsDetails = mongoose.Schema(
     {
         user: {
             type: ObjectId,
@@ -92,4 +92,4 @@ const patientDetails = mongoose.Schema(
 
 
 
-module.exports = mongoose.model('patientDetails', patientDetails);
+module.exports = mongoose.model('doctorsDetails', doctorsDetails);

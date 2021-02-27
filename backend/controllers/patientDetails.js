@@ -121,13 +121,6 @@ exports.list = asyncHandler(async (req, res) => {
 })
 
 
-// exports.photo = async (req, res) => {
-//     if (req.patient.image) {
-//         res.set('Content-Type', req.patient.image.contentType);
-//         return res.send(req.patient.image);
-//     }
-//     next();
-// }
 
 
 exports.getGenderValues = (req, res) => {
