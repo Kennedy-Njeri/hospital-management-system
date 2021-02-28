@@ -3,6 +3,7 @@ import Layout from '../core/Layout';
 import { listUsers, deleteUser  } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link} from "react-router-dom";
+import { USER_LIST_SUCCESS } from '../constants/userConstants'
 
 
 
@@ -20,6 +21,8 @@ const ListUsers = ({ history }) => {
     const { success: successDelete } = userDelete
 
     const [keyword, setKeyword] = useState('')
+    const [search, setSearch] = useState(false)
+
     console.log(keyword)
     
     useEffect(() => {
@@ -46,10 +49,13 @@ const ListUsers = ({ history }) => {
     const submitHandler = (e) => {
         e.preventDefault()
         if (keyword.trim()) {
-
+            setSearch(true)
             dispatch(listUsers(keyword))
         } else {
+            //setSearch(false)
             dispatch(listUsers())
+            //dispatch({ type: USER_LIST_SUCCESS })
+            //history.push('/list/users')
         }
     }
 
@@ -69,9 +75,12 @@ const ListUsers = ({ history }) => {
         );
 
 
+
     return (
         <Layout title="Profile" description="Update your profile" className="container-fluid">
             <h4><Link to="/add-users"><button>Add User</button></Link></h4>
+
+            { search === false ? '' :  <h4><button onClick={() => dispatch(listUsers())}>Refresh</button></h4>}
             <h2 className="mb-4">List Users</h2>
 
             {loading ? (

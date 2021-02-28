@@ -34,9 +34,8 @@ import {
     USERS_UPDATE_PROFILE_RESET,
     USERS_UPDATE_PROFILE_SUCCESS
 } from '../constants/userConstants'
-//import { ORDER_LIST_MY_RESET } from '../constants/orderConstants'
 import { API } from "../config";
-import {FLOOR_DETAILS_SUCCESS} from "../constants/floorConstants";
+
 
 
 
