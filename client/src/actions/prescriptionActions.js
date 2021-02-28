@@ -20,13 +20,55 @@ import {
     UPDATE_PRESCRIPTION_SUCCESS,
     PRESCRIPTION_DETAILS_REQUEST,
     PRESCRIPTION_DETAILS_SUCCESS,
-    PRESCRIPTION_DETAILS_FAIL
+    PRESCRIPTION_DETAILS_FAIL,
+    LIST_PAID_ENUMS_FAIL,
+    LIST_PAID_ENUMS_REQUEST,
+    LIST_PAID_ENUMS_RESET,
+    LIST_PAID_ENUMS_SUCCESS
 } from '../constants/prescriptionConstants'
 import { logout } from './userActions'
 import { API } from "../config";
 
 
 
+export const listPaidEnums = () => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: LIST_PAID_ENUMS_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        const { data } = await axios.get(`${API}/pres/paid-values/${userInfo._id}`, config)
+
+        dispatch({
+            type: LIST_PAID_ENUMS_SUCCESS,
+            payload: data,
+        })
+        //console.log(data)
+    } catch (error) {
+        console.log(error)
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: LIST_PAID_ENUMS_FAIL,
+            payload: message,
+        })
+    }
+}
 
 
 

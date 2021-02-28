@@ -22,7 +22,8 @@ import {
     testDeleteReducer,
     testUpdateReducer,
     createTestReducer,
-    testDetailsReducer
+    testDetailsReducer,
+    testPaidListReducer
 } from './reducers/testReducers'
 
 import {
@@ -39,7 +40,8 @@ import {
     prescriptionDeleteReducer,
     prescriptionEnumsListReducer,
     prescriptionDetailsReducer,
-    prescriptionUpdateReducer
+    prescriptionUpdateReducer,
+    presPaidListReducer
 } from './reducers/prescriptionReducers'
 
 import {
@@ -120,6 +122,7 @@ const reducer = combineReducers({
     listTestResult: listTestMyReducer,
     testsdelete: testDeleteReducer,
     testUpdate: testUpdateReducer,
+    testPaidList: testPaidListReducer,
     createTests: createTestReducer,
     testDetails: testDetailsReducer,
     treatCreate: treatCreateReducer,
@@ -131,6 +134,7 @@ const reducer = combineReducers({
     prescList: prescriptionListReducer,
     prescDelete: prescriptionDeleteReducer,
     prescEnumsList: prescriptionEnumsListReducer,
+    presPaidList: presPaidListReducer,
     prescDetails: prescriptionDetailsReducer,
     prescUpdate: prescriptionUpdateReducer,
     patientCreate: patientCreateReducer,

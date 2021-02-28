@@ -40,7 +40,8 @@ exports.getTestDetail = asyncHandler(async (req, res) => {
             user: test.user._id,
             testName: test.testName._id,
             result: test.result,
-            description: test.description
+            description: test.description,
+            paid: test.paid
         })
     } else {
         res.status(404)
@@ -54,7 +55,7 @@ exports.update = asyncHandler(async (req, res) => {
         console.log(req.body)
         const test = await testResult.findByIdAndUpdate({_id: req.test._id}, {user: req.body.user, testName: req.body.testName,
             result: req.body.result,
-            description: req.body.description}, {
+            description: req.body.description, paid: req.body.paid}, {
             new: true,
             runValidators: true
         })
@@ -106,3 +107,8 @@ exports.list = asyncHandler(async (req, res) => {
         res.json(data);
     });
 })
+
+
+exports.getPaidValues = (req, res) => {
+    res.json(testResult.schema.path('paid').enumValues);
+};

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Layout from "../core/Layout";
-import { prescriptionDetails, updatePrescription, listEnumsPrescriptions  } from '../actions/prescriptionActions'
+import { prescriptionDetails, updatePrescription, listEnumsPrescriptions, listPaidEnums  } from '../actions/prescriptionActions'
 import {UPDATE_PRESCRIPTION_RESET} from "../constants/prescriptionConstants";
 import { listTreatments } from '../actions/treatmentActions'
 import {listCatTests} from '../actions/testActions'
@@ -22,6 +22,7 @@ const UpdatePrescriptions = ({ history: history1, match }) => {
     const [days, setDays] = useState(0)
     const [take, setTake] = useState('')
     const [test, setTest] = useState('')
+    const [paid, setPaid] = useState('')
     const [history, setHistory] = useState('')
 
     const dispatch = useDispatch()
@@ -44,7 +45,10 @@ const UpdatePrescriptions = ({ history: history1, match }) => {
 
     const catTestList = useSelector((state) => state.catTestList)
     const { tests } = catTestList
-    
+
+    const presPaidList = useSelector((state) => state.presPaidList)
+    const { pays } = presPaidList
+
     const prescUpdate = useSelector((state) => state.prescUpdate)
     const {
         loading: loadingUpdate,
@@ -64,6 +68,7 @@ const UpdatePrescriptions = ({ history: history1, match }) => {
                 dispatch(listEnumsPrescriptions())
                 dispatch(prescriptionDetails(id))
                 dispatch(listCatTests())
+                dispatch(listPaidEnums())
             } else {
                 setUser(presc.user)
                 setTreatment(presc.treatment)
@@ -72,6 +77,7 @@ const UpdatePrescriptions = ({ history: history1, match }) => {
                 setDays(presc.days)
                 setTake(presc.take)
                 setTest(presc.test)
+                setPaid(presc.paid)
                 setHistory(presc.history)
             }
         }
@@ -104,7 +110,7 @@ const UpdatePrescriptions = ({ history: history1, match }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(updatePrescription({ _id: id, user, treatment, medicine,  time, days , take, test, history}))
+        dispatch(updatePrescription({ _id: id, user, treatment, medicine,  time, days , take, test, paid, history}))
     }
 
     const updatePrescriptionForm = () => (
@@ -188,6 +194,22 @@ const UpdatePrescriptions = ({ history: history1, match }) => {
                                   onChange={(e) => setHistory(e.target.value)} placeholder="write case history" rows="3"></textarea>
                     </div>
 
+                </div>
+
+                <div className="form-row">
+                    <div className="form-group col-md-3">
+                        <div className="form-group">
+                            <label htmlFor="exampleFormControlSelect1">Paid</label>
+                            <select onChange={(e) => setPaid(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                                {pays &&
+                                pays.map((p, i) => (
+                                    <option key={i} value={p}>
+                                        {p}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit" className="btn btn-primary">Save</button>

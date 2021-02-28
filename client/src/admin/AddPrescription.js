@@ -4,7 +4,7 @@ import Layout from "../core/Layout";
 import { listTreatments } from '../actions/treatmentActions'
 import { listCatTests} from '../actions/testActions'
 import { listUsers  } from '../actions/userActions'
-import { listEnumsPrescriptions, createPrescription  } from '../actions/prescriptionActions'
+import { listEnumsPrescriptions, createPrescription, listPaidEnums  } from '../actions/prescriptionActions'
 
 
 
@@ -19,6 +19,7 @@ const AddPrescription = ({ history: history1 }) => {
     const [days, setDays] = useState(0)
     const [take, setTake] = useState('')
     const [test, setTest] = useState('')
+    const [paid, setPaid] = useState('')
     const [history, setHistory] = useState('')
 
     const dispatch = useDispatch()
@@ -43,6 +44,9 @@ const AddPrescription = ({ history: history1 }) => {
     const prescCreate = useSelector((state) => state.prescCreate)
     const { error, loading } = prescCreate
 
+    const presPaidList = useSelector((state) => state.presPaidList)
+    const { pays } = presPaidList
+
     useEffect(() => {
 
         if (userInfo && userInfo.role === 0) {
@@ -50,6 +54,7 @@ const AddPrescription = ({ history: history1 }) => {
             dispatch(listCatTests())
             dispatch(listEnumsPrescriptions())
             dispatch(listTreatments())
+            dispatch(listPaidEnums())
         } else {
             history1.push('/login')
         }
@@ -75,7 +80,7 @@ const AddPrescription = ({ history: history1 }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(createPrescription({ user, treatment, medicine, time, days, take, test, history}))
+        dispatch(createPrescription({ user, treatment, medicine, time, days, take, test, paid, history}))
         history1.push('/list-prescriptions')
     }
 
@@ -160,6 +165,22 @@ const AddPrescription = ({ history: history1 }) => {
                                   onChange={(e) => setHistory(e.target.value)} placeholder="write case history" rows="3"></textarea>
                     </div>
 
+                </div>
+
+                <div className="form-row">
+                    <div className="form-group col-md-3">
+                        <div className="form-group">
+                            <label htmlFor="exampleFormControlSelect1">Paid</label>
+                            <select onChange={(e) => setPaid(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                                {pays &&
+                                pays.map((p, i) => (
+                                    <option key={i} value={p}>
+                                        {p}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit" className="btn btn-primary">Save</button>

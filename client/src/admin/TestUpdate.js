@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Layout from "../core/Layout";
-import { testsDetails, updateTest, listCatTests } from '../actions/testActions'
+import { testsDetails, updateTest, listCatTests, listPaidEnums} from '../actions/testActions'
 import { TEST_UPDATE_RESET } from '../constants/testConstants'
 import { listUsers  } from '../actions/userActions'
 
@@ -17,6 +17,7 @@ const TestUpdate = ({ history, match }) => {
     const [testName, setTestName] = useState('')
     const [result, setResult] = useState("")
     const [description, setDescription] = useState('')
+    const [paid, setPaid] = useState("")
     //const [message, setMessage] = useState(null)
     
 
@@ -28,6 +29,9 @@ const TestUpdate = ({ history, match }) => {
 
     const testDetails = useSelector((state) => state.testDetails)
     const { loading, error, test } = testDetails
+
+    const testPaidList = useSelector((state) => state.testPaidList)
+    const { pays } = testPaidList
 
     //console.log(cat)
     //console.log(testId)
@@ -50,11 +54,13 @@ const TestUpdate = ({ history, match }) => {
                 dispatch(listUsers())
                 dispatch(testsDetails(testId))
                 dispatch(listCatTests())
+                dispatch(listPaidEnums())
             } else {
                 setUser(test.user)
                 setTestName(test.testName)
                 setResult(test.result)
                 setDescription(test.description)
+                setPaid(test.paid)
             }
         }
     }, [dispatch, history, testId, test, successUpdate])
@@ -146,6 +152,21 @@ const TestUpdate = ({ history, match }) => {
                     </div>
                 </div>
             </div>
+            <div className="form-row">
+                <div className="col-md-8">
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlSelect1">Paid</label>
+                        <select onChange={(e) => setPaid(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            {pays &&
+                            pays.map((p, i) => (
+                                <option key={i} value={p}>
+                                    {p}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div className="col-md-8">
                 <div className="form-group mt-4 mb-0">
                     <button className="btn btn-primary btn-block">Update Test </button></div>
@@ -158,7 +179,7 @@ const TestUpdate = ({ history, match }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(updateTest({ _id: testId, user, testName, result, description}))
+        dispatch(updateTest({ _id: testId, user, testName, result, description, paid }))
     }
 
     return (

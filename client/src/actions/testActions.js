@@ -33,12 +33,58 @@ import {
     TEST_CREATE_SUCCESS,
     TEST_DETAILS_FAIL,
     TEST_DETAILS_REQUEST,
-    TEST_DETAILS_SUCCESS
+    TEST_DETAILS_SUCCESS,
+    LIST_PAID_ENUMS_FAIL,
+    LIST_PAID_ENUMS_REQUEST,
+    LIST_PAID_ENUMS_RESET,
+    LIST_PAID_ENUMS_SUCCESS
 } from '../constants/testConstants'
 import { logout } from './userActions'
 import { API } from "../config";
 
 
+
+
+
+
+export const listPaidEnums = () => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: LIST_PAID_ENUMS_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        const { data } = await axios.get(`${API}/test/paid-values/${userInfo._id}`, config)
+
+        dispatch({
+            type: LIST_PAID_ENUMS_SUCCESS,
+            payload: data,
+        })
+        //console.log(data)
+    } catch (error) {
+        console.log(error)
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: LIST_PAID_ENUMS_FAIL,
+            payload: message,
+        })
+    }
+}
 
 
 

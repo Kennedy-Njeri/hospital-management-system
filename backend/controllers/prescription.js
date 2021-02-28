@@ -43,6 +43,7 @@ exports.getPrescriptionDetail = asyncHandler(async (req, res) => {
             days: prescription.days,
             take: prescription.take,
             test: prescription.test._id,
+            paid: prescription.paid,
             history: prescription.history
         })
     } else {
@@ -108,4 +109,8 @@ exports.list = asyncHandler(async (req, res) => {
 
 exports.getTakeValues = (req, res) => {
     res.json(Prescription.schema.path('take').enumValues);
+};
+
+exports.getPaidValues = (req, res) => {
+    res.json(Prescription.schema.path('paid').enumValues);
 };

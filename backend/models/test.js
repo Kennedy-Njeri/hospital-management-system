@@ -23,7 +23,12 @@ const testResult = mongoose.Schema(
         description: {
             type: String,
             required: true
-        }
+        },
+        paid: {
+            type: String,
+            default: "Un-paid",
+            enum: ["Un-paid", "Paid"]
+        },
     }
 )
 

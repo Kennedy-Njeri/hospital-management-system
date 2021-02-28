@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Layout from "../core/Layout";
-import { createTest, listCatTests } from '../actions/testActions'
+import { createTest, listCatTests, listPaidEnums } from '../actions/testActions'
 import { listUsers  } from '../actions/userActions'
 
 
@@ -14,6 +14,7 @@ const CreateTest = ({ history }) => {
     const [testName, setTestName] = useState('')
     const [result, setResult] = useState("")
     const [description, setDescription] = useState('')
+    const [paid, setPaid] = useState("")
     //const [message, setMessage] = useState(null)
 
     const dispatch = useDispatch()
@@ -30,11 +31,15 @@ const CreateTest = ({ history }) => {
     const createTests = useSelector((state) => state.createTests)
     const { success, error, loading } = createTests
 
+    const testPaidList = useSelector((state) => state.testPaidList)
+    const { pays } = testPaidList
+
     useEffect(() => {
         
         if (userInfo && userInfo.role === 0) {
             dispatch(listUsers())
             dispatch(listCatTests())
+            dispatch(listPaidEnums())
         } else {
             history.push('/login')
         }
@@ -44,7 +49,7 @@ const CreateTest = ({ history }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(createTest({ user, testName, result, description}))
+        dispatch(createTest({ user, testName, result, description, paid}))
         history.push('/test-result')
     }
 
@@ -120,6 +125,22 @@ const CreateTest = ({ history }) => {
                         <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
                                placeholder="Enter description" value={description}
                                onChange={(e) => setDescription(e.target.value)}/>
+                    </div>
+                </div>
+            </div>
+
+            <div className="form-row">
+                <div className="col-md-8">
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlSelect1">Paid</label>
+                        <select onChange={(e) => setPaid(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            {pays &&
+                            pays.map((p, i) => (
+                                <option key={i} value={p}>
+                                    {p}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                 </div>
             </div>

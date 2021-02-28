@@ -20,7 +20,11 @@ import {
     UPDATE_PRESCRIPTION_SUCCESS,
     PRESCRIPTION_DETAILS_REQUEST,
     PRESCRIPTION_DETAILS_SUCCESS,
-    PRESCRIPTION_DETAILS_FAIL
+    PRESCRIPTION_DETAILS_FAIL,
+    LIST_PAID_ENUMS_FAIL,
+    LIST_PAID_ENUMS_REQUEST,
+    LIST_PAID_ENUMS_RESET,
+    LIST_PAID_ENUMS_SUCCESS
 } from '../constants/prescriptionConstants'
 
 
@@ -132,6 +136,30 @@ export const prescriptionDetailsReducer = (
             return { loading: false, presc: action.payload }
         case PRESCRIPTION_DETAILS_FAIL:
             return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+
+export const presPaidListReducer = (state = { pays: [] }, action) => {
+    switch (action.type) {
+        case LIST_PAID_ENUMS_REQUEST:
+            return {
+                loading: true,
+            }
+        case LIST_PAID_ENUMS_SUCCESS:
+            return {
+                loading: false,
+                pays: action.payload,
+            }
+        case LIST_PAID_ENUMS_FAIL:
+            return {
+                loading: false,
+                error: action.payload,
+            }
+        case LIST_PAID_ENUMS_RESET:
+            return { pays: [] }
         default:
             return state
     }

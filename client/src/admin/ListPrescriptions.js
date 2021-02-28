@@ -87,6 +87,7 @@ const ListPrescriptions = ({ history }) => {
                                 <th scope="col">Days</th>
                                 <th scope="col">Take</th>
                                 <th scope="col">Test</th>
+                                <th scope="col">Paid</th>
                                 <th scope="col">History</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
@@ -105,6 +106,8 @@ const ListPrescriptions = ({ history }) => {
                                             <td>{pres.days}</td>
                                             <td>{pres.take}</td>
                                             <td>{pres.test.testName}</td>
+                                            <td>{pres.paid === "Paid" ? (<button type="button" className="btn btn-success btn-sm">{pres.paid}</button>) :
+                                                (<button type="button" className="btn btn-danger btn-sm">{pres.paid}</button>) }</td>
                                             <td>{pres.history}</td>
                                             <td><Link to={`/update-prescription/${pres._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(pres._id)}></i></td>

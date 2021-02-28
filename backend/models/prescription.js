@@ -38,6 +38,11 @@ const Prescription = mongoose.Schema(
             required: true,
             ref: 'testSchema',
         },
+        paid: {
+            type: String,
+            default: "Un-paid",
+            enum: ["Un-paid", "Paid"]
+        },
         history: {
             type: String,
             required: true,
