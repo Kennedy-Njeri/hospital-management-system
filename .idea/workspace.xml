@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a913cf6-e558-49a6-85b0-f0a9753a7561" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/admin/ListUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/ListUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/core/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/core/Layout.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1495">
-              <caret line="150" column="41" lean-forward="true" selection-start-line="150" selection-start-column="41" selection-end-line="150" selection-end-column="41" />
+            <state relative-caret-position="268">
+              <caret line="161" column="20" selection-start-line="161" selection-start-column="4" selection-end-line="161" selection-end-column="20" />
               <folding>
                 <element signature="e#0#69#0" expanded="true" />
               </folding>
@@ -25,20 +25,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/models/specialization.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/admin/ListSpecialize.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/constants/specializationConstants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="184">
+              <caret line="98" column="26" lean-forward="true" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,37 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/reducers/specializeReducers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="106" column="46" lean-forward="true" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#497#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/actions/specializeActions.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/reducers/designationReducers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="80" selection-start-line="80" selection-end-line="94" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#564#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/constants/designationConstants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="25" selection-end-column="62" />
+            <state relative-caret-position="176">
+              <caret line="82" column="50" lean-forward="true" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -84,10 +49,58 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="61" column="34" lean-forward="true" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="45" />
+            <state relative-caret-position="197">
+              <caret line="62" column="35" lean-forward="true" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="52" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/core/Layout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="134" column="31" lean-forward="true" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/admin/AddSpecialization.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1185">
+              <caret line="79" column="84" selection-start-line="79" selection-start-column="84" selection-end-line="79" selection-end-column="84" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateSpecialize.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1515">
+              <caret line="101" column="42" lean-forward="true" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateDesignation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="138" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,9 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/admin/UpdateFloor.js" />
-        <option value="$PROJECT_DIR$/client/src/admin/UpdatePatientProfile.js" />
-        <option value="$PROJECT_DIR$/client/src/admin/ListPatients.js" />
         <option value="$PROJECT_DIR$/backend/models/vendors.js" />
         <option value="$PROJECT_DIR$/backend/routes/uploadExel.js" />
         <option value="$PROJECT_DIR$/client/src/constants/userConstants.js" />
@@ -149,10 +159,8 @@
         <option value="$PROJECT_DIR$/client/src/constants/designationConstants.js" />
         <option value="$PROJECT_DIR$/client/src/reducers/designationReducers.js" />
         <option value="$PROJECT_DIR$/client/src/actions/designateActions.js" />
-        <option value="$PROJECT_DIR$/client/src/core/Layout.js" />
         <option value="$PROJECT_DIR$/client/src/admin/AddDesignation.js" />
         <option value="$PROJECT_DIR$/client/src/admin/UpdateDesignation.js" />
-        <option value="$PROJECT_DIR$/client/src/Routes.js" />
         <option value="$PROJECT_DIR$/client/src/admin/ListDesignate.js" />
         <option value="$PROJECT_DIR$/client/src/actions/userActions.js" />
         <option value="$PROJECT_DIR$/client/src/admin/ListUsers.js" />
@@ -160,12 +168,17 @@
         <option value="$PROJECT_DIR$/client/src/reducers/specializeReducers.js" />
         <option value="$PROJECT_DIR$/client/src/store.js" />
         <option value="$PROJECT_DIR$/client/src/actions/specializeActions.js" />
+        <option value="$PROJECT_DIR$/client/src/core/Layout.js" />
+        <option value="$PROJECT_DIR$/client/src/admin/AddSpecialization.js" />
+        <option value="$PROJECT_DIR$/client/src/admin/UpdateSpecialize.js" />
+        <option value="$PROJECT_DIR$/client/src/Routes.js" />
+        <option value="$PROJECT_DIR$/client/src/admin/ListSpecialize.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="48" />
-    <option name="y" value="23" />
+    <option name="x" value="399" />
+    <option name="y" value="154" />
     <option name="width" value="1440" />
     <option name="height" value="823" />
   </component>
@@ -282,7 +295,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614521027065" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614523855356" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -332,26 +345,26 @@
       <workItem from="1613286416327" duration="239000" />
       <workItem from="1613295079790" duration="56625000" />
       <workItem from="1613593117695" duration="76327000" />
-      <workItem from="1614370611122" duration="17048000" />
+      <workItem from="1614370611122" duration="19353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="374822000" />
+    <option name="totallyTimeSpent" value="377127000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="48" y="23" width="1440" height="823" extended-state="0" />
+    <frame x="399" y="154" width="1440" height="823" extended-state="0" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.25035766" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.25035766" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="GraphQL" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.3269494" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.3269494" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
@@ -381,32 +394,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/admin/ListTreatment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/user/AdminDashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2745">
@@ -463,13 +450,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/routes/building.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="31" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/specialization.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="31" selection-end-column="24" />
@@ -563,16 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/designateActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2343">
-          <caret line="214" column="40" selection-start-line="214" selection-start-column="40" selection-end-line="214" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#564#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/admin/ListFloors.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -587,16 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="55" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/core/Layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="132" column="70" lean-forward="true" selection-start-line="132" selection-start-column="70" selection-end-line="132" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -636,36 +596,6 @@
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/admin/AddDesignation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="72" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateDesignation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="138" column="32" selection-start-line="138" selection-start-column="32" selection-end-line="138" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/admin/ListDesignate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="86" column="76" lean-forward="true" selection-start-line="86" selection-start-column="76" selection-end-line="86" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -720,16 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="61" column="34" lean-forward="true" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/admin/ListUsers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -737,13 +657,6 @@
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models/specialization.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -766,33 +679,141 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/constants/specializationConstants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="135">
+          <caret line="9" column="60" lean-forward="true" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/store.js">
+    <entry file="file://$PROJECT_DIR$/backend/routes/specialization.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="150" column="41" lean-forward="true" selection-start-line="150" selection-start-column="41" selection-end-line="150" selection-end-column="41" />
+        <state relative-caret-position="315">
+          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/models/specialization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/AddDesignation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="102" selection-end-column="29" />
           <folding>
-            <element signature="e#0#69#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/actions/specializeActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2564">
+          <caret line="200" column="58" lean-forward="true" selection-start-line="200" selection-start-column="58" selection-end-line="200" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/actions/designateActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="188" selection-start-line="188" selection-end-line="221" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/ListDesignate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="112" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/core/Layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="134" column="31" lean-forward="true" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/AddSpecialization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="79" column="84" selection-start-line="79" selection-start-column="84" selection-end-line="79" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateDesignation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="138" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/reducers/specializeReducers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="106" column="46" lean-forward="true" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
+        <state relative-caret-position="176">
+          <caret line="82" column="50" lean-forward="true" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateSpecialize.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1515">
+          <caret line="101" column="42" lean-forward="true" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
           <folding>
-            <element signature="e#0#497#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/specializeActions.js">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/client/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="161" column="20" selection-start-line="161" selection-start-column="4" selection-end-line="161" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="62" column="35" lean-forward="true" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/ListSpecialize.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="98" column="26" lean-forward="true" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
