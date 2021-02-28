@@ -32,6 +32,19 @@ const ListTestResult = ({ history }) => {
     }, [history, dispatch, successDelete, userInfo])
 
 
+    const totalCollected = () => {
+
+        let total = tests && tests.reduce((acc, curr) => {
+                if (curr.paid === 'Paid') {
+                    acc += parseInt(curr.testName.cost)
+                }
+
+                return acc
+            }, 0)
+        
+        return total
+    }
+    
     const deleteHandler = (id) => {
         console.log(id)
         if (window.confirm('Are you sure')) {
@@ -55,8 +68,11 @@ const ListTestResult = ({ history }) => {
         );
 
 
+
     return (
+
         <Layout title="Profile" description="Update your profile" className="container-fluid">
+            <h2 className="font-weight-bold">Total Paid:Ksh {totalCollected()}</h2>
             <h2 className="mb-4">List Result tests</h2>
 
 

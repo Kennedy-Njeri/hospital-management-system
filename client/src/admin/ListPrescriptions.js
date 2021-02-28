@@ -32,6 +32,18 @@ const ListPrescriptions = ({ history }) => {
         }
     }, [dispatch, history, successDelete, userInfo])
 
+    const totalCollected = () => {
+
+        let total = prescriptions && prescriptions.reduce((acc, curr) => {
+            if (curr.paid === 'Paid') {
+                acc += parseInt(curr.treatment.cost)
+            }
+
+            return acc
+        }, 0)
+
+        return total
+    }
 
     const deleteHandler = (id) => {
         console.log(id)
@@ -67,6 +79,7 @@ const ListPrescriptions = ({ history }) => {
     return (
         <Layout title="List Prescriptions" className="container-fluid">
             <ReactToPrint trigger={linkToPrint} content={() => componentRef.current} />
+            <h2 className="font-weight-bold">Total Paid:Ksh {totalCollected()}</h2>
             <h2 className="mb-4">List Prescriptions</h2>
 
             {loading ? (
@@ -87,6 +100,7 @@ const ListPrescriptions = ({ history }) => {
                                 <th scope="col">Days</th>
                                 <th scope="col">Take</th>
                                 <th scope="col">Test</th>
+                                <th scope="col">Cost</th>
                                 <th scope="col">Paid</th>
                                 <th scope="col">History</th>
                                 <th scope="col">Edit</th>
@@ -106,6 +120,7 @@ const ListPrescriptions = ({ history }) => {
                                             <td>{pres.days}</td>
                                             <td>{pres.take}</td>
                                             <td>{pres.test.testName}</td>
+                                            <td>{pres.treatment.cost}</td>
                                             <td>{pres.paid === "Paid" ? (<button type="button" className="btn btn-success btn-sm">{pres.paid}</button>) :
                                                 (<button type="button" className="btn btn-danger btn-sm">{pres.paid}</button>) }</td>
                                             <td>{pres.history}</td>
