@@ -95,6 +95,11 @@ import {
     specializeUpdateReducer
 } from './reducers/specializeReducers'
 
+import {
+    vendorsDeleteReducer,
+    vendorsListReducer
+} from './reducers/vendorsReducers'
+
 
 
 const reducer = combineReducers({
@@ -160,7 +165,9 @@ const reducer = combineReducers({
     specializeList: specializeListReducer,
     specializeDetails: specializeDetailsReducer,
     specializeUpdate: specializeUpdateReducer,
-    specializeDelete: specializeDeleteReducer
+    specializeDelete: specializeDeleteReducer,
+    vendorsList: vendorsListReducer,
+    vendorsDelete: vendorsDeleteReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
+import Layout from "../core/Layout";
 
 
 
-const FileUpload = () => {
 
-    const [image, setImage] = useState('')
+const FileUpload = ({ history }) => {
+
+
     const [uploading, setUploading] = useState(false)
     
     const uploadFileHandler = async (e) => {
         const file = e.target.files[0]
         const formData = new FormData()
-        formData.append('image', file)
+        formData.append('uploadfile', file)
         setUploading(true)
 
         try {
@@ -21,11 +23,12 @@ const FileUpload = () => {
                 },
             }
 
-            const { data } = await axios.post(` http://localhost:8000/upload`, formData, config)
+            await axios.post(` http://localhost:8000/uploadfile`, formData, config)
 
-            setImage(data)
-            console.log(data)
+
             setUploading(false)
+            history.push("/list-vendors")
+           
         } catch (error) {
             console.error(error)
             setUploading(false)
@@ -34,11 +37,12 @@ const FileUpload = () => {
     
     
     return (
-        <>
-            
-                <label htmlFor="exampleFormControlFile1">Upload Photo</label>
-                <input type="file" value={image}
-                       onChange={(e) => setImage(e.target.value)} className="form-control-file" id="exampleFormControlFile1"/>
+        <Layout title="Category test Form">
+
+            <div className="form-group col-md-4">
+
+                <label htmlFor="exampleFormControlFile1">Upload vendor Excel</label>
+                <input type="file" onChange={uploadFileHandler} className="form-control-file" id="exampleFormControlFile1"/>
                 {uploading && (
                     <div className="d-flex justify-content-center">
                         <div className="spinner-border" role="status">
@@ -46,9 +50,11 @@ const FileUpload = () => {
                         </div>
                     </div>
                 )}
-                <button className="invisible" onSubmit={uploadFileHandler}>Submit</button>
-         
-        </>
+
+
+            </div>
+            
+        </Layout>
     )
     
     

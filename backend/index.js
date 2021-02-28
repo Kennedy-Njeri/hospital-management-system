@@ -26,6 +26,7 @@ const departRoutes = require('./routes/department')
 const specializeRoutes = require('./routes/specialization')
 const designateRoutes = require('./routes/designation')
 const doctorsDetailsRoutes = require('./routes/doctorsDetails')
+const vendorsRoutes = require('./routes/vendors')
 
 require('dotenv').config()
 
@@ -59,6 +60,7 @@ app.use('/api', departRoutes)
 app.use('/api', specializeRoutes)
 app.use('/api', designateRoutes)
 app.use('/api', doctorsDetailsRoutes)
+app.use('/api', vendorsRoutes)
 app.use('/uploadfile', uploadExelRoutes)
 
 
