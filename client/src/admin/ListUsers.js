@@ -3,7 +3,7 @@ import Layout from '../core/Layout';
 import { listUsers, deleteUser  } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link} from "react-router-dom";
-import { USER_LIST_SUCCESS } from '../constants/userConstants'
+
 
 
 
@@ -52,8 +52,9 @@ const ListUsers = ({ history }) => {
             setSearch(true)
             dispatch(listUsers(keyword))
         } else {
-            //setSearch(false)
+
             dispatch(listUsers())
+            setSearch(false)
             //dispatch({ type: USER_LIST_SUCCESS })
             //history.push('/list/users')
         }

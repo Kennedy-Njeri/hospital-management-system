@@ -87,6 +87,15 @@ import {
 } from './reducers/designationReducers'
 
 
+import {
+    specializeCreateReducer,
+    specializeDeleteReducer,
+    specializeDetailsReducer,
+    specializeListReducer,
+    specializeUpdateReducer
+} from './reducers/specializeReducers'
+
+
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
@@ -146,7 +155,12 @@ const reducer = combineReducers({
     designateList: designateListReducer,
     designateDetails: designateDetailsReducer,
     designateDelete: designateDeleteReducer,
-    designateUpdate: designateUpdateReducer
+    designateUpdate: designateUpdateReducer,
+    specializeCreate: specializeCreateReducer,
+    specializeList: specializeListReducer,
+    specializeDetails: specializeDetailsReducer,
+    specializeUpdate: specializeUpdateReducer,
+    specializeDelete: specializeDeleteReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
