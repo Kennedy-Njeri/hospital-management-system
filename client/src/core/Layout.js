@@ -144,7 +144,7 @@ const Layout = ({
                 </Link>
                 <Link className="nav-link" style={isActive(history, '/list-doctors')} to="/list-doctors">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
-                    Patients
+                    Doctors
                 </Link>
                 <a className="nav-link" href="tables.html">
                     <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>

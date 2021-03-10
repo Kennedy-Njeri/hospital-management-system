@@ -74,10 +74,10 @@ const doctorsDetails = mongoose.Schema(
 
         },
         time_in: {
-            type: Date, default: Date.now
+            type: String
         },
         time_out: {
-            type: Date, default: Date.now
+            type: String
         },
         days: {
             type: String,

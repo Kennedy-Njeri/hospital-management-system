@@ -10,6 +10,7 @@ import moment from "moment";
 
 
 
+
 const ListDoctors = ({ history }) => {
 
     const dispatch = useDispatch()
@@ -70,6 +71,7 @@ const ListDoctors = ({ history }) => {
 
     return (
         <Layout title="List Prescriptions" className="container-fluid">
+            <h4><Link to="/add-doctor"><button>Add Doctor Profile</button></Link></h4>
             <ReactToPrint trigger={linkToPrint} content={() => componentRef.current} />
             <h2 className="mb-4">List Doctors Profile</h2>
 
@@ -78,7 +80,7 @@ const ListDoctors = ({ history }) => {
             ) : error ? (
                 showError()
             ) : doctors.length === 0 ? (
-                <div className="row" ref={componentRef}>
+                <div className="row">
                     <div className="col-sm-8">
                         <table className="table">
                             <thead>
@@ -90,11 +92,6 @@ const ListDoctors = ({ history }) => {
                                 <th scope="col">Specialization</th>
                                 <th scope="col">Department</th>
                                 <th scope="col">Designation</th>
-                                <th scope="col">cell</th>
-                                <th scope="col">Reg Date</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -134,9 +131,9 @@ const ListDoctors = ({ history }) => {
                                             <td><img src={`http://localhost:8000${doctor.image}`} className="img-fluid rounded-circle"/></td>
                                             <td>{doctor.user.name}</td>
                                             <td>{doctor.idNumber}</td>
-                                            <td>{doctor.specialization}</td>
-                                            <td>{doctor.department}</td>
-                                            <td>{doctor.designation}</td>
+                                            <td>{doctor.specialization.name}</td>
+                                            <td>{doctor.department.name}</td>
+                                            <td>{doctor.designation.name}</td>
                                             <td>{doctor.cell}</td>
                                             <td>{moment(doctor.regDate).format("YYYY-MM-DD HH:mm Z")}</td>
 

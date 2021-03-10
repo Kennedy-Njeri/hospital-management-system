@@ -140,7 +140,7 @@ export const doctorDutyListReducer = (state = { duties: [] }, action) => {
     }
 }
 
-export const doctorDaysListReducer = (state = { days: [] }, action) => {
+export const doctorDaysListReducer = (state = { dayes: [] }, action) => {
     switch (action.type) {
         case LIST_DAYS_ENUMS_REQUEST:
             return {
@@ -149,7 +149,7 @@ export const doctorDaysListReducer = (state = { days: [] }, action) => {
         case LIST_DAYS_ENUMS_SUCCESS:
             return {
                 loading: false,
-                days: action.payload,
+                dayes: action.payload,
             }
         case LIST_DAYS_ENUMS_FAIL:
             return {
@@ -157,7 +157,7 @@ export const doctorDaysListReducer = (state = { days: [] }, action) => {
                 error: action.payload,
             }
         case LIST_DAYS_ENUMS_RESET:
-            return { days: [] }
+            return { dayes: [] }
         default:
             return state
     }
