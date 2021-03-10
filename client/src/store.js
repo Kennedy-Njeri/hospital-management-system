@@ -102,6 +102,17 @@ import {
     vendorsListReducer
 } from './reducers/vendorsReducers'
 
+import {
+    doctorCreateReducer,
+    doctorDaysListReducer,
+    doctorDetailsReducer,
+    doctorDutyListReducer,
+    doctorGenderListReducer,
+    doctorListReducer,
+    doctorsDeleteReducer,
+    doctorUpdateReducer
+} from './reducers/doctorsDetailsReducers'
+
 
 
 const reducer = combineReducers({
@@ -171,7 +182,15 @@ const reducer = combineReducers({
     specializeUpdate: specializeUpdateReducer,
     specializeDelete: specializeDeleteReducer,
     vendorsList: vendorsListReducer,
-    vendorsDelete: vendorsDeleteReducer
+    vendorsDelete: vendorsDeleteReducer,
+    doctorCreate: doctorCreateReducer,
+    doctorList: doctorListReducer,
+    doctorDetail: doctorDetailsReducer,
+    doctorDelete: doctorsDeleteReducer,
+    doctorUpdate: doctorUpdateReducer,
+    doctorGender: doctorGenderListReducer,
+    doctorDays: doctorDaysListReducer,
+    doctorDuty: doctorDutyListReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
