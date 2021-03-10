@@ -43,6 +43,7 @@ import FileUpload from './admin/FileUpload'
 import ListVendors from './admin/ListVendors'
 import ListDoctors from './admin/ListDoctors'
 import AddDoctorDetails from './admin/AddDoctorDetails'
+import UpdateDoctorProfile from './admin/UpdateDoctorProfile'
 
 const Routes = () => {
     return (
@@ -61,6 +62,7 @@ const Routes = () => {
                 <AdminRoute path="/update-building/:id" exact component={UpdateBuilding} />
                 <AdminRoute path="/update-designation/:id" exact component={UpdateDesignation} />
                 <AdminRoute path="/update-floor/:id" exact component={UpdateFloor} />
+                <AdminRoute path="/update-doctor/:id" exact component={UpdateDoctorProfile} />
                 <AdminRoute path="/update-depart/:id" exact component={UpdateDepartment} />
                 <AdminRoute path="/update-patient/:id" exact component={UpdatePatientProfile} />
                 <AdminRoute path="/update-specialize/:id" exact component={UpdateSpecialize} />

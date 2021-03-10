@@ -135,11 +135,11 @@ const ListDoctors = ({ history }) => {
                                             <td>{doctor.department.name}</td>
                                             <td>{doctor.designation.name}</td>
                                             <td>{doctor.cell}</td>
-                                            <td>{moment(doctor.regDate).format("YYYY-MM-DD HH:mm Z")}</td>
+                                            <td>{moment(doctor.regDate).format("YYYY-MM-DD")}</td>
 
                                             <td>{doctor.gender}</td>
 
-                                            <td><Link to={`/update-patient/${doctor._id}`}><i className="bi bi-pencil-square"></i></Link></td>
+                                            <td><Link to={`/update-doctor/${doctor._id}`}><i className="bi bi-pencil-square"></i></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(doctor._id)}></i></td>
                                         </Fragment>
                                     </tr>

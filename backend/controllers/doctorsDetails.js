@@ -64,7 +64,7 @@ exports.update = asyncHandler(async (req, res) => {
 
 exports.getDoctorDetail = asyncHandler(async (req, res) => {
 
-    const doctor = await doctorsDetails.findById(req.params.id).populate("user, specialization, designation, department")
+    const doctor = await doctorsDetails.findById(req.params.id).populate("user specialization designation department")
 
     if (doctor) {
         res.json({

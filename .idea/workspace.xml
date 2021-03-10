@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0a913cf6-e558-49a6-85b0-f0a9753a7561" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/backend/controllers/doctorsDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/doctorsDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/doctorsDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/doctorsDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/admin/ListDoctors.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/ListDoctors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/core/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/core/Layout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/reducers/doctorsDetailsReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/doctorsDetailsReducers.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/reducers/doctorsDetailsReducers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="154" column="20" lean-forward="true" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
+            <state relative-caret-position="411">
+              <caret line="185" column="6" lean-forward="true" selection-start-line="185" selection-start-column="6" selection-end-line="185" selection-end-column="6" />
               <folding>
                 <element signature="e#0#855#0" expanded="true" />
               </folding>
@@ -32,31 +28,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/ListDoctors.js">
+        <entry file="file://$PROJECT_DIR$/client/src/actions/doctorActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="117" column="61" lean-forward="true" selection-start-line="117" selection-start-column="61" selection-end-line="117" selection-end-column="61" />
+            <state relative-caret-position="-3962">
+              <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/actions/patientActions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1145">
+              <caret line="340" column="26" lean-forward="true" selection-start-line="340" selection-start-column="26" selection-end-line="340" selection-end-column="26" />
               <folding>
-                <element signature="e#0#57#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/reducers/patientDetailsReducers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="184" column="6" lean-forward="true" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#884#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/admin/UpdatePatientProfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1189">
+              <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/controllers/doctorsDetails.js">
+        <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateDoctorProfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="110" column="5" lean-forward="true" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="149">
+              <caret line="164" column="10" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="10" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -65,19 +85,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/models/doctorsDetails.js">
+        <entry file="file://$PROJECT_DIR$/backend/controllers/doctorsDetails.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="75" column="18" lean-forward="true" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+            <state relative-caret-position="-725">
+              <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/AddPatientDetails.js">
+        <entry file="file://$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2400">
-              <caret line="160" column="101" lean-forward="true" selection-start-line="160" selection-start-column="101" selection-end-line="160" selection-end-column="115" />
+            <state relative-caret-position="110">
+              <caret line="85" column="12" lean-forward="true" selection-start-line="85" selection-start-column="12" selection-end-line="90" selection-end-column="37" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -88,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
-              <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="45" />
+            <state relative-caret-position="565">
+              <caret line="65" column="91" lean-forward="true" selection-start-line="65" selection-start-column="91" selection-end-line="65" selection-end-column="91" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -100,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="192" column="4" lean-forward="true" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="14" />
+            <state relative-caret-position="265">
+              <caret line="187" column="4" selection-start-line="187" selection-start-column="4" selection-end-line="187" selection-end-column="16" />
               <folding>
                 <element signature="e#0#69#0" expanded="true" />
               </folding>
@@ -125,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/actions/designateActions.js" />
         <option value="$PROJECT_DIR$/client/src/admin/AddDesignation.js" />
         <option value="$PROJECT_DIR$/client/src/admin/UpdateDesignation.js" />
         <option value="$PROJECT_DIR$/client/src/admin/ListDesignate.js" />
@@ -170,17 +189,18 @@
         <option value="$PROJECT_DIR$/client/src/store.js" />
         <option value="$PROJECT_DIR$/client/src/actions/doctorActions.js" />
         <option value="$PROJECT_DIR$/client/src/core/Layout.js" />
-        <option value="$PROJECT_DIR$/client/src/reducers/doctorsDetailsReducers.js" />
-        <option value="$PROJECT_DIR$/client/src/Routes.js" />
         <option value="$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js" />
         <option value="$PROJECT_DIR$/backend/models/doctorsDetails.js" />
+        <option value="$PROJECT_DIR$/client/src/Routes.js" />
         <option value="$PROJECT_DIR$/client/src/admin/ListDoctors.js" />
         <option value="$PROJECT_DIR$/backend/controllers/doctorsDetails.js" />
+        <option value="$PROJECT_DIR$/client/src/reducers/doctorsDetailsReducers.js" />
+        <option value="$PROJECT_DIR$/client/src/admin/UpdateDoctorProfile.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="108" />
+    <option name="x" value="-54" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="823" />
@@ -292,7 +312,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1615398748881" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1615402410568" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -347,27 +367,26 @@
       <workItem from="1615033415977" duration="863000" />
       <workItem from="1615057786265" duration="1229000" />
       <workItem from="1615086286261" duration="3825000" />
-      <workItem from="1615295397537" duration="13028000" />
+      <workItem from="1615295397537" duration="16894000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="417989000" />
+    <option name="totallyTimeSpent" value="421855000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="108" y="23" width="1440" height="823" extended-state="0" />
-    <editor active="true" />
+    <frame x="-54" y="23" width="1440" height="823" extended-state="0" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.26824033" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.26824033" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="GraphQL" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.3269494" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.3269494" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
@@ -397,23 +416,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/controllers/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="101" column="18" lean-forward="true" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/admin/CreateTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1295">
-          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/routes/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -653,26 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/reducers/patientDetailsReducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="184" column="6" lean-forward="true" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#884#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/patientActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="316" selection-start-line="316" selection-end-line="349" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/admin/ListPatients.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -687,13 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/doctorActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-616">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -714,26 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="192" column="4" lean-forward="true" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/reducers/doctorsDetailsReducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="154" column="20" lean-forward="true" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#855#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/admin/ListSpecialize.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -750,16 +705,6 @@
           <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="14" selection-end-column="55" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
-          <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -784,37 +729,114 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="187" column="4" selection-start-line="187" selection-start-column="4" selection-end-line="187" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="110">
+          <caret line="85" column="12" lean-forward="true" selection-start-line="85" selection-start-column="12" selection-end-line="90" selection-end-column="37" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models/doctorsDetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="75" column="18" lean-forward="true" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/admin/ListDoctors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="117" column="61" lean-forward="true" selection-start-line="117" selection-start-column="61" selection-end-line="117" selection-end-column="61" />
+        <state relative-caret-position="327">
+          <caret line="139" column="68" lean-forward="true" selection-start-line="139" selection-start-column="68" selection-end-line="139" selection-end-column="68" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="65" column="91" lean-forward="true" selection-start-line="65" selection-start-column="91" selection-end-line="65" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/models/doctorsDetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="75" column="18" lean-forward="true" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/controllers/doctorsDetails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="110" column="5" lean-forward="true" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+        <state relative-caret-position="-725">
+          <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/reducers/doctorsDetailsReducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="185" column="6" lean-forward="true" selection-start-line="185" selection-start-column="6" selection-end-line="185" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#855#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/actions/doctorActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3962">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/actions/patientActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1145">
+          <caret line="340" column="26" lean-forward="true" selection-start-line="340" selection-start-column="26" selection-end-line="340" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/reducers/patientDetailsReducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="184" column="6" lean-forward="true" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#884#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/UpdatePatientProfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1189">
+          <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateDoctorProfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="164" column="10" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

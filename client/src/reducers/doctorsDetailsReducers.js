@@ -188,7 +188,7 @@ export const doctorDetailsReducer = (
         case DOCTOR_DETAILS_REQUEST:
             return { ...state, loading: true }
         case DOCTOR_DETAILS_SUCCESS:
-            return { loading: false, patient: action.payload }
+            return { loading: false, doctor: action.payload }
         case DOCTOR_DETAILS_FAIL:
             return { loading: false, error: action.payload }
         default:
