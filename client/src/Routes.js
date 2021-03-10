@@ -41,6 +41,7 @@ import AddSpecialization from './admin/AddSpecialization'
 import UpdateSpecialize from './admin/UpdateSpecialize'
 import FileUpload from './admin/FileUpload'
 import ListVendors from './admin/ListVendors'
+import ListDoctors from './admin/ListDoctors'
 
 const Routes = () => {
     return (
@@ -71,6 +72,7 @@ const Routes = () => {
                 <AdminRoute path="/list-floors" exact component={ListFloors} />
                 <AdminRoute path="/list-departs" exact component={ListDeparts} />
                 <AdminRoute path="/list-vendors" exact component={ListVendors} />
+                <AdminRoute path="/list-doctors" exact component={ListDoctors} />
                 <AdminRoute path="/list-designate" exact component={ListDesignate} />
                 <AdminRoute path="/list-specialize" exact component={ListSpecialize} />
                 <AdminRoute path="/create/cat-test" exact component={CreateTestCat} />
