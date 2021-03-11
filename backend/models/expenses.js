@@ -29,7 +29,7 @@ const expenses = mongoose.Schema(
             type: String,
             required: true
         },
-        toDate: {
+        to: {
             type: String,
             required: true
         },

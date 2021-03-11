@@ -44,6 +44,10 @@ import ListVendors from './admin/ListVendors'
 import ListDoctors from './admin/ListDoctors'
 import AddDoctorDetails from './admin/AddDoctorDetails'
 import UpdateDoctorProfile from './admin/UpdateDoctorProfile'
+import ListExpenses from "./admin/ListExpenses"  
+import AddExpense from './admin/AddExpense'
+
+
 
 const Routes = () => {
     return (
@@ -77,6 +81,7 @@ const Routes = () => {
                 <AdminRoute path="/list-vendors" exact component={ListVendors} />
                 <AdminRoute path="/list-doctors" exact component={ListDoctors} />
                 <AdminRoute path="/list-designate" exact component={ListDesignate} />
+                <AdminRoute path="/list-expenses" exact component={ListExpenses} />
                 <AdminRoute path="/list-specialize" exact component={ListSpecialize} />
                 <AdminRoute path="/create/cat-test" exact component={CreateTestCat} />
                 <AdminRoute path="/add-prescription" exact component={AddPrescription} />
@@ -86,6 +91,7 @@ const Routes = () => {
                 <AdminRoute path="/add-building" exact component={AddBuilding} />
                 <AdminRoute path="/add-floor" exact component={AddFloor} />
                 <AdminRoute path="/add-users" exact component={AddUsers} />
+                <AdminRoute path="/add-expenses" exact component={AddExpense} />
                 <AdminRoute path="/add-depart" exact component={AddDepartment} />
                 <AdminRoute path="/add-designate" exact component={AddDesignation} />
                 <AdminRoute path="/add-doctor" exact component={AddDoctorDetails} />

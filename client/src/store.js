@@ -209,6 +209,7 @@ const reducer = combineReducers({
     expensesPaid: expensesPaidListReducer
 })
 
+
 const userInfoFromStorage = localStorage.getItem('userInfo')
     ? JSON.parse(localStorage.getItem('userInfo'))
     : null
