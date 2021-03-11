@@ -210,7 +210,7 @@ const  UpdatePatientProfile = ({ history: history1, match}) => {
                         <label htmlFor="exampleFormControlTextarea1">Address</label>
                         <textarea className="form-control"
                                   placeholder="write address" rows="3" value={address}
-                                  onChange={(e) => setAddress(e.target.value)}></textarea>
+                                  onChange={(e) => setAddress(e.target.value)}/>
                     </div>
 
                     <div className="form-group col-md-3">

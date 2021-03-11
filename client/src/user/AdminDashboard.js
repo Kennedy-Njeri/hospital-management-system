@@ -3,6 +3,7 @@ import Layout from "../core/Layout";
 import {useSelector, useDispatch} from "react-redux";
 import { listUsers } from '../actions/userActions'
 import { listPrescriptions } from '../actions/prescriptionActions'
+import { listExpenses } from '../actions/expensesActions'
 import { listTestsResults } from '../actions/testActions'
 import {Link} from "react-router-dom";
 import { Pie, Doughnut } from 'react-chartjs-2';
@@ -32,6 +33,26 @@ const AdminDashboard = () => {
 
     const countPatients = () => {
         return users.filter((user) => user.role === 2).length
+    }
+
+
+    // expenses list
+    const expenseList = useSelector((state) => state.expenseList)
+    const { expenses } = expenseList
+
+    console.log(expenses)
+
+    // calculate total amount of expenses
+    const totalExpenses = () => {
+
+        let totalExpe = expenses && expenses.reduce((acc, curr) => {
+
+            acc += parseInt(curr.amount)
+
+            return acc
+        }, 0)
+
+        return totalExpe
     }
 
 
@@ -78,6 +99,8 @@ const AdminDashboard = () => {
         dispatch(listUsers())
         dispatch(listPrescriptions())
         dispatch(listTestsResults())
+        dispatch(listExpenses())
+        getExpensesData()
 
     },[dispatch])
 
@@ -112,6 +135,8 @@ const AdminDashboard = () => {
         return { admin, doc, patient, staff}
 
     }
+
+
     
     
     // chart data
@@ -132,6 +157,35 @@ const AdminDashboard = () => {
         console.log(usersList)
 
         return {labels, customLabels, usersList}
+    }
+
+
+    const getExpensesData = () => {
+
+        let amountList = []
+        let expenseNames = []
+
+        expenses && expenses.forEach((expense) => {
+            amountList.push(expense.amount)
+            expenseNames.push(expense.name)
+        })
+
+        console.log(`the amount list is ` , amountList)
+
+        return { amountList, expenseNames}
+
+    }
+
+    // chart data
+    const expenseChart =  () => {
+
+       // let data = getExpensesData()
+
+        let labels = getExpensesData().expenseNames
+        let customLabels = labels.map((label, index) => `${label}: ${getExpensesData().amountList[index]}`)
+
+
+        return {customLabels}
     }
 
 
@@ -202,7 +256,7 @@ const AdminDashboard = () => {
                             <div className="card bg-danger text-white mb-4">
                                 <div className="card-body">Expenses</div>
                                 <div className="card-footer d-flex align-items-center justify-content-between">
-                                    <a className="small text-white stretched-link" href="#">Ksh 3,000 </a>
+                                    <a className="small text-white stretched-link" href="#">Ksh {totalExpenses()}</a>
                                     <div className="small text-white"><i className="fas fa-angle-right"></i>
                                     </div>
                                 </div>
@@ -233,14 +287,14 @@ const AdminDashboard = () => {
                             <div className="card mb-4">
                                 <div className="card-header">
                                     <i className="fas fa-chart-pie mr-1"></i>
-                                    User Types
+                                    Expenses Types
                                 </div>
                                 <div className="card-body">
                                     <Doughnut data={{
-                                        labels: chart().customLabels,
+                                        labels: expenseChart().customLabels,
                                         datasets: [{
                                             backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
-                                            data: chart().usersList
+                                            data: getExpensesData().amountList
                                         }]
                                     }}/>
 

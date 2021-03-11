@@ -90,7 +90,7 @@ export const expensesDetailsReducer = (
         case EXPENSES_DETAILS_REQUEST:
             return { ...state, loading: true }
         case EXPENSES_DETAILS_SUCCESS:
-            return { loading: false, floor: action.payload }
+            return { loading: false, expense: action.payload }
         case EXPENSES_DETAILS_FAIL:
             return { loading: false, error: action.payload }
         default:

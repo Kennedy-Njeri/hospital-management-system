@@ -65,7 +65,16 @@ exports.getExpenseDetail = asyncHandler(async (req, res) => {
     const expense = await expenses.findById(req.params.id).populate("department")
 
     if (expense) {
-        res.json(expense)
+        res.json({
+            _id: expense._id,
+            name: expense.name,
+            department: expense.department._id,
+            amount: expense.amount,
+            description: expense.description,
+            fromDate: expense.fromDate,
+            to: expense.to,
+            paid: expense.paid
+        })
     } else {
         res.status(404)
         throw new Error('Expense not found')

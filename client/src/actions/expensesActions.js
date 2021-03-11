@@ -213,7 +213,7 @@ export const expensesDetails = (id) => async (dispatch, getState) => {
             type: EXPENSES_DETAILS_SUCCESS,
             payload: data,
         })
-        console.log(data)
+        //console.log(data)
     } catch (error) {
         console.log(error)
         dispatch({
