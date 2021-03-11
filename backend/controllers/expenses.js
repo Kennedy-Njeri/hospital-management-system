@@ -8,8 +8,6 @@ const asyncHandler  = require( 'express-async-handler')
 
 
 
-
-
 exports.expenseById = asyncHandler (async (req, res, next, id) => {
 
     await expenses.findById(id).populate("department").exec((err, expense) => {
