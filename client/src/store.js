@@ -114,6 +114,16 @@ import {
 } from './reducers/doctorsDetailsReducers'
 
 
+import {
+    expenseCreateReducer,
+    expensesDeleteReducer,
+    expensesDetailsReducer,
+    expensesListReducer,
+    expensesPaidListReducer,
+    expensesUpdateReducer
+} from './reducers/expensesReducers'
+
+
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
@@ -190,7 +200,13 @@ const reducer = combineReducers({
     doctorUpdate: doctorUpdateReducer,
     doctorGender: doctorGenderListReducer,
     doctorDays: doctorDaysListReducer,
-    doctorDuty: doctorDutyListReducer
+    doctorDuty: doctorDutyListReducer,
+    expenseCreate: expenseCreateReducer,
+    expenseList: expensesListReducer,
+    expenseDetail: expensesDetailsReducer,
+    expensesUpdate: expensesUpdateReducer,
+    expensesDelete: expensesDeleteReducer,
+    expensesPaid: expensesPaidListReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
