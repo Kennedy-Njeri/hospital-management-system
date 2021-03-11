@@ -19,11 +19,15 @@ const ListUsers = ({ history }) => {
 
     const userDelete = useSelector((state) => state.userDelete)
     const { success: successDelete } = userDelete
+    
+   
+    
 
-    const [keyword, setKeyword] = useState('')
-    const [search, setSearch] = useState(false)
+    const [searchTerm, setSearchTerm] = React.useState("");
 
-    console.log(keyword)
+    const handleChange = event => {
+        setSearchTerm(event.target.value);
+    };
     
     useEffect(() => {
         if (userInfo && userInfo.role === 0) {
@@ -40,25 +44,10 @@ const ListUsers = ({ history }) => {
         }
     }
 
-    const handleChange = (e) => {
-        e.preventDefault()
-        setKeyword(e.target.value)
-    }
-
-
-    const submitHandler = (e) => {
-        e.preventDefault()
-        if (keyword.trim()) {
-            setSearch(true)
-            dispatch(listUsers(keyword))
-        } else {
-
-            dispatch(listUsers())
-            setSearch(false)
-            //dispatch({ type: USER_LIST_SUCCESS })
-            //history.push('/list/users')
-        }
-    }
+    // search users
+    const results = !searchTerm ? users : users && users.filter(user =>
+        user.name.toString().toLowerCase().includes(searchTerm) || user.email.toString().toLowerCase().includes(searchTerm)
+    )
 
     const showError = () => (
         <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
@@ -81,7 +70,7 @@ const ListUsers = ({ history }) => {
         <Layout title="Profile" description="Update your profile" className="container-fluid">
             <h4><Link to="/add-users"><button>Add User</button></Link></h4>
 
-            { search === false ? '' :  <h4><button onClick={() => dispatch(listUsers())}>Refresh</button></h4>}
+           
             <h2 className="mb-4">List Users</h2>
 
             {loading ? (
@@ -92,9 +81,9 @@ const ListUsers = ({ history }) => {
                 <div className="row">
 
                     <div className="col-lg-8">
-                        <form onSubmit={submitHandler}>
+                        <form>
                             <div className="input-group">
-                                <input className="form-control" type="text" value={keyword}  onChange={handleChange} name="q" placeholder="Search for..." aria-label="Search"
+                                <input className="form-control" type="text" value={searchTerm}  onChange={handleChange} name="q" placeholder="Search for..." aria-label="Search"
                                        aria-describedby="basic-addon2"/>
                                 <div className="input-group-append">
                                     <button className="btn btn-primary" type="button"><i className="fas fa-search"></i>
@@ -119,8 +108,8 @@ const ListUsers = ({ history }) => {
                     </tr>
                     </thead>
                     <tbody>
-                    {users &&
-                    users.map((user, i) => (
+                    {results &&
+                    results.map((user, i) => (
                         <tr key={i}>
                         <th scope="row">{user._id}</th>
                         <td>{user.name}</td>

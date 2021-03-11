@@ -16,6 +16,13 @@ const ListVendors = ({ history }) => {
 
     console.log(vendors)
 
+    const [searchTerm, setSearchTerm] = React.useState("");
+
+    const handleChange = event => {
+        setSearchTerm(event.target.value);
+    };
+
+
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
@@ -37,6 +44,10 @@ const ListVendors = ({ history }) => {
             dispatch(deleteVendors(id))
         }
     }
+
+    const results = !searchTerm ? vendors : vendors && vendors.filter(vendor =>
+        vendor.name.toString().toLowerCase().includes(searchTerm)
+    )
 
 
     const showError = () => (
@@ -68,6 +79,23 @@ const ListVendors = ({ history }) => {
                 showError()
             ) : (
                 <div className="row">
+
+                    <div className="col-lg-8">
+                        <form>
+                            <div className="input-group">
+                                <input className="form-control" type="text" value={searchTerm} onChange={handleChange}  name="q" placeholder="Search for..." aria-label="Search"
+                                       aria-describedby="basic-addon2"/>
+                                <div className="input-group-append">
+                                    <button className="btn btn-primary" type="button"><i className="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+
                     <div className="col-sm-8">
                         <table className="table">
                             <thead>
@@ -82,7 +110,7 @@ const ListVendors = ({ history }) => {
                             </thead>
                             <tbody>
                             {
-                                vendors && vendors.map((vend, i) => (
+                                results && results.map((vend, i) => (
                                     <tr key={i}>
                                         <Fragment>
                                             <th scope="row">{vend._id}</th>

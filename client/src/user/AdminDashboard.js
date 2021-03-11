@@ -100,7 +100,7 @@ const AdminDashboard = () => {
         dispatch(listPrescriptions())
         dispatch(listTestsResults())
         dispatch(listExpenses())
-        getExpensesData()
+        //getExpensesData()
 
     },[dispatch])
 
