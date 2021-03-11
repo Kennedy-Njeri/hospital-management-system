@@ -3,6 +3,8 @@ import Layout from '../core/Layout';
 import { listUsers, deleteUser  } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link} from "react-router-dom";
+import Pagination from "react-js-pagination";
+
 
 
 
@@ -14,12 +16,21 @@ const ListUsers = ({ history }) => {
     const userList = useSelector((state) => state.userList)
     const { loading, error, users } = userList
 
+    //console.log(users)
+
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
     const userDelete = useSelector((state) => state.userDelete)
     const { success: successDelete } = userDelete
-    
+
+    const [activePage, setActivePage] = useState(1)
+    const [itemPerPage, setItemPerPage] = useState(5)
+
+   
+
+
+
    
     
 
@@ -46,8 +57,21 @@ const ListUsers = ({ history }) => {
 
     // search users
     const results = !searchTerm ? users : users && users.filter(user =>
-        user.name.toString().toLowerCase().includes(searchTerm) || user.email.toString().toLowerCase().includes(searchTerm)
+        user.name.toString().toLowerCase().includes(searchTerm)
     )
+
+    const countUsers = () => {
+        return results && results.length
+    }
+
+    const indexOfLastUser = activePage * itemPerPage;
+    const indexOfFirstUser = indexOfLastUser - itemPerPage;
+
+    const handlePageChange = (pageNumber) => {
+        console.log(`active page is ${pageNumber}`);
+        setActivePage(pageNumber)
+    }
+
 
     const showError = () => (
         <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
@@ -109,7 +133,7 @@ const ListUsers = ({ history }) => {
                     </thead>
                     <tbody>
                     {results &&
-                    results.map((user, i) => (
+                    results.slice(indexOfFirstUser, indexOfLastUser).map((user, i) => (
                         <tr key={i}>
                         <th scope="row">{user._id}</th>
                         <td>{user.name}</td>
@@ -125,8 +149,8 @@ const ListUsers = ({ history }) => {
                                     <button type="button" className="btn btn-warning btn-sm">Staff</button>
                                 )}
                             </td>
-                            <td><Link to={`/update/users/${user._id}`}><i className="bi bi-pencil-square"></i></Link></td>
-                            <td><i className="bi bi-trash" onClick={() => deleteHandler(user._id)}></i></td>
+                            <td><Link to={`/update/users/${user._id}`}><i className="bi bi-pencil-square" /></Link></td>
+                            <td><i className="bi bi-trash" onClick={() => deleteHandler(user._id)} /></td>
                         </tr>
 
                     ))}
@@ -135,6 +159,17 @@ const ListUsers = ({ history }) => {
                     </div>
                 </div>
             )}
+
+            {countUsers()}
+            <Pagination
+                activePage={activePage}
+                itemsCountPerPage={itemPerPage}
+                totalItemsCount={parseInt(countUsers())}
+                pageRangeDisplayed={5}
+                onChange={handlePageChange}
+                itemClass="page-item"
+                linkClass="page-link"
+            />
 
         </Layout>
     )
