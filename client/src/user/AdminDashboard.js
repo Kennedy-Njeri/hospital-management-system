@@ -102,6 +102,8 @@ const AdminDashboard = () => {
             } else if (user.role === 3) {
                 staff++
 
+            } else {
+                return null
             }
         }
 
