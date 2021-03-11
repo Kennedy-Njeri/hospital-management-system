@@ -77,9 +77,9 @@ exports.getExpenseDetail = asyncHandler(async (req, res) => {
 
 exports.remove = asyncHandler(async (req, res) => {
 
-    const { expense } = req.params
+    const { id } = req.params
 
-    const result = await expenses.findById(expense)
+    const result = await expenses.findById(id)
 
     if (result) {
         await result.remove()
