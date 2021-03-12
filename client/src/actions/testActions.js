@@ -37,7 +37,10 @@ import {
     LIST_PAID_ENUMS_FAIL,
     LIST_PAID_ENUMS_REQUEST,
     LIST_PAID_ENUMS_RESET,
-    LIST_PAID_ENUMS_SUCCESS
+    LIST_PAID_ENUMS_SUCCESS,
+    TEST_USER_DETAILS_FAIL,
+    TEST_USER_DETAILS_REQUEST,
+    TEST_USER_DETAILS_SUCCESS
 } from '../constants/testConstants'
 import { logout } from './userActions'
 import { API } from "../config";
@@ -465,6 +468,42 @@ export const testsDetails = (id) => async (dispatch, getState) => {
         console.log(error)
         dispatch({
             type: TEST_DETAILS_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        })
+    }
+}
+
+
+export const testsDetailsUser = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({ type: TEST_USER_DETAILS_REQUEST })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+
+        const { data } = await axios.get(`${API}/test-detail-user/${id}/${userInfo._id}`, config)
+
+        dispatch({
+            type: TEST_USER_DETAILS_SUCCESS,
+            payload: data,
+        })
+        //console.log(data)
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: TEST_USER_DETAILS_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message

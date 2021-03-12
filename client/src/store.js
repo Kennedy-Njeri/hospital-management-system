@@ -23,7 +23,8 @@ import {
     testUpdateReducer,
     createTestReducer,
     testDetailsReducer,
-    testPaidListReducer
+    testPaidListReducer,
+    testDetailsUserReducer
 } from './reducers/testReducers'
 
 import {
@@ -147,6 +148,7 @@ const reducer = combineReducers({
     testPaidList: testPaidListReducer,
     createTests: createTestReducer,
     testDetails: testDetailsReducer,
+    testDetailsUser: testDetailsUserReducer,
     treatCreate: treatCreateReducer,
     treatLists: treatListMyReducer,
     treatDelete: treatCatDeleteReducer,

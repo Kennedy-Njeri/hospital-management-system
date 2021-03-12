@@ -111,8 +111,8 @@ const ListTestResult = ({ history }) => {
                                             <td>{test.testName.cost}</td>
                                             <td>{test.paid === "Paid" ? (<button type="button" className="btn btn-success btn-sm">{test.paid}</button>) :
                                                 (<button type="button" className="btn btn-danger btn-sm">{test.paid}</button>) }</td>
-                                            <td><Link to={`/update-test/${test._id}`}><i className="bi bi-pencil-square"></i></Link></td>
-                                            <td><i className="bi bi-trash" onClick={() => deleteHandler(test._id)}></i></td>
+                                            <td><Link to={`/update-test/${test._id}`}><i className="bi bi-pencil-square"/></Link></td>
+                                            <td><i className="bi bi-trash" onClick={() => deleteHandler(test._id)}/></td>
                                         </Fragment>
                                     </tr>
                                 ))

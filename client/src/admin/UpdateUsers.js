@@ -110,11 +110,13 @@ const UpdateUsers = ({ match, history }) => {
                     </div>
                 </div>
             </div>
+            <div className="col-md-8">
             <div className="form-group mt-4 mb-0">
                 <button className="btn btn-primary btn-block">Update
                     Account</button></div>
+            </div>
         </form>
-
+       
     );
 
     const showError = () => (

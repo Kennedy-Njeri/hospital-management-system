@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, Fragment} from 'react'
 import Layout from '../core/Layout';
-//import { listUsers, deleteUser  } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
-import {Link} from "react-router-dom";
 import "../styles.css";
 import { patientsDetailsUser } from '../actions/patientActions'
-import {listUsers} from "../actions/userActions";
+import { testsDetailsUser } from '../actions/testActions'
+
 
 
 
@@ -30,6 +29,7 @@ const PatDetails = ({ history, match }) => {
     useEffect(() => {
         if (userInfo && userInfo.role === 0) {
             dispatch(patientsDetailsUser(id))
+            dispatch(testsDetailsUser(id))
         } else {
             history.push('/login')
         }
@@ -40,7 +40,10 @@ const PatDetails = ({ history, match }) => {
     const { patient } = patientDetailsUser
 
 
-    console.log(patient)
+    const testDetailsUser = useSelector((state) => state.testDetailsUser)
+    const { test } = testDetailsUser
+    
+    console.log(test)
 
 
     const showUserProfile = ()=> (
@@ -113,6 +116,48 @@ const PatDetails = ({ history, match }) => {
             ))
 
 )
+
+    const showUserTests = () => (
+
+        Array.from(test).map((tes, i) => (
+        <div className="card" key={i}>
+            <div className="card-header">
+                <h4 className="card-title">Tests info</h4>
+            </div>
+            <div className="card-body">
+                <table className="table profile__table">
+                    <tbody>
+                    <tr>
+                        <th><strong>Test Name</strong></th>
+                        <td>{tes.testName.testName}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Description</strong></th>
+                        <td>{tes.description}</td>
+                    </tr>
+
+                    <tr>
+                        <th><strong>Result</strong></th>
+                        <td>{tes.result}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Cost</strong></th>
+                        <td>{tes.testName.cost}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Paid</strong></th>
+                        <td>{tes.paid === "Paid" ? (<button type="button" className="btn btn-success btn-sm">{tes.paid}</button>) :
+                            (<button type="button" className="btn btn-danger btn-sm">{tes.paid}</button>) }</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+            
+        ))
+)
+
     
 
     return (
@@ -124,6 +169,7 @@ const PatDetails = ({ history, match }) => {
 
                         {showUserProfile()}
 
+                        {showUserTests()}
 
 
                         <div className="card">

@@ -50,6 +50,18 @@ exports.getTestDetail = asyncHandler(async (req, res) => {
 })
 
 
+exports.getTestDetailUser = asyncHandler(async (req, res) => {
+    const test = await testResult.find({ user: req.params.id }).populate("user testName")
+
+    if (test) {
+        res.json(test)
+    } else {
+        res.status(404)
+        throw new Error('Test not found')
+    }
+})
+
+
 exports.update = asyncHandler(async (req, res) => {
     try {
         console.log(req.body)

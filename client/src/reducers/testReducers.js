@@ -38,7 +38,10 @@ import {
     LIST_PAID_ENUMS_FAIL,
     LIST_PAID_ENUMS_REQUEST,
     LIST_PAID_ENUMS_RESET,
-    LIST_PAID_ENUMS_SUCCESS
+    LIST_PAID_ENUMS_SUCCESS,
+    TEST_USER_DETAILS_FAIL,
+    TEST_USER_DETAILS_REQUEST,
+    TEST_USER_DETAILS_SUCCESS
 } from '../constants/testConstants'
 
 
@@ -211,6 +214,23 @@ export const testDetailsReducer = (
         case TEST_DETAILS_SUCCESS:
             return { loading: false, test: action.payload }
         case TEST_DETAILS_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+
+export const testDetailsUserReducer = (
+    state = { test: {} },
+    action
+) => {
+    switch (action.type) {
+        case TEST_USER_DETAILS_REQUEST:
+            return { ...state, loading: true }
+        case TEST_USER_DETAILS_SUCCESS:
+            return { loading: false, test: action.payload }
+        case TEST_USER_DETAILS_FAIL:
             return { loading: false, error: action.payload }
         default:
             return state
