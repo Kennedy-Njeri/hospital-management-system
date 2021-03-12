@@ -20,7 +20,7 @@ const { protect, admin } = require('../middleware/authMiddleware.js')
 
 router.get('/patient-detail/:id/:userId', protect, admin, getPatientDetail);
 
-router.get('/patient-detail-user/:id', protect, admin, getPatientDetailUser);
+router.get('/patient-detail-user/:id/:userId', protect, admin, getPatientDetailUser);
 
 router.put('/patient-update/:id/:userId', protect, admin, update);
 

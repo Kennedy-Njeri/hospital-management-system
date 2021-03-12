@@ -10291,14 +10291,7 @@ body {
  * Profile
  */
 /*** Profile: Header  ***/
-.profile__avatar {
-    float: left;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 20px;
-    overflow: hidden;
-}
+
 @media (min-width: 768px) {
     .profile__avatar {
         width: 100px;

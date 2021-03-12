@@ -106,7 +106,7 @@ const ListUsers = ({ history }) => {
                                 <input className="form-control" type="text" value={searchTerm}  onChange={handleChange} name="q" placeholder="Search for..." aria-label="Search"
                                        aria-describedby="basic-addon2"/>
                                 <div className="input-group-append">
-                                    <button className="btn btn-primary" type="button"><i className="fas fa-search"></i>
+                                    <button className="btn btn-primary" type="button"><i className="fas fa-search"/>
                                     </button>
                                 </div>
                             </div>

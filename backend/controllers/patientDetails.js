@@ -99,7 +99,7 @@ exports.getPatientDetailUser = asyncHandler(async (req, res) => {
     const patient = await patientDetails.find({ user: req.params.id }).populate("user")
 
     if (patient) {
-        res.json(patient[0])
+        res.json(patient)
         // res.json({
         //     _id: patient._id,
         //

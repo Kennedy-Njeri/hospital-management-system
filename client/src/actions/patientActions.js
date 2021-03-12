@@ -369,7 +369,7 @@ export const patientsDetailsUser = (id) => async (dispatch, getState) => {
         }
 
 
-        const { data } = await axios.get(`${API}/patient-detail-user/${id}`, config)
+        const { data } = await axios.get(`${API}/patient-detail-user/${id}/${userInfo._id}`, config)
 
         dispatch({
             type: PATIENT_DETAILS_USER_SUCCESS,
