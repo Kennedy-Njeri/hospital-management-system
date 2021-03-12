@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import "../styles.css";
 import { patientsDetailsUser } from '../actions/patientActions'
 import { testsDetailsUser } from '../actions/testActions'
+import { prescriptionUsersDetails } from '../actions/prescriptionActions'
 
 
 
@@ -30,6 +31,7 @@ const PatDetails = ({ history, match }) => {
         if (userInfo && userInfo.role === 0) {
             dispatch(patientsDetailsUser(id))
             dispatch(testsDetailsUser(id))
+            dispatch(prescriptionUsersDetails(id))
         } else {
             history.push('/login')
         }
@@ -42,8 +44,11 @@ const PatDetails = ({ history, match }) => {
 
     const testDetailsUser = useSelector((state) => state.testDetailsUser)
     const { test } = testDetailsUser
+
+    const prescDetailsUser = useSelector((state) => state.prescDetailsUser)
+    const { prescriptions } = prescDetailsUser
     
-    console.log(test)
+    console.log(prescriptions)
 
 
     const showUserProfile = ()=> (
@@ -158,6 +163,59 @@ const PatDetails = ({ history, match }) => {
         ))
 )
 
+
+    const showUserPrescriptions = () => (
+
+        Array.from(prescriptions).map((pres, i) => (
+
+            <div className="card" key={i}>
+                <div className="card-header">
+                    <h4 className="card-title">Treatment && Prescriptions</h4>
+                </div>
+                <div className="card-body">
+                    <table className="table profile__table">
+                        <tbody>
+                        <tr>
+                            <th><strong>Treatment</strong></th>
+                            <td>{pres.treatment.name}</td>
+                        </tr>
+                        <tr>
+                            <th><strong>Cost</strong></th>
+                            <td>{pres.treatment.cost}</td>
+                        </tr>
+                        <tr>
+                            <th><strong>Paid</strong></th>
+                            <td>{pres.paid === "Paid" ? (<button type="button" className="btn btn-success btn-sm">{pres.paid}</button>) :
+                                (<button type="button" className="btn btn-danger btn-sm">{pres.paid}</button>) }</td>
+                        </tr>
+                        <tr>
+                            <th><strong>Medicine</strong></th>
+                            <td>{pres.medicine}</td>
+                        </tr>
+                        <tr>
+                            <th><strong>Take</strong></th>
+                            <td>{pres.take}</td>
+                        </tr>
+                        <tr>
+                            <th><strong>Days</strong></th>
+                            <td>{pres.days}</td>
+                        </tr>
+                        <tr>
+                            <th><strong>Time</strong></th>
+                            <td>{pres.time}</td>
+                        </tr>
+
+                        <tr>
+                            <th><strong>History</strong></th>
+                            <td>{pres.history}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        )
+    ))
+
     
 
     return (
@@ -171,30 +229,9 @@ const PatDetails = ({ history, match }) => {
 
                         {showUserTests()}
 
+                        {showUserPrescriptions()}
 
-                        <div className="card">
-                            <div className="card-header">
-                                <h4 className="card-title">User info</h4>
-                            </div>
-                            <div className="card-body">
-                                <table className="table profile__table">
-                                    <tbody>
-                                    <tr>
-                                        <th><strong>Location</strong></th>
-                                        <td>United States</td>
-                                    </tr>
-                                    <tr>
-                                        <th><strong>Company name</strong></th>
-                                        <td>Simpleqode.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th><strong>Position</strong></th>
-                                        <td>Front-end developer</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+
 
 
                         <div className="card">

@@ -42,7 +42,8 @@ import {
     prescriptionEnumsListReducer,
     prescriptionDetailsReducer,
     prescriptionUpdateReducer,
-    presPaidListReducer
+    presPaidListReducer,
+    prescriptionDetailsUserReducer
 } from './reducers/prescriptionReducers'
 
 import {
@@ -160,6 +161,7 @@ const reducer = combineReducers({
     prescEnumsList: prescriptionEnumsListReducer,
     presPaidList: presPaidListReducer,
     prescDetails: prescriptionDetailsReducer,
+    prescDetailsUser: prescriptionDetailsUserReducer,
     prescUpdate: prescriptionUpdateReducer,
     patientCreate: patientCreateReducer,
     patientList: patientListReducer,

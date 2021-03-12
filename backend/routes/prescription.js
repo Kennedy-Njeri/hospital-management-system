@@ -7,7 +7,7 @@ const {
 
 
 
-const { createPrescription, presById, getPrescriptionDetail, update, remove, list, getTakeValues, getPaidValues  } = require('../controllers/prescription');
+const { createPrescription, presById, getPrescriptionDetail, update, remove, list, getTakeValues, getPaidValues, getPrescriptionDetailUser  } = require('../controllers/prescription');
 
 
 const { protect, admin } = require('../middleware/authMiddleware.js')
@@ -16,6 +16,8 @@ const { protect, admin } = require('../middleware/authMiddleware.js')
 
 
 router.get('/pres-detail/:presId/:userId', protect, admin, getPrescriptionDetail);
+
+router.get('/pres-detail-user/:id/:userId', protect, admin, getPrescriptionDetailUser);
 
 
 router.put('/pres-update/:id/:userId', protect, admin, update);

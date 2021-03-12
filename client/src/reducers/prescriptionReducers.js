@@ -24,7 +24,10 @@ import {
     LIST_PAID_ENUMS_FAIL,
     LIST_PAID_ENUMS_REQUEST,
     LIST_PAID_ENUMS_RESET,
-    LIST_PAID_ENUMS_SUCCESS
+    LIST_PAID_ENUMS_SUCCESS,
+    PRESCRIPTION_USER_DETAILS_FAIL,
+    PRESCRIPTION_USER_DETAILS_REQUEST,
+    PRESCRIPTION_USER_DETAILS_SUCCESS
 } from '../constants/prescriptionConstants'
 
 
@@ -141,6 +144,21 @@ export const prescriptionDetailsReducer = (
     }
 }
 
+export const prescriptionDetailsUserReducer = (
+    state = { prescriptions: {} },
+    action
+) => {
+    switch (action.type) {
+        case PRESCRIPTION_USER_DETAILS_REQUEST:
+            return { ...state, loading: true }
+        case PRESCRIPTION_USER_DETAILS_SUCCESS:
+            return { loading: false, prescriptions: action.payload }
+        case PRESCRIPTION_USER_DETAILS_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
 
 export const presPaidListReducer = (state = { pays: [] }, action) => {
     switch (action.type) {

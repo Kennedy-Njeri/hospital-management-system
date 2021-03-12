@@ -24,7 +24,10 @@ import {
     LIST_PAID_ENUMS_FAIL,
     LIST_PAID_ENUMS_REQUEST,
     LIST_PAID_ENUMS_RESET,
-    LIST_PAID_ENUMS_SUCCESS
+    LIST_PAID_ENUMS_SUCCESS,
+    PRESCRIPTION_USER_DETAILS_FAIL,
+    PRESCRIPTION_USER_DETAILS_REQUEST,
+    PRESCRIPTION_USER_DETAILS_SUCCESS
 } from '../constants/prescriptionConstants'
 import { logout } from './userActions'
 import { API } from "../config";
@@ -293,6 +296,42 @@ export const prescriptionDetails = (id) => async (dispatch, getState) => {
         console.log(error)
         dispatch({
             type: PRESCRIPTION_DETAILS_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        })
+    }
+}
+
+
+export const prescriptionUsersDetails = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({ type: PRESCRIPTION_USER_DETAILS_REQUEST })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+
+        const { data } = await axios.get(`${API}/pres-detail-user/${id}/${userInfo._id}`, config)
+
+        dispatch({
+            type: PRESCRIPTION_USER_DETAILS_SUCCESS,
+            payload: data,
+        })
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: PRESCRIPTION_USER_DETAILS_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message

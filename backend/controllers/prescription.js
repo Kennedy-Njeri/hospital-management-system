@@ -53,6 +53,19 @@ exports.getPrescriptionDetail = asyncHandler(async (req, res) => {
 })
 
 
+exports.getPrescriptionDetailUser = asyncHandler(async (req, res) => {
+    const prescription = await Prescription.find({user: req.params.id}).populate("user treatment test")
+
+    if (prescription) {
+        res.json(prescription)
+    } else {
+        res.status(404)
+        throw new Error('Prescriptions not found')
+    }
+})
+
+
+
 
 exports.update = asyncHandler(async (req, res) => {
     try {
