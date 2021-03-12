@@ -47,6 +47,7 @@ import UpdateDoctorProfile from './admin/UpdateDoctorProfile'
 import ListExpenses from "./admin/ListExpenses"  
 import AddExpense from './admin/AddExpense'
 import UpdateExpenses from './admin/UpdateExpenses'
+import PatDetails from './admin/PatDetails'
 
 
 
@@ -90,6 +91,7 @@ const Routes = () => {
                 <AdminRoute path="/create/cat-treatment" exact component={CreateTreatment} />
                 <AdminRoute path="/create-test" exact component={CreateTest} />
                 <AdminRoute path="/add-patient-details" exact component={AddPatientDetails} />
+                <AdminRoute path="/pat-details/:id" exact component={PatDetails} />
                 <AdminRoute path="/add-building" exact component={AddBuilding} />
                 <AdminRoute path="/add-floor" exact component={AddFloor} />
                 <AdminRoute path="/add-users" exact component={AddUsers} />

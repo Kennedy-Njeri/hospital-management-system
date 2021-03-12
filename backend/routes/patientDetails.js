@@ -10,7 +10,7 @@ const {
 } = require( '../controllers/user.js')
 
 
-const { creatPatientDetails, getPatientDetail, update, remove, list, getStatusValues, getGenderValues, getPatientTypeValues, patientsById} = require('../controllers/patientDetails');
+const { creatPatientDetails, getPatientDetail, update, remove, list, getStatusValues, getGenderValues, getPatientTypeValues, patientsById, getPatientDetailUser } = require('../controllers/patientDetails');
 
 
 const { protect, admin } = require('../middleware/authMiddleware.js')
@@ -20,6 +20,7 @@ const { protect, admin } = require('../middleware/authMiddleware.js')
 
 router.get('/patient-detail/:id/:userId', protect, admin, getPatientDetail);
 
+router.get('/patient-detail-user/:id', protect, admin, getPatientDetailUser);
 
 router.put('/patient-update/:id/:userId', protect, admin, update);
 

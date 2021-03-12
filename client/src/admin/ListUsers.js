@@ -30,10 +30,6 @@ const ListUsers = ({ history }) => {
    
 
 
-
-   
-    
-
     const [searchTerm, setSearchTerm] = React.useState("");
 
     const handleChange = event => {
@@ -129,6 +125,8 @@ const ListUsers = ({ history }) => {
                         <th scope="col">Role</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
+
+
                     </tr>
                     </thead>
                     <tbody>
@@ -138,6 +136,7 @@ const ListUsers = ({ history }) => {
                         <th scope="row">{user._id}</th>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
+
                             <td>
                                 {user.role === 0 ? (
                                         <button type="button" className="btn btn-primary btn-sm">Admin</button>
@@ -151,6 +150,7 @@ const ListUsers = ({ history }) => {
                             </td>
                             <td><Link to={`/update/users/${user._id}`}><i className="bi bi-pencil-square" /></Link></td>
                             <td><i className="bi bi-trash" onClick={() => deleteHandler(user._id)} /></td>
+                            <td>{user.role === 2 ? (<Link to={`/pat-details/${user._id}`}> <button type="button" className="btn btn-success btn-sm">Details</button></Link>): ''}</td>
                         </tr>
 
                     ))}

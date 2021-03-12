@@ -52,7 +52,8 @@ import {
     patientStatusListReducer,
     patientTypesListReducer,
     patientDetailsReducer,
-    patientUpdateReducer
+    patientUpdateReducer,
+    patientDetailsUserReducer
 } from './reducers/patientDetailsReducers'
 
 import {
@@ -166,6 +167,7 @@ const reducer = combineReducers({
     patientTypes: patientTypesListReducer,
     patientUpdate: patientUpdateReducer,
     patientDetails:patientDetailsReducer,
+    patientDetailsUser: patientDetailsUserReducer,
     buidingCreate: buildingCreateReducer,
     buildingList: buildingListReducer,
     buildingUpdate: buildingUpdateReducer,

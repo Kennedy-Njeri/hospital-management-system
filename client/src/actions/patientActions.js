@@ -30,7 +30,10 @@ import {
     UPDATE_PATIENT_SUCCESS,
     PATIENT_DETAILS_FAIL,
     PATIENT_DETAILS_REQUEST,
-    PATIENT_DETAILS_SUCCESS
+    PATIENT_DETAILS_SUCCESS,
+    PATIENT_DETAILS_USER_FAIL,
+    PATIENT_DETAILS_USER_REQUEST,
+    PATIENT_DETAILS_USER_SUCCESS
 } from '../constants/patientDetailsConstants'
 
 
@@ -341,6 +344,42 @@ export const patientsDetails = (id) => async (dispatch, getState) => {
         console.log(error)
         dispatch({
             type: PATIENT_DETAILS_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        })
+    }
+}
+
+
+export const patientsDetailsUser = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({ type: PATIENT_DETAILS_USER_REQUEST })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+
+        const { data } = await axios.get(`${API}/patient-detail-user/${id}`, config)
+
+        dispatch({
+            type: PATIENT_DETAILS_USER_SUCCESS,
+            payload: data,
+        })
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: PATIENT_DETAILS_USER_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message

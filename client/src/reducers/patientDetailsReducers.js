@@ -28,7 +28,10 @@ import {
     UPDATE_PATIENT_SUCCESS,
     PATIENT_DETAILS_FAIL,
     PATIENT_DETAILS_REQUEST,
-    PATIENT_DETAILS_SUCCESS
+    PATIENT_DETAILS_SUCCESS,
+    PATIENT_DETAILS_USER_FAIL,
+    PATIENT_DETAILS_USER_REQUEST,
+    PATIENT_DETAILS_USER_SUCCESS
 } from '../constants/patientDetailsConstants'
 
 
@@ -189,6 +192,23 @@ export const patientDetailsReducer = (
         case PATIENT_DETAILS_SUCCESS:
             return { loading: false, patient: action.payload }
         case PATIENT_DETAILS_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+
+export const patientDetailsUserReducer = (
+    state = { patient: {} },
+    action
+) => {
+    switch (action.type) {
+        case PATIENT_DETAILS_USER_REQUEST:
+            return { ...state, loading: true }
+        case PATIENT_DETAILS_USER_SUCCESS:
+            return { loading: false, patient: action.payload }
+        case PATIENT_DETAILS_USER_FAIL:
             return { loading: false, error: action.payload }
         default:
             return state

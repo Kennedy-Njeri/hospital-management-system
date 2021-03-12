@@ -227,7 +227,7 @@ const AdminDashboard = () => {
                                 <div className="card-body">Admin Users</div>
                                 <div className="card-footer d-flex align-items-center justify-content-between">
                                     <Link className="small text-white stretched-link" to={`/list/users`}>{countAdmins()}</Link>
-                                    <div className="small text-white"><i className="fas fa-angle-right"></i>
+                                    <div className="small text-white"><i className="fas fa-angle-right"/>
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +237,7 @@ const AdminDashboard = () => {
                                 <div className="card-body">Doctors</div>
                                 <div className="card-footer d-flex align-items-center justify-content-between">
                                     <Link className="small text-white stretched-link" to={`/list/users`}>{countDoctors()}</Link>
-                                    <div className="small text-white"><i className="fas fa-angle-right"></i>
+                                    <div className="small text-white"><i className="fas fa-angle-right"/>
                                     </div>
                                 </div>
                             </div>
@@ -247,7 +247,7 @@ const AdminDashboard = () => {
                                 <div className="card-body">Payments</div>
                                 <div className="card-footer d-flex align-items-center justify-content-between">
                                     <a className="small text-white stretched-link" href="#">Ksh {totalCollected() + totalCollected1()}</a>
-                                    <div className="small text-white"><i className="fas fa-angle-right"></i>
+                                    <div className="small text-white"><i className="fas fa-angle-right"/>
                                     </div>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@ const AdminDashboard = () => {
                         <div className="col-lg-6">
                             <div className="card mb-4">
                                 <div className="card-header">
-                                    <i className="fas fa-chart-pie mr-1"></i>
+                                    <i className="fas fa-chart-pie mr-1"/>
                                     User Types
                                 </div>
                                 <div className="card-body">
@@ -286,7 +286,7 @@ const AdminDashboard = () => {
                         <div className="col-lg-6">
                             <div className="card mb-4">
                                 <div className="card-header">
-                                    <i className="fas fa-chart-pie mr-1"></i>
+                                    <i className="fas fa-chart-pie mr-1"/>
                                     Expenses Types
                                 </div>
                                 <div className="card-body">
@@ -336,7 +336,7 @@ const AdminDashboard = () => {
                                             )}
                                         </td>
                                         <td><Link to={`/update/users/${user._id}`}><i className="bi bi-pencil-square"></i></Link></td>
-                                        <td><i className="bi bi-trash"></i></td>
+                                        <td><i className="bi bi-trash"/></td>
                                     </tr>
 
                                 ))}

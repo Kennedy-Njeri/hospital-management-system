@@ -92,6 +92,41 @@ exports.getPatientDetail = asyncHandler(async (req, res) => {
 })
 
 
+
+
+exports.getPatientDetailUser = asyncHandler(async (req, res) => {
+
+    const patient = await patientDetails.find({ user: req.params.id }).populate("user")
+
+    if (patient) {
+        res.json(patient[0])
+        // res.json({
+        //     _id: patient._id,
+        //
+        //     lastName: patient.lastName,
+        //     idNumber: patient.idNumber,
+        //     regDate: patient.regDate,
+        //     address: patient.address,
+        //     cell: patient.cell,
+        //     birthDate: patient.birthDate,
+        //     residence: patient.residence,
+        //     email: patient.email,
+        //     guardian: patient.guardian,
+        //     relation: patient.relation,
+        //     gender: patient.gender,
+        //     statusPatient: patient.statusPatient,
+        //     patientType: patient.patientType,
+        //     image: patient.image
+        // })
+    } else {
+        res.status(404)
+        throw new Error('Patient not found')
+    }
+})
+
+
+
+
 exports.remove = asyncHandler(async (req, res) => {
 
     const { patient } = req.params
