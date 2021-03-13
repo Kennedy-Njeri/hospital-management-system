@@ -122,38 +122,43 @@ const Layout = ({
 
                 <div className="sb-sidenav-menu-heading">Patient Details</div>
                 <Link className="nav-link" style={isActive(history, '/add-patient-details')} to="/add-patient-details">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     Add Patient
                 </Link>
                 <Link className="nav-link" style={isActive(history, '/list-patients')} to="/list-patients">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     List Patients
                 </Link>
 
                 <Link className="nav-link" style={isActive(history, '/list-designate')} to="/list-designate">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     Designation
                 </Link>
                 <Link className="nav-link" style={isActive(history, '/list-specialize')} to="/list-specialize">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     Specialize
                 </Link>
                 <Link className="nav-link" style={isActive(history, '/list-vendors')} to="/list-vendors">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     Vendors
                 </Link>
                 <Link className="nav-link" style={isActive(history, '/list-doctors')} to="/list-doctors">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     Doctors
                 </Link>
 
                 <Link className="nav-link" style={isActive(history, '/list-expenses')} to="/list-expenses">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     Expenses
                 </Link>
 
+                <Link className="nav-link" style={isActive(history, '/list/medicine')} to="/list/medicine">
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    Medicine
+                </Link>
+
                 <a className="nav-link" href="tables.html">
-                    <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
+                    <div className="sb-nav-link-icon"><i className="fas fa-table"/></div>
                     Tables
                 </a>
 

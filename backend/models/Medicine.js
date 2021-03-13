@@ -13,11 +13,6 @@ const Medicine = mongoose.Schema(
             type: String,
             required: true,
         },
-        medicine: {
-            type: String,
-            required: true,
-
-        },
         batchNo: {
             type: Number,
             required: true

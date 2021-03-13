@@ -33,7 +33,7 @@ import {
 
 
 
-export const createMedicine = (expense) => async (dispatch, getState) => {
+export const createMedicine = (med) => async (dispatch, getState) => {
     try {
         dispatch({
             type: CREATE_MEDICINE_REQUEST,
@@ -49,7 +49,7 @@ export const createMedicine = (expense) => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.post(`${API}/medicine-create/${userInfo._id}`, expense, config)
+        const { data } = await axios.post(`${API}/medicine-create/${userInfo._id}`, med, config)
 
         dispatch({
             type: CREATE_MEDICINE_SUCCESS,

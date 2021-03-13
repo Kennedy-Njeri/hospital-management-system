@@ -113,6 +113,7 @@ const AdminDashboard = () => {
         let doc = 0
         let patient = 0
         let staff  = 0
+        
 
         for (let user of  users ) {
             //console.log(users)
