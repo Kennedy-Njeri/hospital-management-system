@@ -30,6 +30,7 @@ const vendorsRoutes = require('./routes/vendors')
 const expensesRoutes = require('./routes/expenses')
 const medicineRoutes = require('./routes/medicine')
 const vaccineCatRoutes = require('./routes/vaccineCat')
+const vaccineAppRoutes = require('./routes/vaccineAppointment')
 
 require('dotenv').config()
 
@@ -67,6 +68,7 @@ app.use('/api', vendorsRoutes)
 app.use('/api', expensesRoutes)
 app.use('/api', medicineRoutes)
 app.use('/api', vaccineCatRoutes)
+app.use('/api', vaccineAppRoutes)
 app.use('/uploadfile', uploadExelRoutes)
 
 
