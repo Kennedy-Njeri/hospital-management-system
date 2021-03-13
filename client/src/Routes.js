@@ -49,6 +49,8 @@ import AddExpense from './admin/AddExpense'
 import UpdateExpenses from './admin/UpdateExpenses'
 import PatDetails from './admin/PatDetails'
 import ListMedicine from "./admin/ListMedicine"
+import AddMedicine from './admin/AddMedicine'
+import UpdateMedicine from './admin/UpdateMedicine'
 
 
 
@@ -74,6 +76,7 @@ const Routes = () => {
                 <AdminRoute path="/update-depart/:id" exact component={UpdateDepartment} />
                 <AdminRoute path="/update-patient/:id" exact component={UpdatePatientProfile} />
                 <AdminRoute path="/update-specialize/:id" exact component={UpdateSpecialize} />
+                <AdminRoute path="/update-medicine/:id" exact component={UpdateMedicine} />
                 <AdminRoute path="/update-treatment/:treatmentId" exact component={TreatmentUpdate} />
                 <AdminRoute path="/list/users" exact component={ListUsers} />
                 <AdminRoute path="/list/medicine" exact component={ListMedicine} />
@@ -97,6 +100,7 @@ const Routes = () => {
                 <AdminRoute path="/add-building" exact component={AddBuilding} />
                 <AdminRoute path="/add-floor" exact component={AddFloor} />
                 <AdminRoute path="/add-users" exact component={AddUsers} />
+                <AdminRoute path="/add-medicine" exact component={AddMedicine} />
                 <AdminRoute path="/add-expenses" exact component={AddExpense} />
                 <AdminRoute path="/add-depart" exact component={AddDepartment} />
                 <AdminRoute path="/add-designate" exact component={AddDesignation} />

@@ -59,7 +59,7 @@ const ListMedicine = ({ history }) => {
     return (
         <Layout title="Profile" description="list treatment categories" className="container-fluid">
 
-            <h4><Link to="/add-expenses"><button>Add Medicine</button></Link></h4>
+            <h4><Link to="/add-medicine"><button>Add Medicine</button></Link></h4>
 
             <h2 className="mb-4">List Medicine</h2>
 
@@ -122,7 +122,7 @@ const ListMedicine = ({ history }) => {
                                 medicines && medicines.map((med, i) => (
                                     <tr key={i}>
                                         <Fragment>
-                                            <th scope="row">{med._id}</th>
+                                            <th scope="row">{med._id.substring(0, 7)}</th>
                                             <td>{med.name}</td>
                                             <td>{med.genericName}</td>
                                             <td>{med.batchNo}</td>
@@ -133,7 +133,7 @@ const ListMedicine = ({ history }) => {
                                             <td>{moment(med.expDate).format("YYYY-MM-DD")}</td>
                                             <td>{med.cost}</td>
                                             <td>{med.vendor.name}</td>
-                                            <td><Link to={`/update-expenses/${med._id}`}><i className="bi bi-pencil-square"/></Link></td>
+                                            <td><Link to={`/update-medicine/${med._id}`}><i className="bi bi-pencil-square"/></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(med._id)}/></td>
                                         </Fragment>
                                     </tr>

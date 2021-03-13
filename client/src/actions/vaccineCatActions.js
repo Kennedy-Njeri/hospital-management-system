@@ -2,29 +2,29 @@ import axios from "axios";
 import {API} from "../config";
 import {logout} from "./userActions";
 import {
-    CREATE_MEDICINE_FAIL,
-    CREATE_MEDICINE_REQUEST,
-    CREATE_MEDICINE_RESET,
-    CREATE_MEDICINE_SUCCESS,
-    LIST_MEDICINE_FAIL,
-    LIST_MEDICINE_REQUEST,
-    LIST_MEDICINE_RESET,
-    LIST_MEDICINE_SUCCESS,
-    DELETE_MEDICINE_FAIL,
-    DELETE_MEDICINE_REQUEST,
-    DELETE_MEDICINE_SUCCESS,
-    UPDATE_MEDICINE_FAIL,
-    UPDATE_MEDICINE_REQUEST,
-    UPDATE_MEDICINE_RESET,
-    UPDATE_MEDICINE_SUCCESS,
-    DETAILS_MEDICINE_FAIL,
-    DETAILS_MEDICINE_REQUEST,
-    DETAILS_MEDICINE_SUCCESS,
+    CREATE_VACCINE_FAIL,
+    CREATE_VACCINE_REQUEST,
+    CREATE_VACCINE_RESET,
+    CREATE_VACCINE_SUCCESS,
+    LIST_VACCINE_FAIL,
+    LIST_VACCINE_REQUEST,
+    LIST_VACCINE_RESET,
+    LIST_VACCINE_SUCCESS,
+    UPDATE_VACCINE_FAIL,
+    UPDATE_VACCINE_REQUEST,
+    UPDATE_VACCINE_RESET,
+    UPDATE_VACCINE_SUCCESS,
+    DELETE_VACCINE_FAIL,
+    DELETE_VACCINE_REQUEST,
+    DELETE_VACCINE_SUCCESS,
+    DETAILS_VACCINE_FAIL,
+    DETAILS_VACCINE_REQUEST,
+    DETAILS_VACCINE_SUCCESS,
     LIST_TYPE_ENUMS_FAIL,
+    LIST_TYPE_ENUMS_SUCCESS,
     LIST_TYPE_ENUMS_REQUEST,
-    LIST_TYPE_ENUMS_RESET,
-    LIST_TYPE_ENUMS_SUCCESS
-} from '../constants/medicineConstants'
+    LIST_TYPE_ENUMS_RESET
+} from '../constants/vaccineCat'
 
 
 
@@ -32,11 +32,10 @@ import {
 
 
 
-
-export const createMedicine = (med) => async (dispatch, getState) => {
+export const createVacCat = (vac) => async (dispatch, getState) => {
     try {
         dispatch({
-            type: CREATE_MEDICINE_REQUEST,
+            type: CREATE_VACCINE_REQUEST,
         })
 
         const {
@@ -49,10 +48,10 @@ export const createMedicine = (med) => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.post(`${API}/medicine-create/${userInfo._id}`, med, config)
+        const { data } = await axios.post(`${API}/vaccine-create/${userInfo._id}`, vac, config)
 
         dispatch({
-            type: CREATE_MEDICINE_SUCCESS,
+            type: CREATE_VACCINE_SUCCESS,
             payload: data,
         })
     } catch (error) {
@@ -63,18 +62,17 @@ export const createMedicine = (med) => async (dispatch, getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: CREATE_MEDICINE_FAIL,
+            type: CREATE_VACCINE_FAIL,
             payload: message,
         })
     }
 }
 
 
-
-export const listMedicines = () => async (dispatch, getState) => {
+export const listVacCat = () => async (dispatch, getState) => {
     try {
         dispatch({
-            type: LIST_MEDICINE_REQUEST,
+            type: LIST_VACCINE_REQUEST,
         })
 
         const {
@@ -87,10 +85,10 @@ export const listMedicines = () => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.get(`${API}/medicine-list/${userInfo._id}`, config)
+        const { data } = await axios.get(`${API}/vaccine-list/${userInfo._id}`, config)
 
         dispatch({
-            type: LIST_MEDICINE_SUCCESS,
+            type: LIST_VACCINE_SUCCESS,
             payload: data,
         })
         console.log(data)
@@ -104,17 +102,17 @@ export const listMedicines = () => async (dispatch, getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: LIST_MEDICINE_FAIL,
+            type: LIST_VACCINE_FAIL,
             payload: message,
         })
     }
 }
 
 
-export const deleteMedicine = (id) => async (dispatch, getState) => {
+export const deleteVacCat = (id) => async (dispatch, getState) => {
     try {
         dispatch({
-            type: DELETE_MEDICINE_REQUEST,
+            type: DELETE_VACCINE_REQUEST,
         })
 
         const {
@@ -127,9 +125,9 @@ export const deleteMedicine = (id) => async (dispatch, getState) => {
             },
         }
 
-        await axios.delete(`${API}/medicine-remove/${id}/${userInfo._id}`, config)
+        await axios.delete(`${API}/vaccine-remove/${id}/${userInfo._id}`, config)
 
-        dispatch({ type: DELETE_MEDICINE_SUCCESS })
+        dispatch({ type: DELETE_VACCINE_SUCCESS })
     } catch (error) {
         const message =
             error.response && error.response.data.message
@@ -139,17 +137,17 @@ export const deleteMedicine = (id) => async (dispatch, getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: DELETE_MEDICINE_FAIL,
+            type: DELETE_VACCINE_FAIL,
             payload: message,
         })
     }
 }
 
 
-export const updateMedicine = (med) => async (dispatch, getState) => {
+export const updateVacCat = (vac) => async (dispatch, getState) => {
     try {
         dispatch({
-            type: UPDATE_MEDICINE_REQUEST,
+            type: UPDATE_VACCINE_REQUEST,
         })
 
         const {
@@ -163,18 +161,18 @@ export const updateMedicine = (med) => async (dispatch, getState) => {
             },
         }
 
-        console.log(med)
+        console.log(vac)
         const { data } = await axios.put(
-            `${API}/medicine-update/${med._id}/${userInfo._id}`,
-            med,
+            `${API}/vaccine-update/${vac._id}/${userInfo._id}`,
+            vac,
             config
         )
 
         dispatch({
-            type: UPDATE_MEDICINE_SUCCESS,
+            type: UPDATE_VACCINE_SUCCESS,
             payload: data,
         })
-        dispatch({ type: DETAILS_MEDICINE_SUCCESS, payload: data })
+        dispatch({ type: DETAILS_VACCINE_SUCCESS, payload: data })
     } catch (error) {
         console.log(error.response)
         const message =
@@ -185,16 +183,16 @@ export const updateMedicine = (med) => async (dispatch, getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: UPDATE_MEDICINE_FAIL,
+            type: UPDATE_VACCINE_FAIL,
             payload: message,
         })
     }
 }
 
 
-export const detailsMedicine = (id) => async (dispatch, getState) => {
+export const detailsVacCat = (id) => async (dispatch, getState) => {
     try {
-        dispatch({ type: DETAILS_MEDICINE_REQUEST })
+        dispatch({ type: DETAILS_VACCINE_REQUEST })
 
         const {
             userLogin: { userInfo },
@@ -208,17 +206,17 @@ export const detailsMedicine = (id) => async (dispatch, getState) => {
         }
 
 
-        const { data } = await axios.get(`${API}/medicine-detail/${id}/${userInfo._id}`, config)
+        const { data } = await axios.get(`${API}/vaccine-detail/${id}/${userInfo._id}`, config)
 
         dispatch({
-            type: DETAILS_MEDICINE_SUCCESS,
+            type: DETAILS_VACCINE_SUCCESS,
             payload: data,
         })
         //console.log(data)
     } catch (error) {
         console.log(error)
         dispatch({
-            type: DETAILS_MEDICINE_FAIL,
+            type: DETAILS_VACCINE_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
@@ -228,7 +226,7 @@ export const detailsMedicine = (id) => async (dispatch, getState) => {
 }
 
 
-export const listTypesEnums = () => async (dispatch, getState) => {
+export const listVacTypesEnums = () => async (dispatch, getState) => {
     try {
         dispatch({
             type: LIST_TYPE_ENUMS_REQUEST,
@@ -244,7 +242,7 @@ export const listTypesEnums = () => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.get(`${API}/medicine/medicine-type-values/${userInfo._id}`, config)
+        const { data } = await axios.get(`${API}/vaccine/vaccine-type-values/${userInfo._id}`, config)
 
         dispatch({
             type: LIST_TYPE_ENUMS_SUCCESS,

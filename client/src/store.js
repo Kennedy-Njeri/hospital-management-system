@@ -136,6 +136,16 @@ import {
 } from './reducers/medicineReducers'
 
 
+import {
+    vaccineCatCreateReducer,
+    vaccineCatDeleteReducer,
+    vaccineCatDetailsReducer,
+    vaccineCatListReducer,
+    vaccineCatTypeListReducer,
+    vaccineCatUpdateReducer
+} from './reducers/vaccineCatReducers'
+
+
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
@@ -227,7 +237,13 @@ const reducer = combineReducers({
     medicineUpdate: medicineUpdateReducer,
     medicineDetail: medicineDetailsReducer,
     medicineType: medicineTypeListReducer,
-    medicineDelete: medicineDeleteReducer
+    medicineDelete: medicineDeleteReducer,
+    vaccineCatCreate: vaccineCatCreateReducer,
+    vaccineCatList: vaccineCatListReducer,
+    vaccineCatDetail: vaccineCatDetailsReducer,
+    vaccineCatDelete: vaccineCatDeleteReducer,
+    vaccineCatUpdate: vaccineCatUpdateReducer,
+    vaccineCatType: vaccineCatTypeListReducer
 })
 
 
