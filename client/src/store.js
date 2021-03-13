@@ -126,6 +126,15 @@ import {
     expensesUpdateReducer
 } from './reducers/expensesReducers'
 
+import {
+    medicineCreateReducer,
+    medicineDeleteReducer,
+    medicineDetailsReducer,
+    medicineListReducer,
+    medicineTypeListReducer,
+    medicineUpdateReducer
+} from './reducers/medicineReducers'
+
 
 
 const reducer = combineReducers({
@@ -212,7 +221,13 @@ const reducer = combineReducers({
     expenseDetail: expensesDetailsReducer,
     expensesUpdate: expensesUpdateReducer,
     expensesDelete: expensesDeleteReducer,
-    expensesPaid: expensesPaidListReducer
+    expensesPaid: expensesPaidListReducer,
+    medicineCreate: medicineCreateReducer,
+    medicineList: medicineListReducer,
+    medicineUpdate: medicineUpdateReducer,
+    medicineDetail: medicineDetailsReducer,
+    medicineType: medicineTypeListReducer,
+    medicineDelete: medicineDeleteReducer
 })
 
 
