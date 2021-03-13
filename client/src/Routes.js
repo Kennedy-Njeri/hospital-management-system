@@ -51,6 +51,8 @@ import PatDetails from './admin/PatDetails'
 import ListMedicine from "./admin/ListMedicine"
 import AddMedicine from './admin/AddMedicine'
 import UpdateMedicine from './admin/UpdateMedicine'
+import ListVaccineCat from "./admin/ListVaccineCat"
+import AddVaccineCat from './admin/AddVaccineCat'
 
 
 
@@ -91,6 +93,7 @@ const Routes = () => {
                 <AdminRoute path="/list-designate" exact component={ListDesignate} />
                 <AdminRoute path="/list-expenses" exact component={ListExpenses} />
                 <AdminRoute path="/list-specialize" exact component={ListSpecialize} />
+                <AdminRoute path="/list-vaccine-cat" exact component={ListVaccineCat} />
                 <AdminRoute path="/create/cat-test" exact component={CreateTestCat} />
                 <AdminRoute path="/add-prescription" exact component={AddPrescription} />
                 <AdminRoute path="/create/cat-treatment" exact component={CreateTreatment} />
@@ -102,6 +105,7 @@ const Routes = () => {
                 <AdminRoute path="/add-users" exact component={AddUsers} />
                 <AdminRoute path="/add-medicine" exact component={AddMedicine} />
                 <AdminRoute path="/add-expenses" exact component={AddExpense} />
+                <AdminRoute path="/add-vac-cat" exact component={AddVaccineCat} />
                 <AdminRoute path="/add-depart" exact component={AddDepartment} />
                 <AdminRoute path="/add-designate" exact component={AddDesignation} />
                 <AdminRoute path="/add-doctor" exact component={AddDoctorDetails} />

@@ -93,7 +93,7 @@ exports.remove = asyncHandler(async (req, res) => {
 
 
 exports.list = asyncHandler(async (req, res) => {
-    await Vaccine.find({}).populate("Medicine").exec((err, data) => {
+    await Vaccine.find({}).populate("medicine").exec((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: err
