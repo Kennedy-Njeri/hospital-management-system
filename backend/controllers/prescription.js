@@ -3,6 +3,9 @@ const asyncHandler  = require( 'express-async-handler')
 
 
 
+
+
+
 exports.createPrescription = asyncHandler(async (req, res) => {
     const prescription = new Prescription(req.body);
     await prescription.save((err, data) => {
@@ -123,6 +126,7 @@ exports.list = asyncHandler(async (req, res) => {
 exports.getTakeValues = (req, res) => {
     res.json(Prescription.schema.path('take').enumValues);
 };
+
 
 exports.getPaidValues = (req, res) => {
     res.json(Prescription.schema.path('paid').enumValues);

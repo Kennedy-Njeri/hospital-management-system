@@ -233,7 +233,6 @@ const PatDetails = ({ history, match }) => {
 
 
 
-
                         <div className="card">
                             <div className="card-header">
                                 <h4 className="card-title">Community</h4>
@@ -257,7 +256,6 @@ const PatDetails = ({ history, match }) => {
                                 </table>
                             </div>
                         </div>
-
 
 
                     </div>
