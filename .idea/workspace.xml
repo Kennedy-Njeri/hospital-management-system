@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a913cf6-e558-49a6-85b0-f0a9753a7561" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/AddUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/AddUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/ListUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/ListUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/user/AdminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/user/AdminDashboard.js" afterDir="false" />
-    </list>
+    <list default="true" id="0a913cf6-e558-49a6-85b0-f0a9753a7561" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,47 +13,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/constants/vaccineAppointmentConstants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/ListVaccineCat.js">
+        <entry file="file://$PROJECT_DIR$/client/src/constants/vaccineCat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="106" column="59" lean-forward="true" selection-start-line="106" selection-start-column="59" selection-end-line="106" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/AddVaccineCat.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="37" column="4" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="39" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateVaccineCat.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="317">
+              <caret line="26" selection-start-line="26" selection-end-line="29" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -70,54 +44,6 @@
               <caret line="207" column="39" lean-forward="true" selection-start-line="207" selection-start-column="39" selection-end-line="207" selection-end-column="39" />
               <folding>
                 <element signature="e#0#69#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/user/AdminDashboard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="347" column="36" lean-forward="true" selection-start-line="347" selection-start-column="36" selection-end-line="347" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/ListUsers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="148" column="33" selection-start-line="146" selection-start-column="37" selection-end-line="148" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateUsers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="112" column="12" selection-start-line="112" selection-start-column="12" selection-end-line="116" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/AddUsers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-328">
-              <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,7 +65,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/admin/Pagination.js" />
         <option value="$PROJECT_DIR$/client/src/admin/Pat-Details.js" />
         <option value="$PROJECT_DIR$/client/src/constants/patientDetailsConstants.js" />
         <option value="$PROJECT_DIR$/client/src/reducers/patientDetailsReducers.js" />
@@ -190,12 +115,13 @@
         <option value="$PROJECT_DIR$/client/src/admin/AddUsers.js" />
         <option value="$PROJECT_DIR$/backend/models/user.js" />
         <option value="$PROJECT_DIR$/client/src/user/AdminDashboard.js" />
+        <option value="$PROJECT_DIR$/client/src/constants/vaccineAppointmentConstants.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="25" />
+    <option name="x" value="11" />
+    <option name="y" value="38" />
     <option name="width" value="1376" />
     <option name="height" value="830" />
   </component>
@@ -324,7 +250,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1615691111146" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1615691867946" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -379,15 +305,15 @@
       <workItem from="1615033415977" duration="863000" />
       <workItem from="1615057786265" duration="1229000" />
       <workItem from="1615086286261" duration="3825000" />
-      <workItem from="1615295397537" duration="84924000" />
+      <workItem from="1615295397537" duration="85555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="489885000" />
+    <option name="totallyTimeSpent" value="490516000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="25" width="1376" height="830" extended-state="0" />
+    <frame x="201" y="23" width="1376" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
@@ -395,11 +321,11 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.28110945" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.28110945" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="GraphQL" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32384825" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32384825" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
@@ -429,9 +355,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/models/designation.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/doctorsDetails.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -621,13 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/constants/vaccineCat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="21" column="64" lean-forward="true" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/constants/medicineConstants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -746,60 +662,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/admin/AddVaccineCat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="37" column="4" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="39" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/admin/ListVaccineCat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="106" column="59" lean-forward="true" selection-start-line="106" selection-start-column="59" selection-end-line="106" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateVaccineCat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/VaccineAppointment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3105">
-          <caret line="207" column="39" lean-forward="true" selection-start-line="207" selection-start-column="39" selection-end-line="207" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#69#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -847,11 +713,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/user/AdminDashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
+        <state relative-caret-position="4960">
           <caret line="347" column="36" lean-forward="true" selection-start-line="347" selection-start-column="36" selection-end-line="347" selection-end-column="36" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateVaccineCat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/AddVaccineCat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/ListVaccineCat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="106" column="59" lean-forward="true" selection-start-line="106" selection-start-column="59" selection-end-line="106" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3105">
+          <caret line="207" column="39" lean-forward="true" selection-start-line="207" selection-start-column="39" selection-end-line="207" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/constants/vaccineCat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="26" selection-start-line="26" selection-end-line="29" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/constants/vaccineAppointmentConstants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>

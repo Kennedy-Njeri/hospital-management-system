@@ -146,6 +146,17 @@ import {
 } from './reducers/vaccineCatReducers'
 
 
+import {
+    vaccineAppCreateReducer,
+    vaccineAppDeleteReducer,
+    vaccineAppDetailsReducer,
+    vaccineAppListReducer,
+    vaccineAppUpdateReducer,
+    vaccineDayTypeListReducer,
+    vaccineTakenTypeListReducer
+} from './reducers/vaccineAppointmentReducers'
+
+
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
@@ -243,7 +254,14 @@ const reducer = combineReducers({
     vaccineCatDetail: vaccineCatDetailsReducer,
     vaccineCatDelete: vaccineCatDeleteReducer,
     vaccineCatUpdate: vaccineCatUpdateReducer,
-    vaccineCatType: vaccineCatTypeListReducer
+    vaccineCatType: vaccineCatTypeListReducer,
+    vaccineAppCreate: vaccineAppCreateReducer,
+    vaccineAppList: vaccineAppListReducer,
+    vaccineAppDetails: vaccineAppDetailsReducer,
+    vaccineAppDelete: vaccineAppDeleteReducer,
+    vaccineAppUpdate: vaccineAppUpdateReducer,
+    vaccineAppTaken: vaccineTakenTypeListReducer,
+    vaccineAppDays: vaccineDayTypeListReducer
 })
 
 
