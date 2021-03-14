@@ -7,6 +7,7 @@ import {useSelector} from "react-redux";
 
 
 
+
 // history must match with path which is /signup e.g
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -38,12 +39,12 @@ const Layout = ({
 
 
                 <Link className="nav-link" style={isActive(history, `/profile/${userInfo._id}`)} to={`/profile/${userInfo._id}`}>
-                    <div className="sb-nav-link-icon"><i className="bi bi-person-badge-fill"></i></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-person-badge-fill"/></div>
                     Update Profile
                 </Link>
 
                 <Link className="nav-link" style={isActive(history, '/list/users')} to="/list/users">
-                    <div className="sb-nav-link-icon"><i className="bi bi-people"></i></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-people"/></div>
                     List Users
                 </Link>
 
@@ -53,9 +54,9 @@ const Layout = ({
                 <div className="sb-sidenav-menu-heading">Modules</div>
                 <a className="nav-link collapsed" href="#" data-toggle="collapse"
                    data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div className="sb-nav-link-icon"><i className="bi bi-eyedropper"></i></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-eyedropper"/></div>
                     Laboratory
-                    <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                    <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"/></div>
                 </a>
                 <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                      data-parent="#sidenavAccordion">
@@ -71,9 +72,9 @@ const Layout = ({
 
                 <a className="nav-link collapsed" href="#" data-toggle="collapse"
                    data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                    <div className="sb-nav-link-icon"><i className="bi bi-journal-medical"></i></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-journal-medical"/></div>
                     Modules Mgmt
-                    <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                    <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"/></div>
                 </a>
                 <div className="collapse" id="collapsePages" aria-labelledby="headingTwo"
                      data-parent="#sidenavAccordion">
@@ -82,7 +83,7 @@ const Layout = ({
                            data-target="#pagesCollapseAuth" aria-expanded="false"
                            aria-controls="pagesCollapseAuth">
                             Medication
-                            <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i>
+                            <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"/>
                             </div>
                         </a>
                         <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
@@ -110,45 +111,48 @@ const Layout = ({
                     </nav>
                 </div>
 
-                <div className="sb-sidenav-menu-heading">User Profiles</div>
+
+
+                <div className="sb-sidenav-menu-heading">User Files</div>
 
                 <Link className="nav-link" style={isActive(history, '/list-patients')} to="/list-patients">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
-                    List Patients
+                    <div className="sb-nav-link-icon"><i className="bi bi-file-medical"/></div>
+                    Patients
                 </Link>
 
                 <Link className="nav-link" style={isActive(history, '/list-doctors')} to="/list-doctors">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-file-medical"/></div>
                     Doctors
                 </Link>
 
                 <div className="sb-sidenav-menu-heading">Phamacy</div>
 
                 <Link className="nav-link" style={isActive(history, '/list-vendors')} to="/list-vendors">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-shop"/></div>
                     Vendors
                 </Link>
 
                 <Link className="nav-link" style={isActive(history, '/list/medicine')} to="/list/medicine">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    <div className="sb-nav-link-icon">
+                    </div>
                     Medicine
                 </Link>
 
                 <div className="sb-sidenav-menu-heading">Expenses</div>
                 <Link className="nav-link" style={isActive(history, '/list-expenses')} to="/list-expenses">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-cash"></i></div>
                     Expenses
                 </Link>
 
 
                 <div className="sb-sidenav-menu-heading">Vaccine</div>
                 <Link className="nav-link" style={isActive(history, '/list-vaccine-cat')} to="/list-vaccine-cat">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-eyedropper"/></div>
                     Vaccine
                 </Link>
 
                 <Link className="nav-link" style={isActive(history, '/list-app-vaccine')} to="/list-app-vaccine">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-card-list"/></div>
                     Appointments
                 </Link>
 
@@ -157,11 +161,11 @@ const Layout = ({
 
 
                 <Link className="nav-link" style={isActive(history, '/list-designate')} to="/list-designate">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-journal-medical"/></div>
                     Designation
                 </Link>
                 <Link className="nav-link" style={isActive(history, '/list-specialize')} to="/list-specialize">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    <div className="sb-nav-link-icon"><i className="bi bi-journal-medical"/></div>
                     Specialize
                 </Link>
 
@@ -187,7 +191,7 @@ const Layout = ({
 
 
     const loggedIn = () => (
-        <div className="small">Logged in as:{userInfo.name}</div>
+        <div className="small">Logged in as:</div>
 
     ) 
     return (
@@ -205,7 +209,7 @@ const Layout = ({
                         </div>
                         <div className="sb-sidenav-footer">
                             {loggedIn()}
-                            Start Bootstrap
+                            {userInfo.name}
                         </div>
                     </nav>
                 </div>
