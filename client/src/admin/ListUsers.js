@@ -144,7 +144,9 @@ const ListUsers = ({ history }) => {
                                     <button type="button" className="btn btn-secondary btn-sm">Doctor</button>
                                     ): user.role === 2  ? (
                                     <button type="button" className="btn btn-info btn-sm">Patient</button>
-                                ) : (
+                                ) : user.role === 4  ? (
+                                    <button type="button" className="btn btn-dark btn-sm">Nurse</button>
+                                ): (
                                     <button type="button" className="btn btn-warning btn-sm">Staff</button>
                                 )}
                             </td>

@@ -113,7 +113,7 @@ const AdminDashboard = () => {
         let doc = 0
         let patient = 0
         let staff  = 0
-        
+        let nurse = 0
 
         for (let user of  users ) {
             //console.log(users)
@@ -125,7 +125,8 @@ const AdminDashboard = () => {
                 patient++
             } else if (user.role === 3) {
                 staff++
-
+            } else if (user.role === 4) {
+                nurse++
             } else {
                 return null
             }
@@ -133,7 +134,7 @@ const AdminDashboard = () => {
 
         console.log(admin, doc, patient, staff)
 
-        return { admin, doc, patient, staff}
+        return { admin, doc, patient, staff, nurse}
 
     }
 
@@ -147,11 +148,11 @@ const AdminDashboard = () => {
 
         let usersList = []
 
-        usersList.push(data.admin, data.doc, data.patient, data.staff)
+        usersList.push(data.admin, data.doc, data.patient, data.staff, data.nurse)
 
 
 
-        let labels = ["Admin", "Doctors", "Patients", "Staff",]
+        let labels = ["Admin", "Doctors", "Patients", "Staff", "Nurses"]
         let customLabels = labels.map((label, index) => `${label}: ${usersList[index]}`)
 
 
@@ -274,7 +275,7 @@ const AdminDashboard = () => {
                                     <Pie data={{
                                         labels: chart().customLabels,
                                         datasets: [{
-                                        backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                                        backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#11ede9'],
                                         data: chart().usersList
                                     }]
                                     }}/>
@@ -332,7 +333,9 @@ const AdminDashboard = () => {
                                                 <button type="button" className="btn btn-secondary btn-sm">Doctor</button>
                                             ): user.role === 2  ? (
                                                 <button type="button" className="btn btn-info btn-sm">Patient</button>
-                                            ) : (
+                                            ) : user.role === 4  ? (
+                                                <button type="button" className="btn btn-dark btn-sm">Nurse</button>
+                                            ): (
                                                 <button type="button" className="btn btn-warning btn-sm">Staff</button>
                                             )}
                                         </td>
