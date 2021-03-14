@@ -73,6 +73,7 @@ const ListTestResult = ({ history }) => {
 
         <Layout title="Profile" description="Update your profile" className="container-fluid">
             <h2 className="font-weight-bold">Total Paid:Ksh {totalCollected()}</h2>
+            <h4><Link to="/create-test"><button>Add Test</button></Link></h4>
             <h2 className="mb-4">List Result tests</h2>
 
 

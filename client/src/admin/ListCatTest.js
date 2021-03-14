@@ -57,6 +57,8 @@ const ListCatTest = ({ history }) => {
 
     return (
         <Layout title="Profile" description="Update your profile" className="container-fluid">
+            <h4><Link to="/create/cat-test"><button>Add Category Test</button></Link></h4>
+
             <h2 className="mb-4">List Category tests</h2>
 
             {loading ? (

@@ -78,6 +78,7 @@ const ListPrescriptions = ({ history }) => {
 
     return (
         <Layout title="List Prescriptions" className="container-fluid">
+            <h4><Link to="add-prescription"><button>Add Prescription</button></Link></h4>
             <ReactToPrint trigger={linkToPrint} content={() => componentRef.current} />
             <h2 className="font-weight-bold">Total Paid:Ksh {totalCollected()}</h2>
             <h2 className="mb-4">List Prescriptions</h2>

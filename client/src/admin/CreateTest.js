@@ -155,7 +155,7 @@ const CreateTest = ({ history }) => {
 
     return (
         <Layout title="Category test Form">
-            <h2 className="mb-4">Create Test Category</h2>
+            <h2 className="mb-4">Create Test Result</h2>
             {success &&  <div className="alert alert-success" role="alert">
                 Create Test
             </div>}

@@ -60,10 +60,8 @@ const Layout = ({
                 <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                      data-parent="#sidenavAccordion">
                     <nav className="sb-sidenav-menu-nested nav">
-                        <Link className="nav-link" style={isActive(history, '/create/cat-test')} to="/create/cat-test">Add Test Category</Link>
-                        <Link className="nav-link" style={isActive(history, '/list-cat-test')} to="/list-cat-test">Category Test List</Link>
-                        <Link className="nav-link" style={isActive(history, '/test-result')} to="/test-result">List Result</Link>
-                        <Link className="nav-link" style={isActive(history, '/create-test')} to="/create-test">Create Test</Link>
+                        <Link className="nav-link" style={isActive(history, '/list-cat-test')} to="/list-cat-test">Category Test</Link>
+                        <Link className="nav-link" style={isActive(history, '/test-result')} to="/test-result">Tests Result</Link>
                     </nav>
                 </div>
 
@@ -90,9 +88,7 @@ const Layout = ({
                         <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                              data-parent="#sidenavAccordionPages">
                             <nav className="sb-sidenav-menu-nested nav">
-                                <Link className="nav-link" style={isActive(history, '/list-treat-cat')} to="/list-treat-cat">Treatment List</Link>
-                                <Link className="nav-link" style={isActive(history, '/create/cat-treatment')} to='/create/cat-treatment'>Add Treatment</Link>
-                                <Link className="nav-link" style={isActive(history, '/add-prescription')} to="/add-prescription">Add Prescription</Link>
+                                <Link className="nav-link" style={isActive(history, '/list-treat-cat')} to="/list-treat-cat">Treatment</Link>
                                 <Link className="nav-link" style={isActive(history, '/list-prescriptions')} to="/list-prescriptions">Prescription List</Link>
                             </nav>
                         </div>
@@ -100,56 +96,37 @@ const Layout = ({
                            data-target="#pagesCollapseError" aria-expanded="false"
                            aria-controls="pagesCollapseError">
                             Buildings-Floor
-                            <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i>
+                            <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"/>
                             </div>
                         </a>
                         <div className="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
                              data-parent="#sidenavAccordionPages">
                             <nav className="sb-sidenav-menu-nested nav">
-                                <Link className="nav-link" style={isActive(history, '/list-buildings')} to="/list-buildings">List</Link>
+                                <Link className="nav-link" style={isActive(history, '/list-buildings')} to="/list-buildings">Building</Link>
                                 <Link className="nav-link" style={isActive(history, '/list-floors')} to="/list-floors">Floors</Link>
                                 <Link className="nav-link" style={isActive(history, '/list-departs')} to="/list-departs">Department</Link>
-                                <a className="nav-link" href="404.html">404 Page</a>
-                                <a className="nav-link" href="500.html">500 Page</a>
                             </nav>
                         </div>
                     </nav>
                 </div>
 
+                <div className="sb-sidenav-menu-heading">User Profiles</div>
 
-
-
-
-                <div className="sb-sidenav-menu-heading">Patient Details</div>
-                <Link className="nav-link" style={isActive(history, '/add-patient-details')} to="/add-patient-details">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
-                    Add Patient
-                </Link>
                 <Link className="nav-link" style={isActive(history, '/list-patients')} to="/list-patients">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     List Patients
                 </Link>
 
-                <Link className="nav-link" style={isActive(history, '/list-designate')} to="/list-designate">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
-                    Designation
-                </Link>
-                <Link className="nav-link" style={isActive(history, '/list-specialize')} to="/list-specialize">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
-                    Specialize
-                </Link>
-                <Link className="nav-link" style={isActive(history, '/list-vendors')} to="/list-vendors">
-                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
-                    Vendors
-                </Link>
                 <Link className="nav-link" style={isActive(history, '/list-doctors')} to="/list-doctors">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     Doctors
                 </Link>
 
-                <Link className="nav-link" style={isActive(history, '/list-expenses')} to="/list-expenses">
+                <div className="sb-sidenav-menu-heading">Phamacy</div>
+
+                <Link className="nav-link" style={isActive(history, '/list-vendors')} to="/list-vendors">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
-                    Expenses
+                    Vendors
                 </Link>
 
                 <Link className="nav-link" style={isActive(history, '/list/medicine')} to="/list/medicine">
@@ -157,6 +134,14 @@ const Layout = ({
                     Medicine
                 </Link>
 
+                <div className="sb-sidenav-menu-heading">Expenses</div>
+                <Link className="nav-link" style={isActive(history, '/list-expenses')} to="/list-expenses">
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    Expenses
+                </Link>
+
+
+                <div className="sb-sidenav-menu-heading">Vaccine</div>
                 <Link className="nav-link" style={isActive(history, '/list-vaccine-cat')} to="/list-vaccine-cat">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
                     Vaccine
@@ -168,10 +153,28 @@ const Layout = ({
                 </Link>
 
 
-                <a className="nav-link" href="tables.html">
-                    <div className="sb-nav-link-icon"><i className="fas fa-table"/></div>
-                    Tables
-                </a>
+                <div className="sb-sidenav-menu-heading">Doctors Department</div>
+
+
+                <Link className="nav-link" style={isActive(history, '/list-designate')} to="/list-designate">
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    Designation
+                </Link>
+                <Link className="nav-link" style={isActive(history, '/list-specialize')} to="/list-specialize">
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    Specialize
+                </Link>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

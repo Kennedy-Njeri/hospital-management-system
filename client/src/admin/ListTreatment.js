@@ -58,6 +58,7 @@ const ListTreatment = ({ history }) => {
 
     return (
         <Layout title="Profile" description="list treatment categories" className="container-fluid">
+            <h4><Link to="/create/cat-treatment"><button>Add Treatment</button></Link></h4>
             <h2 className="mb-4">List Treatment Categories</h2>
 
             {loading ? (

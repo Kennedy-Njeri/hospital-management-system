@@ -70,6 +70,7 @@ const ListPatients = ({ history }) => {
 
     return (
         <Layout title="List Prescriptions" className="container-fluid">
+            <h4><Link to="/add-patient-details"><button>Add Patient Details</button></Link></h4>
             <ReactToPrint trigger={linkToPrint} content={() => componentRef.current} />
             <h2 className="mb-4">List Patients Profile</h2>
 
