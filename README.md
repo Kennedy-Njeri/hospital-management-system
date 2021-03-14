@@ -74,3 +74,14 @@ Create a system with a simple interface that needs limited keyboard input from u
 * JWT_SECRET=
 
 **N/B** Make sure you install MongoDb in your Computer && MongoDb Compass for UI
+
+
+**Screenshots**
+
+**Dashboard 1**
+
+![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/dash1.png)
+
+**Dashboard 2**
+
+![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/dash2.png)
