@@ -118,7 +118,7 @@ const ListVaccineCat = ({ history }) => {
                                             <td>{vac.description}</td>
                                             <td>{vac.medicine.name}</td>
                                             <td>{vac.effects}</td>
-                                            <td><Link to={`/update-medicine/${vac._id}`}><i className="bi bi-pencil-square"/></Link></td>
+                                            <td><Link to={`/update-vaccine-cat/${vac._id}`}><i className="bi bi-pencil-square"/></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(vac._id)}/></td>
                                         </Fragment>
                                     </tr>
