@@ -203,7 +203,7 @@ const  UpdateDoctorProfile = ({ history: history1, match}) => {
                     <div className="form-group col-md-3">
                         <label className="text-muted">User</label>
                         <select onChange={(e) => setUser(e.target.value)} className="form-control">
-                            <option>Select Patient</option>
+                            <option>Select Doctor</option>
                             {users &&
                             users.filter(filtered => filtered.role === 1).map((c, i) => (
                                 <option key={i} value={c._id}>
@@ -233,7 +233,7 @@ const  UpdateDoctorProfile = ({ history: history1, match}) => {
                         <label htmlFor="exampleFormControlTextarea1">Address</label>
                         <textarea className="form-control"
                                   placeholder="write address" rows="3" value={address}
-                                  onChange={(e) => setAddress(e.target.value)}></textarea>
+                                  onChange={(e) => setAddress(e.target.value)}/>
                     </div>
 
                     <div className="form-group col-md-3">

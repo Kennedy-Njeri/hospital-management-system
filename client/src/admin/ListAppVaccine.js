@@ -131,7 +131,7 @@ const ListAppVaccine = ({ history }) => {
                                             <td>{app.day}</td>
                                             <td>{app.remarks}</td>
 
-                                            <td><Link to={`/update-medicine/${app._id}`}><i className="bi bi-pencil-square"/></Link></td>
+                                            <td><Link to={`/update-vacc-app/${app._id}`}><i className="bi bi-pencil-square"/></Link></td>
                                             <td><i className="bi bi-trash" onClick={() => deleteHandler(app._id)}/></td>
                                         </Fragment>
                                     </tr>
