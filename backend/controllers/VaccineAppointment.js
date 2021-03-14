@@ -21,7 +21,7 @@ exports.vaccineAppointById = async (req, res, next, id) => {
 
 
 exports.getVaccineApp = asyncHandler(async (req, res) => {
-    const appointment = await VaccineAppointment.findById(req.params.id).populate("user Vaccine")
+    const appointment = await VaccineAppointment.findById(req.params.id).populate("user vaccine")
 
     if (appointment) {
         res.json(appointment)
@@ -93,7 +93,7 @@ exports.remove = asyncHandler(async (req, res) => {
 
 
 exports.list = asyncHandler(async (req, res) => {
-    await VaccineAppointment.find({}).populate("user Vaccine").exec((err, data) => {
+    await VaccineAppointment.find({}).populate("patient nurse vaccine").exec((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: err

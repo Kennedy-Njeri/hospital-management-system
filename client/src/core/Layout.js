@@ -162,6 +162,12 @@ const Layout = ({
                     Vaccine
                 </Link>
 
+                <Link className="nav-link" style={isActive(history, '/list-app-vaccine')} to="/list-app-vaccine">
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"/></div>
+                    Appointments
+                </Link>
+
+
                 <a className="nav-link" href="tables.html">
                     <div className="sb-nav-link-icon"><i className="fas fa-table"/></div>
                     Tables
