@@ -208,6 +208,7 @@ const  UpdateVaccApp = ({ history: history1, match}) => {
                     <div className="form-group col-md-6">
                         <label htmlFor="exampleFormControlSelect1">Taken</label>
                         <select onChange={(e) => setTaken(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            <option>Select Takes</option>
                             {takes && takes.map((c, i) => (
                                 <option key={i} value={c}>
                                     {c}
@@ -220,6 +221,7 @@ const  UpdateVaccApp = ({ history: history1, match}) => {
                     <div className="form-group col-md-6">
                         <label htmlFor="exampleFormControlSelect1">Day</label>
                         <select onChange={(e) => setDay(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            <option>Select Day</option>
                             {days && days.map((c, i) => (
                                 <option key={i} value={c}>
                                     {c}

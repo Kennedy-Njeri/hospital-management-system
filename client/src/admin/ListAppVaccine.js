@@ -126,7 +126,8 @@ const ListAppVaccine = ({ history }) => {
                                             <td>{app.vaccine.name}</td>
                                             <td>{moment(app.date).format("YYYY-MM-DD")}</td>
                                             <td>{app.time_in}</td>
-                                            <td>{app.taken}</td>
+                                            <td>{app.taken === "Yes" ? (<button type="button" className="btn btn-success btn-sm">{app.taken}</button>) :
+                                                (<button type="button" className="btn btn-danger btn-sm">{app.taken}</button>) }</td>
                                             <td>{app.room}</td>
                                             <td>{app.day}</td>
                                             <td>{app.remarks}</td>

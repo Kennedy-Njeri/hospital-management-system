@@ -180,6 +180,7 @@ const UpdatePrescriptions = ({ history: history1, match }) => {
                     <div className="form-group col-md-6">
                         <label htmlFor="exampleFormControlSelect2">Tests</label>
                         <select multiple className="form-control" id="exampleFormControlSelect2" onChange={(e) => setTest(e.target.value)}>
+                            <option>Select Test</option>
                             {tests &&
                             tests.map((c, i) => (
                                 <option key={i} value={c._id}>
@@ -191,7 +192,7 @@ const UpdatePrescriptions = ({ history: history1, match }) => {
                     <div className="form-group col-md-6">
                         <label htmlFor="exampleFormControlTextarea1">Case History</label>
                         <textarea className="form-control" value={history}
-                                  onChange={(e) => setHistory(e.target.value)} placeholder="write case history" rows="3"></textarea>
+                                  onChange={(e) => setHistory(e.target.value)} placeholder="write case history" rows="3"/>
                     </div>
 
                 </div>
@@ -201,6 +202,7 @@ const UpdatePrescriptions = ({ history: history1, match }) => {
                         <div className="form-group">
                             <label htmlFor="exampleFormControlSelect1">Paid</label>
                             <select onChange={(e) => setPaid(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                                <option>Select Pay</option>
                                 {pays &&
                                 pays.map((p, i) => (
                                     <option key={i} value={p}>

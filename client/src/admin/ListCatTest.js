@@ -92,8 +92,8 @@ const ListCatTest = ({ history }) => {
                                     <td>{cat.cost}</td>
                                     <td>{cat.testName}</td>
                                     <td>{cat.description}</td>
-                                        <td><Link to={`/update-cat-test/${cat._id}`}><i className="bi bi-pencil-square"></i></Link></td>
-                                    <td><i className="bi bi-trash" onClick={() => deleteHandler(cat._id)}></i></td>
+                                        <td><Link to={`/update-cat-test/${cat._id}`}><i className="bi bi-pencil-square"/></Link></td>
+                                    <td><i className="bi bi-trash" onClick={() => deleteHandler(cat._id)}/></td>
                                     </Fragment>
                                 </tr>
                             ))

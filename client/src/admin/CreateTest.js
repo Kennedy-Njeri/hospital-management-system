@@ -134,6 +134,7 @@ const CreateTest = ({ history }) => {
                     <div className="form-group">
                         <label htmlFor="exampleFormControlSelect1">Paid</label>
                         <select onChange={(e) => setPaid(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            <option>Select Pay</option>
                             {pays &&
                             pays.map((p, i) => (
                                 <option key={i} value={p}>

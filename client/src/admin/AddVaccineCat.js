@@ -105,6 +105,7 @@ const  AddVaccineCat = ({ history: history1}) => {
                     <div className="form-group">
                         <label htmlFor="exampleFormControlSelect1">Type</label>
                         <select onChange={(e) => setType(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            <option>Select Type</option>
                             {types && types.map((c, i) => (
                                 <option key={i} value={c}>
                                     {c}
@@ -129,9 +130,9 @@ const  AddVaccineCat = ({ history: history1}) => {
                 <div className="form-row">
                     <div className="col-md-8">
                     <div className="form-group">
-                        <label className="text-muted">Medicine</label>
+                        <label className="text-muted">Vaccine</label>
                         <select onChange={(e) => setMedicine(e.target.value)} className="form-control">
-                            <option>Select Vendor</option>
+                            <option>Select Vaccine</option>
                             {medicines &&
                             medicines.map((c, i) => (
                                 <option key={i} value={c._id}>

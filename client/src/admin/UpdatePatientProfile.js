@@ -256,6 +256,7 @@ const  UpdatePatientProfile = ({ history: history1, match}) => {
                     <div className="form-group col-md-3">
                         <label htmlFor="exampleFormControlSelect1">Gender</label>
                         <select onChange={(e) => setGender(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            <option>Select Gender</option>
                             {genders &&
                             genders.map((c, i) => (
                                 <option key={i} value={c}>
@@ -271,7 +272,7 @@ const  UpdatePatientProfile = ({ history: history1, match}) => {
                     <div className="form-group col-md-4">
                         <label htmlFor="exampleFormControlSelect1">Patient Status</label>
                         <select onChange={(e) => setStatusPatient(e.target.value)} className="form-control" id="exampleFormControlSelect1">
-                            <option>Please Select</option>
+                            <option>Please Select status</option>
                             {status &&
                             status.map((c, i) => (
                                 <option key={i} value={c}>

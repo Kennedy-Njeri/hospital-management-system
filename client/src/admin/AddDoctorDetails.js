@@ -257,6 +257,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                     <div className="form-group col-md-3">
                         <label htmlFor="exampleFormControlSelect1">Gender</label>
                         <select onChange={(e) => setGender(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            <option>Select Gender</option>
                             {genders &&
                             genders.map((c, i) => (
                                 <option key={i} value={c}>
@@ -276,6 +277,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                     <div className="form-group col-md-4">
                         <label htmlFor="exampleFormControlSelect1">Duty</label>
                         <select onChange={(e) => setDuty(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            <option>Select Duty</option>
                             {duties &&
                             duties.map((c, i) => (
                                 <option key={i} value={c}>
@@ -324,6 +326,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                     <div className="form-group col-md-3">
                         <label htmlFor="exampleFormControlSelect2">Day</label>
                         <select multiple className="form-control" id="exampleFormControlSelect2" onChange={(e) => setDays(e.target.value)} >
+                            <option>Select Day</option>
                             {dayes &&
                             dayes.map((c, i) => (
                                 <option key={i} value={c}>

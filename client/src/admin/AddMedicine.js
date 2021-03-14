@@ -138,6 +138,7 @@ const  AddMedicine = ({ history: history1}) => {
                     <div className="form-group col-md-4">
                         <label htmlFor="exampleFormControlSelect1">Type</label>
                         <select onChange={(e) => setType(e.target.value)} className="form-control" id="exampleFormControlSelect1">
+                            <option>Select Type</option>
                             {types && types.map((c, i) => (
                                 <option key={i} value={c}>
                                     {c}
