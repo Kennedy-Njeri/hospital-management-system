@@ -162,7 +162,7 @@ const ListUsers = ({ history }) => {
                 </div>
             )}
 
-            {countUsers()}
+           
             <Pagination
                 activePage={activePage}
                 itemsCountPerPage={itemPerPage}

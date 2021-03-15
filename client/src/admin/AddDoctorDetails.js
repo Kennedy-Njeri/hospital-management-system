@@ -162,7 +162,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
             <form onSubmit={submitHandler}>
                 <div className="form-row">
                     <div className="form-group col-md-3">
-                        <label className="text-muted">User</label>
+                        <label className="text-muted font-weight-bold">User</label>
                         <select onChange={(e) => setUser(e.target.value)} className="form-control">
                             <option>Select Doctor</option>
                             {users &&
@@ -174,37 +174,37 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                         </select>
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputAddress">Last Name</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Last Name</label>
                         <input type="text" className="form-control"  placeholder="Last Number" value={lastName}
                                onChange={(e) => setLastName(e.target.value)}/>
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputAddress">Id Number</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Id Number</label>
                         <input type="text" className="form-control"  placeholder="Id Number" value={idNumber}
                                onChange={(e) => setIdNumber(e.target.value)}/>
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputAddress">Registration date</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Registration date</label>
                         <DatePicker selected={regDate} onChange={date => setRegDate(date)} className="form-control" />
                     </div>
                 </div>
 
                 <div className="form-row">
                     <div className="form-group col-md-3">
-                        <label htmlFor="exampleFormControlTextarea1">Address</label>
+                        <label className="font-weight-bold" htmlFor="exampleFormControlTextarea1">Address</label>
                         <textarea className="form-control"
                                   placeholder="write address" rows="3" value={address}
                                   onChange={(e) => setAddress(e.target.value)}/>
                     </div>
 
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputAddress">Cell No</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Cell No</label>
                         <input type="text" className="form-control"  placeholder="cell no" value={cell}
                                onChange={(e) => setCell(e.target.value)}/>
                     </div>
 
                     <div className="form-group col-md-3">
-                        <label className="text-muted">Specialization</label>
+                        <label className="text-muted font-weight-bold">Specialization</label>
                         <select onChange={(e) => setSpecialization(e.target.value)} className="form-control">
                             <option>Select</option>
                             {specializations &&
@@ -217,7 +217,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                     </div>
 
                     <div className="form-group col-md-3">
-                        <label className="text-muted">Department</label>
+                        <label className="text-muted font-weight-bold">Department</label>
                         <select onChange={(e) => setDepartment(e.target.value)} className="form-control">
                             <option>Select</option>
                             {departments &&
@@ -235,7 +235,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                 <div className="form-row">
 
                     <div className="form-group col-md-3">
-                        <label className="text-muted">Designation</label>
+                        <label className="text-muted font-weight-bold">Designation</label>
                         <select onChange={(e) => setDesignation(e.target.value)} className="form-control">
                             <option>Select</option>
                             {designations &&
@@ -248,19 +248,19 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                     </div>
 
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputAddress">Residence</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Residence</label>
                         <input type="text" className="form-control"  placeholder="residence" value={residence}
                                onChange={(e) => setResidence(e.target.value)}/>
                     </div>
 
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputAddress">Email</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Email</label>
                         <input type="email" className="form-control"  placeholder="email" value={email}
                                onChange={(e) => setEmail(e.target.value)}/>
                     </div>
 
                     <div className="form-group col-md-3">
-                        <label htmlFor="exampleFormControlSelect1">Gender</label>
+                        <label className="font-weight-bold" htmlFor="exampleFormControlSelect1">Gender</label>
                         <select onChange={(e) => setGender(e.target.value)} className="form-control" id="exampleFormControlSelect1">
                             <option>Select Gender</option>
                             {genders &&
@@ -280,7 +280,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                 <div className="form-row">
 
                     <div className="form-group col-md-4">
-                        <label htmlFor="exampleFormControlSelect1">Duty</label>
+                        <label className="font-weight-bold" htmlFor="exampleFormControlSelect1">Duty</label>
                         <select onChange={(e) => setDuty(e.target.value)} className="form-control" id="exampleFormControlSelect1">
                             <option>Select Duty</option>
                             {duties &&
@@ -293,13 +293,13 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                     </div>
 
                     <div className="form-group col-md-4">
-                        <label htmlFor="inputAddress">Room</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Room</label>
                         <input type="text" className="form-control"  placeholder="guardian" value={room}
                                onChange={(e) => setRoom(e.target.value)}/>
                     </div>
 
                     <div className="form-group col-md-4">
-                        <label htmlFor="inputAddress">Fee</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Fee</label>
                         <input type="text" className="form-control"  placeholder="relation" value={fee}
                                onChange={(e) => setFee(e.target.value)}/>
                     </div>
@@ -311,7 +311,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                 <div className="form-row">
 
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputAddress">Time In</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Time In</label>
                         <TimePicker
                             onChange={setTimeIn}
                             value={time_in}
@@ -320,7 +320,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                     </div>
 
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputAddress">Time Out</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Time Out</label>
                         <TimePicker
                             onChange={setTimeOut}
                             value={time_out}
@@ -329,7 +329,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                     </div>
 
                     <div className="form-group col-md-3">
-                        <label htmlFor="exampleFormControlSelect2">Day</label>
+                        <label className="font-weight-bold" htmlFor="exampleFormControlSelect2">Day</label>
                         <select multiple className="form-control" id="exampleFormControlSelect2" onChange={(e) => setDays(e.target.value)} >
                             <option>Select Day</option>
                             {dayes &&
@@ -342,7 +342,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
                     </div>
 
                     <div className="form-group col-md-3">
-                        <label htmlFor="exampleFormControlFile1">Upload Photo</label>
+                        <label className="font-weight-bold" htmlFor="exampleFormControlFile1">Upload Photo</label>
                         <input type="file"
                                onChange={uploadFileHandler} className="form-control-file" id="exampleFormControlFile1"/>
                         {uploading && (

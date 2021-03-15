@@ -104,13 +104,13 @@ const UpdateExpenses = ({ history: history1, match }) => {
             <form onSubmit={submitHandler}>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputAddress2">Name</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress2">Name</label>
                         <input type="text" className="form-control" id="inputAddress2"
                                placeholder="name" value={name}
                                onChange={(e) => setName(e.target.value)}/>
                     </div>
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputAddress">Amount</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">Amount</label>
                         <input type="text" className="form-control"  placeholder="Amount" value={amount}
                                onChange={(e) => setAmount(e.target.value)}/>
                     </div>
@@ -120,12 +120,12 @@ const UpdateExpenses = ({ history: history1, match }) => {
                 <div className="form-row">
 
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputAddress">From date</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">From date</label>
                         <DatePicker   value={fromDate}   onChange={date => setFromDate(moment(date).format("YYYY-MM-DD"))} className="form-control" />
                     </div>
 
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputAddress">To date</label>
+                        <label className="font-weight-bold" htmlFor="inputAddress">To date</label>
 
                         <DatePicker  value={to}   onChange={date => setTo(moment(date).format("YYYY-MM-DD"))} className="form-control" />
                     </div>
@@ -137,7 +137,7 @@ const UpdateExpenses = ({ history: history1, match }) => {
                 <div className="form-row">
 
                     <div className="form-group col-md-6">
-                        <label htmlFor="exampleFormControlSelect2">Department</label>
+                        <label className="font-weight-bold" htmlFor="exampleFormControlSelect2">Department</label>
                         <select multiple className="form-control" id="exampleFormControlSelect2" onChange={(e) => setDepartment(e.target.value)}>
                             <option>Select Department</option>
                             {departments &&
@@ -150,7 +150,7 @@ const UpdateExpenses = ({ history: history1, match }) => {
                     </div>
 
                     <div className="form-group col-md-6">
-                        <label htmlFor="exampleFormControlTextarea1">Description</label>
+                        <label className="font-weight-bold" htmlFor="exampleFormControlTextarea1">Description</label>
                         <textarea className="form-control" id="exampleFormControlTextarea1" value={description}
                                   onChange={(e) => setDescription(e.target.value)} placeholder="write a description" rows="3"/>
                     </div>
@@ -161,7 +161,7 @@ const UpdateExpenses = ({ history: history1, match }) => {
                 <div className="form-row">
                     <div className="form-group col-md-3">
                         <div className="form-group">
-                            <label htmlFor="exampleFormControlSelect1">Paid</label>
+                            <label className="font-weight-bold" htmlFor="exampleFormControlSelect1">Paid</label>
                             <select onChange={(e) => setPaid(e.target.value)} className="form-control" id="exampleFormControlSelect1">
                                 <option>Select Pays</option>
                                 {pays &&

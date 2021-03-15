@@ -54,7 +54,7 @@ const CreateTestCat = ({ history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="inputTestName">Enter Test Name</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="inputTestName">Enter Test Name</label>
                         <input className="form-control py-4" id="inputFirstName" type="name"
                                placeholder="Enter name" value={testName}
                                onChange={(e) => setTestName(e.target.value)}/>
@@ -65,7 +65,7 @@ const CreateTestCat = ({ history }) => {
             <div className="form-row">
                 <div className="col-md-8">
             <div className="form-group">
-                <label className="small mb-1" htmlFor="inputMinValue">Minimun Value</label>
+                <label className="small mb-1 font-weight-bold" htmlFor="inputMinValue">Minimun Value</label>
                 <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
                        placeholder="Enter minimum value" value={minValue}
                        onChange={(e) => setMinValue(e.target.value)}/>
@@ -75,7 +75,7 @@ const CreateTestCat = ({ history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="inputMaxValue">Maximum Value</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="inputMaxValue">Maximum Value</label>
                         <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
                                placeholder="Enter maximum value" value={maxValue}
                                onChange={(e) => setMaxValue(e.target.value)}/>
@@ -83,7 +83,7 @@ const CreateTestCat = ({ history }) => {
                 </div>
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="cost">Cost</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="cost">Cost</label>
                         <input className="form-control py-4"  type="name"
                                placeholder="Cost" value={cost}
                                onChange={(e) => setCost(e.target.value)}/>
@@ -91,7 +91,7 @@ const CreateTestCat = ({ history }) => {
                 </div>
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="description">Description</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="description">Description</label>
                         <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
                                placeholder="Enter description" value={description}
                                onChange={(e) => setDescription(e.target.value)}/>

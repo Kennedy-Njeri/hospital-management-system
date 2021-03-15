@@ -79,7 +79,7 @@ const CreateTest = ({ history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                    <label className="text-muted">Select User</label>
+                    <label className="text-muted font-weight-bold">Select User</label>
                     <select onChange={(e) => setUser(e.target.value)} className="form-control">
                         <option>Please select User</option>
                         {users &&
@@ -97,7 +97,7 @@ const CreateTest = ({ history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="text-muted">Select TestName</label>
+                        <label className="text-muted font-weight-bold">Select TestName</label>
                         <select onChange={(e) => setTestName(e.target.value)} className="form-control">
                             <option>Please select Test Name</option>
                             {tests &&
@@ -116,7 +116,7 @@ const CreateTest = ({ history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="inputMinValue">Result</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="inputMinValue">Result</label>
                         <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
                                placeholder="result" value={result}
                                onChange={(e) => setResult(e.target.value)}/>
@@ -126,7 +126,7 @@ const CreateTest = ({ history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="description">Description</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="description">Description</label>
                         <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
                                placeholder="Enter description" value={description}
                                onChange={(e) => setDescription(e.target.value)}/>
@@ -137,7 +137,7 @@ const CreateTest = ({ history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label htmlFor="exampleFormControlSelect1">Paid</label>
+                        <label className="font-weight-bold" htmlFor="exampleFormControlSelect1">Paid</label>
                         <select onChange={(e) => setPaid(e.target.value)} className="form-control" id="exampleFormControlSelect1">
                             <option>Select Pay</option>
                             {pays &&

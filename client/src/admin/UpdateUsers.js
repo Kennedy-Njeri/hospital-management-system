@@ -63,7 +63,7 @@ const UpdateUsers = ({ match, history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="inputFirstName">Enter Name</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="inputFirstName">Enter Name</label>
                         <input className="form-control py-4" id="inputFirstName" type="name"
                                placeholder="Enter name" value={name}
                                onChange={(e) => setName(e.target.value)}/>
@@ -74,7 +74,7 @@ const UpdateUsers = ({ match, history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="inputFirstName">Enter role</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="inputFirstName">Enter role</label>
                         <input className="form-control py-4" id="inputFirstName" type="role"
                                placeholder="Enter name" value={role}
                                onChange={(e) => setRole(e.target.value)}/>
@@ -85,7 +85,7 @@ const UpdateUsers = ({ match, history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="inputEmailAddress">Email</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="inputEmailAddress">Email</label>
                         <input className="form-control py-4"  type="email" aria-describedby="emailHelp"
                                placeholder="Enter email address" value={email}
                                onChange={(e) => setEmail(e.target.value)}/>
@@ -95,7 +95,7 @@ const UpdateUsers = ({ match, history }) => {
             <div className="form-row">
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="inputPassword">Password</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="inputPassword">Password</label>
                         <input className="form-control py-4" type="password"
                                placeholder="Enter password" value={password}
                                onChange={(e) => setPassword(e.target.value)}/>
@@ -103,7 +103,7 @@ const UpdateUsers = ({ match, history }) => {
                 </div>
                 <div className="col-md-8">
                     <div className="form-group">
-                        <label className="small mb-1" htmlFor="inputConfirmPassword">Confirm Password</label>
+                        <label className="small mb-1 font-weight-bold" htmlFor="inputConfirmPassword">Confirm Password</label>
                         <input className="form-control py-4"  type="password"
                                placeholder="Confirm password" value={confirmPassword}
                                onChange={(e) => setConfirmPassword(e.target.value)}/>
