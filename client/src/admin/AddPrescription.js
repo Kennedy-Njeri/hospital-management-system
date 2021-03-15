@@ -5,6 +5,8 @@ import { listTreatments } from '../actions/treatmentActions'
 import { listCatTests} from '../actions/testActions'
 import { listUsers  } from '../actions/userActions'
 import { listEnumsPrescriptions, createPrescription, listPaidEnums  } from '../actions/prescriptionActions'
+import { PRESCRIPTION__CREATE_RESET } from '../constants/prescriptionConstants'
+import {TEST_CREATE_RESET} from "../constants/testConstants";
 
 
 
@@ -42,7 +44,7 @@ const AddPrescription = ({ history: history1 }) => {
     console.log(enums)
 
     const prescCreate = useSelector((state) => state.prescCreate)
-    const { error, loading } = prescCreate
+    const { error, loading, success } = prescCreate
 
     const presPaidList = useSelector((state) => state.presPaidList)
     const { pays } = presPaidList
@@ -55,12 +57,17 @@ const AddPrescription = ({ history: history1 }) => {
             dispatch(listEnumsPrescriptions())
             dispatch(listTreatments())
             dispatch(listPaidEnums())
+
+            if(success) {
+                dispatch({ type: PRESCRIPTION__CREATE_RESET })
+                history1.push('/list-prescriptions')
+            }
         } else {
             history1.push('/login')
         }
 
 
-    }, [ dispatch, userInfo])
+    }, [ dispatch, userInfo, success])
 
 
     const showError = () => (
@@ -81,7 +88,7 @@ const AddPrescription = ({ history: history1 }) => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(createPrescription({ user, treatment, medicine, time, days, take, test, paid, history}))
-        history1.push('/list-prescriptions')
+
     }
 
     const addPrescriptionForm = () => (

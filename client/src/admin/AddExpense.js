@@ -4,6 +4,8 @@ import Layout from "../core/Layout";
 import { listPaidEnums, createExpenses} from '../actions/expensesActions'
 import { listDeparts } from '../actions/departmentActions'
 import DatePicker from "react-datepicker";
+import { EXPENSES_CREATE_RESET } from '../constants/expensesConstants'
+
 
 
 
@@ -29,7 +31,7 @@ const AddExpense = ({ history: history1 }) => {
     const { departments } = departsList
     
     const expenseCreate = useSelector((state) => state.expenseCreate)
-    const { error, loading } = expenseCreate
+    const { error, loading, success } = expenseCreate
 
     const expensesPaid = useSelector((state) => state.expensesPaid)
     const { pays } = expensesPaid
@@ -39,13 +41,18 @@ const AddExpense = ({ history: history1 }) => {
         if (userInfo && userInfo.role === 0) {
             dispatch(listDeparts())
             dispatch(listPaidEnums())
+
+            if(success) {
+                dispatch({ type: EXPENSES_CREATE_RESET })
+                history1.push('/list-expenses')
+            }
             
         } else {
             history1.push('/login')
         }
 
 
-    }, [ dispatch, userInfo])
+    }, [ dispatch, userInfo, success])
 
 
     const showError = () => (
@@ -66,7 +73,7 @@ const AddExpense = ({ history: history1 }) => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(createExpenses({ name, department, amount, description, fromDate, to,  paid }))
-        history1.push('/list-expenses')
+
     }
 
     const addExpenseForm = () => (
