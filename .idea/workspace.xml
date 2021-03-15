@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a913cf6-e558-49a6-85b0-f0a9753a7561" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/screen/addExpense.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/dashWithReducers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/listExpenses.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/listUsers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/registerUsers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/updateExpense.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/AddExpense.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/AddExpense.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/AddPatientDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/AddPatientDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/AddUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/AddUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/CatTestUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/CatTestUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/CreateTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/CreateTest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/CreateTestCat.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/CreateTestCat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/ListUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/ListUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/TestUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/TestUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/UpdateExpenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/UpdateExpenses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/UpdatePatientProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/UpdatePatientProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/admin/UpdateUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/admin/UpdateUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/user/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/user/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,38 +12,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="735">
-                <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+              <first_editor relative-caret-position="525">
+                <caret line="109" column="4" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/TestUpdate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1229">
-              <caret line="157" column="42" lean-forward="true" selection-start-line="157" selection-start-column="42" selection-end-line="157" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="344" column="60" selection-start-line="344" selection-start-column="60" selection-end-line="344" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -108,7 +65,6 @@
         <option value="$PROJECT_DIR$/client/src/user/AdminDashboard.js" />
         <option value="$PROJECT_DIR$/client/public/index.html" />
         <option value="$PROJECT_DIR$/client/src/core/Layout.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/client/src/admin/AddSpecialization.js" />
         <option value="$PROJECT_DIR$/client/src/user/Signup.js" />
         <option value="$PROJECT_DIR$/client/src/admin/AddFloor.js" />
@@ -134,11 +90,12 @@
         <option value="$PROJECT_DIR$/client/src/admin/AddPatientDetails.js" />
         <option value="$PROJECT_DIR$/client/src/admin/UpdatePatientProfile.js" />
         <option value="$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="407" />
+    <option name="x" value="187" />
     <option name="y" value="24" />
     <option name="width" value="1376" />
     <option name="height" value="828" />
@@ -228,7 +185,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1615811292875" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1615811780053" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -284,15 +241,15 @@
       <workItem from="1615033415977" duration="863000" />
       <workItem from="1615057786265" duration="1229000" />
       <workItem from="1615086286261" duration="3825000" />
-      <workItem from="1615295397537" duration="127609000" />
+      <workItem from="1615295397537" duration="128126000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="532570000" />
+    <option name="totallyTimeSpent" value="533087000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="102" width="1376" height="828" extended-state="0" />
+    <frame x="187" y="24" width="1376" height="828" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
@@ -300,11 +257,11 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.39955023" />
+      <window_info content_ui="combo" id="Project" order="5" weight="0.1634183" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="GraphQL" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32336956" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32336956" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
@@ -326,6 +283,38 @@
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.1634183" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="GraphQL" order="1" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32336956" />
+      <window_info anchor="bottom" id="Database Changes" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.32968536" />
+      <window_info anchor="bottom" id="Run" order="8" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="right" id="Theme Preview" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -724,16 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="735">
-            <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/admin/UpdateExpenses.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-78">
@@ -774,6 +753,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="344" column="60" selection-start-line="344" selection-start-column="60" selection-end-line="344" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/admin/TestUpdate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1229">
@@ -784,13 +773,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/admin/AddDoctorDetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="344" column="60" selection-start-line="344" selection-start-column="60" selection-end-line="344" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="525">
+            <caret line="109" column="4" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

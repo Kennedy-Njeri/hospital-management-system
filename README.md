@@ -91,6 +91,36 @@ Create a system with a simple interface that needs limited keyboard input from u
 
 ![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/dash2.png)
 
+**Dashboard With Reducers**
+
+![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/dashWithReducers.png)
+
+**Register Users**
+
+![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/registerUsers.png)
+
+**List Users**
+
+![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/listUsers.png)
+
+
+**Patient Details**
+
+![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/addPatientInfo.png)
+
+**Doctors Details**
+
+![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/addDoctorsInfo.png)
+
+**Add Expense**
+
+![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/addExpense.png)
+
+**Update Expense**
+
+![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/updateExpense.png)
+
+
 
 **Credits**
 
