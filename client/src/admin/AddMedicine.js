@@ -5,6 +5,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { listVendors } from '../actions/vendorsActions'
 import { listTypesEnums, createMedicine } from '../actions/medicineActions'
+import { CREATE_MEDICINE_RESET } from '../constants/medicineConstants'
+
 
 
 
@@ -48,7 +50,7 @@ const  AddMedicine = ({ history: history1}) => {
 
 
     const medicineCreate = useSelector((state) => state.medicineCreate)
-    const { error, loading } = medicineCreate
+    const { error, loading, success } = medicineCreate
 
     const vendorsList = useSelector((state) => state.vendorsList)
     const { vendors } = vendorsList
@@ -60,12 +62,17 @@ const  AddMedicine = ({ history: history1}) => {
             dispatch(listTypesEnums())
             dispatch(listVendors())
 
+            if(success) {
+                dispatch({ type: CREATE_MEDICINE_RESET })
+                history1.push('/list/medicine')
+            }
+
         } else {
             history1.push('/login')
         }
 
 
-    }, [ dispatch, userInfo])
+    }, [ dispatch, userInfo, success])
 
 
     const showError = () => (
@@ -90,7 +97,7 @@ const  AddMedicine = ({ history: history1}) => {
 
         dispatch(createMedicine({ name, genericName, batchNo, barCode, description, quantity, unitWeight,
         type, manDate, expDate, cost, retailCost, vendor, effects }))
-        history1.push('/list/medicine')
+        
     }
 
 

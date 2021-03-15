@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import Layout from "../core/Layout";
 import { listMedicines } from '../actions/medicineActions'
 import { listVacTypesEnums, createVacCat } from '../actions/vaccineCatActions'
+import { CREATE_VACCINE_RESET } from '../constants/vaccineCat'
+import {TEST_CREATE_RESET} from "../constants/testConstants";
 
 
 
@@ -42,7 +44,7 @@ const  AddVaccineCat = ({ history: history1}) => {
 
     const vaccineCatCreate = useSelector((state) => state.vaccineCatCreate)
 
-    const { error, loading } = vaccineCatCreate
+    const { error, loading, success } = vaccineCatCreate
 
 
 
@@ -52,12 +54,17 @@ const  AddVaccineCat = ({ history: history1}) => {
             dispatch(listVacTypesEnums())
             dispatch(listMedicines())
 
+            if(success) {
+                dispatch({ type: CREATE_VACCINE_RESET })
+                history1.push('/list-vaccine-cat')
+            }
+
         } else {
             history1.push('/login')
         }
 
 
-    }, [ dispatch, userInfo])
+    }, [ dispatch, userInfo, success])
 
 
     const showError = () => (
@@ -81,7 +88,7 @@ const  AddVaccineCat = ({ history: history1}) => {
         e.preventDefault()
 
         dispatch(createVacCat({ name, type, description, medicine, effects }))
-        history1.push('/list-vaccine-cat')
+
     }
 
 

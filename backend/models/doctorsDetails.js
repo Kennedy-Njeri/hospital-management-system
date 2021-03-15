@@ -61,7 +61,8 @@ const doctorsDetails = mongoose.Schema(
         duty: {
             type: String,
             default: "Morning",
-            enum: ["Evening", "Morning"]
+            enum: ["Evening", "Morning"],
+            required: true,
         },
         room: {
             type: String,
@@ -82,7 +83,8 @@ const doctorsDetails = mongoose.Schema(
         days: {
             type: String,
             default: "Monday",
-            enum: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+            enum: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            required: true,
         },
         image: {
             type: String

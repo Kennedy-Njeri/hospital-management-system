@@ -11,6 +11,8 @@ import axios from "axios";
 import TimePicker from 'react-time-picker';
 import "react-time-picker/dist/TimePicker.css";
 import "react-clock/dist/Clock.css";
+import { PATIENT_CREATE_RESET } from '../constants/patientDetailsConstants'
+
 
 
 
@@ -66,7 +68,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
     const { duties } = doctorDuty
 
     const  doctorCreate = useSelector((state) => state.doctorCreate)
-    const { error, loading } =  doctorCreate
+    const { error, loading, success } =  doctorCreate
 
     const specializeList = useSelector((state) => state.specializeList)
     const { specializations } = specializeList
@@ -80,7 +82,6 @@ const  AddDoctorsDetails = ({ history: history1}) => {
 
     useEffect(() => {
 
-
         if (userInfo && userInfo.role === 0) {
             dispatch(listUsers())
             dispatch(listDutyEnums())
@@ -90,12 +91,16 @@ const  AddDoctorsDetails = ({ history: history1}) => {
             dispatch(listDeparts())
             dispatch(listDesignate())
 
+            if(success) {
+                dispatch({ type: PATIENT_CREATE_RESET })
+                history1.push('/list-doctors')
+            }
         } else {
             history1.push('/login')
         }
 
 
-    }, [ dispatch, userInfo])
+    }, [ dispatch, userInfo, success])
 
 
     const showError = () => (
@@ -118,7 +123,7 @@ const  AddDoctorsDetails = ({ history: history1}) => {
 
         dispatch(createDoctor({ user, lastName, idNumber, regDate,
             address, cell, specialization, department, designation, residence, email, gender, duty, room, fee, time_in, time_out, days, image }))
-        history1.push('/list-doctors')
+
     }
 
     const uploadFileHandler = async (e) => {
