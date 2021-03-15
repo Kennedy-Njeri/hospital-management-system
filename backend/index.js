@@ -48,7 +48,6 @@ app.use(cors());
 //     next();
 // });
 
-
 // routes middleware
 
 app.use('/api', userRoutes);
