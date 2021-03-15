@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Layout from "../core/Layout";
 import { createFloor } from '../actions/floorActions'
 import { listBuildings } from '../actions/buildingsActions'
-import { FLOOR_CREATE_FAIL, FLOOR_CREATE_RESET } from '../constants/floorConstants'
+import { FLOOR_CREATE_RESET } from '../constants/floorConstants'
 
 
 
@@ -22,7 +22,7 @@ const AddFloor = ({ history }) => {
     
     const buildingList = useSelector((state) => state.buildingList)
     const { buildings } = buildingList
-    //dispatch(listBuildings())
+
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
@@ -42,9 +42,6 @@ const AddFloor = ({ history }) => {
             if(success) {
                 dispatch({ type: FLOOR_CREATE_RESET })
                 history.push('/list-floors')
-
-            } else {
-                history.push('/add-floor')
             }
         }
         
@@ -128,10 +125,7 @@ const AddFloor = ({ history }) => {
     return (
         <Layout title="Category test Form">
             <h2 className="mb-4">Add A floor</h2>
-            {success &&  <div className="alert alert-success" role="alert">
-                Create Test
-            </div>}
-
+            
             {showLoading()}
             {showError()}
             {AddFloorForm()}

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Layout from "../core/Layout";
 import { createTest, listCatTests, listPaidEnums } from '../actions/testActions'
 import { listUsers  } from '../actions/userActions'
+import { TEST_CREATE_RESET } from '../constants/testConstants'
 
 
 
@@ -15,7 +16,7 @@ const CreateTest = ({ history }) => {
     const [result, setResult] = useState("")
     const [description, setDescription] = useState('')
     const [paid, setPaid] = useState("")
-    //const [message, setMessage] = useState(null)
+
 
     const dispatch = useDispatch()
 
@@ -40,6 +41,11 @@ const CreateTest = ({ history }) => {
             dispatch(listUsers())
             dispatch(listCatTests())
             dispatch(listPaidEnums())
+
+            if(success) {
+                dispatch({ type: TEST_CREATE_RESET })
+                history.push('/test-result')
+            }
         } else {
             history.push('/login')
         }
@@ -50,7 +56,6 @@ const CreateTest = ({ history }) => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(createTest({ user, testName, result, description, paid}))
-        history.push('/test-result')
     }
 
     const showError = () => (
@@ -157,9 +162,6 @@ const CreateTest = ({ history }) => {
     return (
         <Layout title="Category test Form">
             <h2 className="mb-4">Create Test Result</h2>
-            {success &&  <div className="alert alert-success" role="alert">
-                Create Test
-            </div>}
 
             {showLoading()}
             {showError()}

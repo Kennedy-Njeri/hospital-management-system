@@ -32,7 +32,6 @@ const AddDesignation = ({ history }) => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(createDesignate({  name, description}))
-        //history.push('/list-floors')
     }
 
     const showError = () => (

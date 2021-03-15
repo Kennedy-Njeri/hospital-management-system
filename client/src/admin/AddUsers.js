@@ -2,21 +2,24 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../core/Layout';
 import {  usersRegister } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
+import { USERS_REGISTER_RESET, USER_LIST_SUCCESS , USERS_REGISTER_FAIL } from '../constants/userConstants'
 
 
 
 const AddUsers = ({ history }) => {
 
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
+    const [name, setName] = useState('joseph')
+    const [email, setEmail] = useState('joseph@gmail.com')
     const [password, setPassword] = useState('')
-    const [role, setRole] = useState(0)
+    const [role, setRole] = useState(2)
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [message, setMessage] = useState(null)
+    //const [message, setMessage] = useState(null)
 
     const dispatch = useDispatch()
 
+    const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo } = userLogin
 
 
     const usersCreate = useSelector((state) => state.usersCreate)
@@ -24,23 +27,24 @@ const AddUsers = ({ history }) => {
 
 
     useEffect(() => {
-        // if (success) {
-        //     history.push('/list/users')
-        // }
-    }, [dispatch, success])
+        if (userInfo && userInfo.role === 0) {
+            if (success){
+                dispatch({ type: USERS_REGISTER_RESET })
+                history.push('/list/users')
+            }
+        }
+    }, [dispatch, success, userInfo])
 
     const submitHandler = (e) => {
         e.preventDefault()
-        if (password !== confirmPassword) {
-            setMessage('Passwords do not match')
-        } else {
-
-            dispatch(usersRegister({ name, email, password, role }))
-            history.push('/list/users')
-        }
-
+        dispatch(usersRegister({name, email, password, confirmPassword, role}))
     }
 
+    // {message && <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
+    //     {message}
+    // </div>}
+    
+    
     const usersForm = () => (
         <form onSubmit={submitHandler}>
             <div className="form-row">
@@ -125,9 +129,7 @@ const AddUsers = ({ history }) => {
         <Layout className="container-fluid">
             <h2 className="mb-4">Add User</h2>
             {email}
-            {message && <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
-                {message}
-            </div>}
+            
             {showError()}
             {showLoading()}
             {usersForm()}
