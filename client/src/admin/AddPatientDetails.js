@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { listUsers  } from '../actions/userActions'
 import { listGenderEnums, listStatusEnums, createPatient, listTypeEnums } from '../actions/patientActions'
 import axios from "axios";
+import {PATIENT_CREATE_RESET} from "../constants/patientDetailsConstants";
 
 
 
@@ -56,7 +57,7 @@ const  AddPatientDetails = ({ history: history1}) => {
     const { types } = patientTypes
 
     const patientCreate = useSelector((state) => state.patientCreate)
-    const { error, loading } = patientCreate
+    const { error, loading, success } = patientCreate
 
 
     useEffect(() => {
@@ -67,13 +68,18 @@ const  AddPatientDetails = ({ history: history1}) => {
             dispatch(listTypeEnums())
             dispatch(listStatusEnums())
             dispatch(listGenderEnums())
+
+            if(success) {
+                dispatch({ type: PATIENT_CREATE_RESET })
+                history1.push('/list-patients')
+            }
             
         } else {
             history1.push('/login')
         }
 
 
-    }, [ dispatch, userInfo])
+    }, [ dispatch, userInfo, success])
 
 
     const showError = () => (
@@ -96,7 +102,7 @@ const  AddPatientDetails = ({ history: history1}) => {
 
      dispatch(createPatient({ user, lastName, idNumber, regDate,
           address, cell, birthDate, residence, email, guardian, relation, gender, statusPatient, patientType, image }))
-        history1.push('/list-patients')
+
     }
 
     const uploadFileHandler = async (e) => {
@@ -167,7 +173,7 @@ const  AddPatientDetails = ({ history: history1}) => {
                         <label htmlFor="exampleFormControlTextarea1">Address</label>
                         <textarea className="form-control"
                                   placeholder="write address" rows="3" value={address}
-                                  onChange={(e) => setAddress(e.target.value)}></textarea>
+                                  onChange={(e) => setAddress(e.target.value)}/>
                     </div>
 
                     <div className="form-group col-md-3">

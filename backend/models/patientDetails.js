@@ -47,20 +47,24 @@ const patientDetails = mongoose.Schema(
         gender: {
             type: String,
             default: "Male",
-            enum: ["Male", "Female"] // enum means string objects
+            enum: ["Male", "Female"], // enum means string objects
+            required: true,
         },
         statusPatient: {
             type: String,
             default: "Cured",
-            enum: ["Cured", "Under Treatment"]
+            enum: ["Cured", "Under Treatment"],
+            required: true,
         },
         patientType: {
             type: String,
             default: "In Patient",
-            enum: ["In Patient", "Out Patient"]
+            enum: ["In Patient", "Out Patient"],
+            required: true,
         },
         image: {
-            type: String
+            type: String,
+            required: true,
         },
         
     }

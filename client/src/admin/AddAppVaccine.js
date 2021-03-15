@@ -9,6 +9,8 @@ import { listVacCat  } from '../actions/vaccineCatActions'
 import TimePicker from 'react-time-picker';
 import "react-time-picker/dist/TimePicker.css";
 import "react-clock/dist/Clock.css";
+import { CREATE_APPOINTMENT_VACCINE_RESET } from '../constants/vaccineAppointmentConstants'
+
 
 
 
@@ -58,7 +60,7 @@ const  AddAppVaccine = ({ history: history1}) => {
 
 
     const vaccineAppCreate = useSelector((state) => state.vaccineAppCreate)
-    const { error, loading } = vaccineAppCreate
+    const { error, loading, success } = vaccineAppCreate
 
     const vaccineAppTaken = useSelector((state) => state.vaccineAppTaken)
     const { takes } = vaccineAppTaken
@@ -75,12 +77,17 @@ const  AddAppVaccine = ({ history: history1}) => {
             dispatch(listVacDaysEnums())
             dispatch(listVacCat())
 
+            if(success) {
+                dispatch({ type: CREATE_APPOINTMENT_VACCINE_RESET })
+                history1.push('/list-app-vaccine')
+            }
+
         } else {
             history1.push('/login')
         }
 
 
-    }, [ dispatch, userInfo])
+    }, [ dispatch, userInfo, success])
 
 
     const showError = () => (
@@ -103,7 +110,7 @@ const  AddAppVaccine = ({ history: history1}) => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(createVacApp({ patient, nurse, vaccine, date, time_in, taken, day, room, remarks }))
-        history1.push('/list-app-vaccine')
+        
     }
 
 
