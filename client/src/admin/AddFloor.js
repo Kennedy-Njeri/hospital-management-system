@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Layout from "../core/Layout";
 import { createFloor } from '../actions/floorActions'
 import { listBuildings } from '../actions/buildingsActions'
+import { FLOOR_CREATE_FAIL, FLOOR_CREATE_RESET } from '../constants/floorConstants'
 
 
 
@@ -21,20 +22,32 @@ const AddFloor = ({ history }) => {
     
     const buildingList = useSelector((state) => state.buildingList)
     const { buildings } = buildingList
+    //dispatch(listBuildings())
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
+
+
     const floorCreate = useSelector((state) => state.floorCreate)
     const { success, error, loading } = floorCreate
 
-    useEffect(() => {
 
+
+    useEffect(() => {
+        
         if (userInfo && userInfo.role === 0) {
             dispatch(listBuildings())
-        } else {
-            history.push('/login')
+
+            if(success) {
+                dispatch({ type: FLOOR_CREATE_RESET })
+                history.push('/list-floors')
+
+            } else {
+                history.push('/add-floor')
+            }
         }
+        
 
 
     }, [success, dispatch, userInfo])
@@ -42,7 +55,6 @@ const AddFloor = ({ history }) => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(createFloor({  name, floorcode, building}))
-        history.push('/list-floors')
     }
 
     const showError = () => (
@@ -67,7 +79,7 @@ const AddFloor = ({ history }) => {
                 <div className="col-md-8">
                     <div className="form-group">
                         <label className="small mb-1" htmlFor="description">Name</label>
-                        <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
+                        <input className="form-control py-4"   type="name" aria-describedby="emailHelp"
                                placeholder="Enter name" value={name}
                                onChange={(e) => setName(e.target.value)}/>
                     </div>
@@ -78,7 +90,7 @@ const AddFloor = ({ history }) => {
                 <div className="col-md-8">
                     <div className="form-group">
                         <label className="small mb-1" htmlFor="description">Floor Code</label>
-                        <input className="form-control py-4"  type="name" aria-describedby="emailHelp"
+                        <input className="form-control py-4"   type="name" aria-describedby="emailHelp"
                                placeholder="Enter Floor Code" value={floorcode}
                                onChange={(e) => setFloorCode(e.target.value)}/>
                     </div>
@@ -89,7 +101,7 @@ const AddFloor = ({ history }) => {
                 <div className="col-md-8">
                     <div className="form-group">
                         <label className="text-muted">Select Building</label>
-                        <select onChange={(e) => setBuilding(e.target.value)} className="form-control">
+                        <select onChange={(e) => setBuilding(e.target.value)}  className="form-control">
                             <option>Please select a Building</option>
                             {buildings &&
                             buildings.map((c, i) => (

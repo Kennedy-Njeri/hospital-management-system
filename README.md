@@ -43,9 +43,11 @@ Create a system with a simple interface that needs limited keyboard input from u
 
 * Medicine Management
 
-* Patient Files
+* Patient && Doctor Files
 
 * Building Management
+
+* Upload images && excel files   
 
 **Tech Stack**
 
@@ -65,7 +67,9 @@ Create a system with a simple interface that needs limited keyboard input from u
 
 3. cd client **Enter npm install**
 
-4. In the Backend folder create a **.env** file and include the following e.g
+4. Run http://localhost:3000/signin
+
+5. In the Backend folder create a **.env** file and include the following e.g
 
 * DATABASE=mongodb://127.0.0.1:27017/hospital-management
 
@@ -74,6 +78,7 @@ Create a system with a simple interface that needs limited keyboard input from u
 * JWT_SECRET=
 
 **N/B** Make sure you install MongoDb in your Computer && MongoDb Compass for UI
+
 
 
 **Screenshots**
@@ -85,3 +90,8 @@ Create a system with a simple interface that needs limited keyboard input from u
 **Dashboard 2**
 
 ![](https://github.com/Kennedy-Njeri/hospital-management-system/blob/master/screen/dash2.png)
+
+
+**Credits**
+
+* DASHBOARD - SB-Admin [https://startbootstrap.com/template/sb-admin](https://startbootstrap.com/template/sb-admin)

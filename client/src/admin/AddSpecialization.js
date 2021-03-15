@@ -26,6 +26,8 @@ const AddSpecialization = ({ history }) => {
     useEffect(() => {
         if (success) {
             history.push('/list-specialize')
+        } else {
+            history.push("/add-specialize")
         }
     }, [success, dispatch])
 
