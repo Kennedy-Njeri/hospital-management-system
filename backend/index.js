@@ -3,6 +3,7 @@ const app = express()
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const mongoSanitize = require('express-mongo-sanitize');
 require('./db/mongoose')
 const path = require('path')
 
@@ -39,6 +40,8 @@ require('dotenv').config()
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(mongoSanitize());
+
 
 // app.use(function(req, res, next) { //allow cross origin requests
 //     res.setHeader("Access-Control-Allow-Origin", "*");

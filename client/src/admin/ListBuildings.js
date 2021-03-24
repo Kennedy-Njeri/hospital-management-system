@@ -91,7 +91,7 @@ const ListBuildings = ({ history }) => {
                                             <td>{build.code}</td>
                                             <td>{build.description}</td>
                                             <td><Link to={`/update-building/${build._id}`}><i className="bi bi-pencil-square"></i></Link></td>
-                                            <td><i className="bi bi-trash" onClick={() => deleteHandler(build._id)}></i></td>
+                                            <td><i className="bi bi-trash" onClick={() => deleteHandler(build._id)}/></td>
                                         </Fragment>
                                     </tr>
                                 ))
