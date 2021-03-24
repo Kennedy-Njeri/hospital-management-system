@@ -47,7 +47,7 @@ const ListUsers = ({ history }) => {
     const deleteHandler = (id) => {
         console.log(id)
         if (window.confirm('Are you sure')) {
-            dispatch(deleteUser(id))
+            //dispatch(deleteUser(id))
         }
     }
 
@@ -151,7 +151,7 @@ const ListUsers = ({ history }) => {
                                 )}
                             </td>
                             <td><Link to={`/update/users/${user._id}`}><i className="bi bi-pencil-square" /></Link></td>
-                            <td><i className="bi bi-trash" onClick={() => deleteHandler(user._id)} /></td>
+                            <td ><i className="bi bi-trash" onClick={() => deleteHandler(user._id)} /></td>
                             <td>{user.role === 2 ? (<Link to={`/pat-details/${user._id}`}> <button type="button" className="btn btn-success btn-sm">Details</button></Link>): ''}</td>
                         </tr>
 

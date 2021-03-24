@@ -62,7 +62,7 @@ const Profile = ({ match, history }) => {
                         <label className="small mb-1 font-weight-bold" htmlFor="inputFirstName">Enter Name</label>
                         <input className="form-control py-4" id="inputFirstName" type="name"
                                placeholder="Enter name" value={name}
-                               onChange={(e) => setName(e.target.value)}/>
+                               onChange={(e) => setName(e.target.value)} disabled/>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@ const Profile = ({ match, history }) => {
                         <label className="small mb-1 font-weight-bold" htmlFor="inputFirstName">Enter role</label>
                         <input className="form-control py-4" id="inputFirstName" type="role"
                                placeholder="Enter name" value={role}
-                               onChange={(e) => setRole(e.target.value)}/>
+                               onChange={(e) => setRole(e.target.value)} disabled/>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@ const Profile = ({ match, history }) => {
                 <label className="small mb-1 font-weight-bold" htmlFor="inputEmailAddress">Email</label>
                 <input className="form-control py-4"  type="email" aria-describedby="emailHelp"
                        placeholder="Enter email address" value={email}
-                       onChange={(e) => setEmail(e.target.value)}/>
+                       onChange={(e) => setEmail(e.target.value)} disabled/>
             </div>
             </div>
             </div>
@@ -94,7 +94,7 @@ const Profile = ({ match, history }) => {
                         <label className="small mb-1 font-weight-bold" htmlFor="inputPassword">Password</label>
                         <input className="form-control py-4" type="password"
                                placeholder="Enter password" value={password}
-                               onChange={(e) => setPassword(e.target.value)}/>
+                               onChange={(e) => setPassword(e.target.value)} disabled/>
                     </div>
                 </div>
                 <div className="col-md-8">
@@ -102,13 +102,13 @@ const Profile = ({ match, history }) => {
                         <label className="small mb-1 font-weight-bold" htmlFor="inputConfirmPassword">Confirm Password</label>
                         <input className="form-control py-4"  type="password"
                                placeholder="Confirm password" value={confirmPassword}
-                               onChange={(e) => setConfirmPassword(e.target.value)}/>
+                               onChange={(e) => setConfirmPassword(e.target.value)} disabled/>
                     </div>
                 </div>
             </div>
             <div className="col-md-8">
             <div className="form-group mt-4 mb-0">
-                <button className="btn btn-primary btn-block">Update
+                <button className="btn btn-primary btn-block" disabled>Update
                     Account</button></div>
             </div>
         </form>
