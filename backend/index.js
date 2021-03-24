@@ -5,7 +5,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require("helmet");
-
+const xss = require('xss-clean');
+const rateLimit = require("express-rate-limit");
+const hpp = require('hpp');
 require('./db/mongoose')
 const path = require('path')
 
@@ -42,8 +44,20 @@ require('dotenv').config()
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
+// Sanitize data
 app.use(mongoSanitize());
+// Set security headers
 app.use(helmet());
+// Prevent XSS attacks
+app.use(xss());
+// Prevent http param pollution
+app.use(hpp());
+// Rate limiting
+const limiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 mins
+    max: 100
+});
+app.use(limiter);
 
 
 

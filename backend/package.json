@@ -20,9 +20,11 @@
     "express-async-handler": "^1.1.4",
     "express-jwt": "^6.0.0",
     "express-mongo-sanitize": "^2.0.2",
+    "express-rate-limit": "^5.2.6",
     "express-validator": "^5.3.1",
     "formidable": "^1.2.2",
     "helmet": "^4.4.1",
+    "hpp": "^0.2.3",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
     "mongoose": "^5.10.13",
@@ -31,6 +33,7 @@
     "nodemon": "^2.0.6",
     "sharp": "^0.27.1",
     "xls-to-json": "^2.1.0",
-    "xlsx-to-json": "^0.3.0"
+    "xlsx-to-json": "^0.3.0",
+    "xss-clean": "^0.1.1"
   }
 }
