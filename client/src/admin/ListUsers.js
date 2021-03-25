@@ -27,37 +27,60 @@ const ListUsers = ({ history }) => {
     const [activePage, setActivePage] = useState(1)
     const [itemPerPage, setItemPerPage] = useState(5)
 
-   
+    const [data, setData] = useState(users)
+
 
 
     const [searchTerm, setSearchTerm] = React.useState("");
 
-    const handleChange = event => {
-        setSearchTerm(event.target.value);
-    };
+    // const handleChange = event => {
+    //     setSearchTerm(event.target.value);
+    // };
     
     useEffect(() => {
         if (userInfo && userInfo.role === 0) {
             dispatch(listUsers())
+            //setData(users)
         } else {
             history.push('/login')
         }
     }, [dispatch, history, successDelete, userInfo])
 
+
+
     const deleteHandler = (id) => {
         console.log(id)
         if (window.confirm('Are you sure')) {
-            //dispatch(deleteUser(id))
+            dispatch(deleteUser(id))
         }
     }
+    
+
+    
+    const searchUsers = (target) => {
+        
+        if (!target) {
+           return setData(users)
+        }
+
+        const results = users && users.filter(user =>
+            user.name.toString().toLowerCase().includes(target)
+        )
+
+        setData(results)
+
+    }
+
+    
 
     // search users
-    const results = !searchTerm ? users : users && users.filter(user =>
-        user.name.toString().toLowerCase().includes(searchTerm)
-    )
+    // const results = !searchTerm ? users : users && users.filter(user =>
+    //     user.name.toString().toLowerCase().includes(searchTerm)
+    // )
 
     const countUsers = () => {
-        return results && results.length
+        //return results && results.length
+        return data && data.length
     }
 
     const indexOfLastUser = activePage * itemPerPage;
@@ -93,7 +116,7 @@ const ListUsers = ({ history }) => {
            
             <h2 className="mb-4">List Users</h2>
 
-            {loading ? (
+            { loading ? (
                 showLoading()
             ) : error ? (
                 showError()
@@ -103,8 +126,10 @@ const ListUsers = ({ history }) => {
                     <div className="col-lg-8">
                         <form>
                             <div className="input-group">
-                                <input className="form-control" type="text" value={searchTerm}  onChange={handleChange} name="q" placeholder="Search for..." aria-label="Search"
-                                       aria-describedby="basic-addon2"/>
+                                <input className="form-control" type="text" onChange={(e) => {
+                                    e.preventDefault();
+                                    return searchUsers(e.target.value)
+                                }}/>
                                 <div className="input-group-append">
                                     <button className="btn btn-primary" type="button"><i className="fas fa-search"/>
                                     </button>
@@ -130,8 +155,8 @@ const ListUsers = ({ history }) => {
                     </tr>
                     </thead>
                     <tbody>
-                    {results &&
-                    results.slice(indexOfFirstUser, indexOfLastUser).map((user, i) => (
+                    { data.length !== 0 ? (
+                    data.slice(indexOfFirstUser, indexOfLastUser).map((user, i) => (
                         <tr key={i}>
                         <th scope="row">{user._id}</th>
                         <td>{user.name}</td>
@@ -155,7 +180,7 @@ const ListUsers = ({ history }) => {
                             <td>{user.role === 2 ? (<Link to={`/pat-details/${user._id}`}> <button type="button" className="btn btn-success btn-sm">Details</button></Link>): ''}</td>
                         </tr>
 
-                    ))}
+                    ))): (<td><b>No Users found</b></td>)}
                     </tbody>
                 </table>
                     </div>
