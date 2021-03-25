@@ -150,8 +150,8 @@ const ListUsers = ({ history }) => {
                                     <button type="button" className="btn btn-warning btn-sm">Staff</button>
                                 )}
                             </td>
-                            <td><Link to={`/update/users/${user._id}`}><i className="bi bi-pencil-square" /></Link></td>
-                            <td ><i className="bi bi-trash" onClick={() => deleteHandler(user._id)} /></td>
+                            <td>{ user.role === 0 ? (' '): (<Link to={`/update/users/${user._id}`}><i className="bi bi-pencil-square" /></Link>)}</td>
+                            <td>{ user.role === 0 ? (' '): (<i className="bi bi-trash" onClick={() => deleteHandler(user._id)} />)}</td>
                             <td>{user.role === 2 ? (<Link to={`/pat-details/${user._id}`}> <button type="button" className="btn btn-success btn-sm">Details</button></Link>): ''}</td>
                         </tr>
 

@@ -216,7 +216,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
 }
 
 
-export const listUsers = (keyword = '') => async (dispatch, getState) => {
+export const listUsers = () => async (dispatch, getState) => {
     try {
         dispatch({
             type: USER_LIST_REQUEST,
@@ -232,7 +232,7 @@ export const listUsers = (keyword = '') => async (dispatch, getState) => {
             },
         }
 
-        const { data } = await axios.get(`${API}/users/get?keyword=${keyword}`, config)
+        const { data } = await axios.get(`${API}/users/get`, config)
 
         dispatch({
             type: USER_LIST_SUCCESS,
