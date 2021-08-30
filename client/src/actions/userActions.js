@@ -148,6 +148,8 @@ export const getUserDetails = (userId) => async (dispatch, getState) => {
             },
         }
 
+        console.log(userInfo.token)
+
         const { data } = await axios.get(`${API}/user/${userId}`, config)
         console.log(data)
 
