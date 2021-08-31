@@ -3,17 +3,17 @@ const { ObjectId } = mongoose.Schema;
 
 
 
-const testResult = mongoose.Schema(
+const consultation = mongoose.Schema(
     {
         user: {
             type: ObjectId,
             required: true,
             ref: 'User',
         },
-        consName: {
+        name: {
             type: ObjectId,
             required: true,
-            ref: 'testSchema',
+            ref: 'conslCat',
         },
         description: {
             type: String,
@@ -40,4 +40,4 @@ const testResult = mongoose.Schema(
 
 
 
-module.exports = mongoose.model('testResult', testResult);
+module.exports = mongoose.model('consultation', consultation);
