@@ -19,6 +19,24 @@ exports.createConsul = asyncHandler(async (req, res) => {
 })
 
 
+exports.createUserConsul = asyncHandler(async (req, res) => {
+
+    const cons = new conSult({
+        ...req.body,
+        user: req.user._id
+    });
+
+    await cons.save((err, data) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            });
+        }
+        res.json({ data });
+    });
+})
+
+
 exports.consById = asyncHandler (async (req, res, next, id) => {
 
     await conSult.findById(id).exec((err, consl) => {
@@ -37,7 +55,7 @@ exports.getConsDetail = asyncHandler(async (req, res) => {
     const cons = await conSult.findById(req.cons._id).populate("user testName doc")
 
     if (cons) {
-        res.json()
+        res.json(cons)
     } else {
         res.status(404)
         throw new Error('Consultation not found')
